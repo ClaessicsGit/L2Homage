@@ -1,0 +1,345 @@
+﻿<Page x:Class="L2Homage.Pages.MultisellPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:L2Homage.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1260"
+      Title="MultisellPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="220"/>
+            <ColumnDefinition MaxWidth="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="30"/>
+            <RowDefinition MaxHeight="200"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Search</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Multisell Lists</TextBlock>
+        <TextBlock x:Name="Details_Grid_Title" Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Details</TextBlock>
+
+        <StackPanel Orientation="Vertical" Height="100" Grid.Row="1" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                <TextBlock Text="ID" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Filter_ID" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Multisell_Filter_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                <TextBlock Text="Name" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Filter_Name" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Multisell_Filter_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                <TextBlock Text="Contains" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Filter_Contains_Item" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Multisell_Filter_TextChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView x:Name="Multisell_IDs_Listview" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="1,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,12,4" Height="40" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Multisell_ID_Click" Focusable="False" IsChecked="{Binding IsSelected}">
+                        <ToggleButton.Content>
+                            <TextBlock Margin="20,0,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Instance}"/>
+                        </ToggleButton.Content>
+                    </ToggleButton>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <Grid x:Name="Details_Grid" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="120"/>
+                <RowDefinition MaxHeight="40"/>
+                <RowDefinition MaxHeight="40"/>
+                <RowDefinition/>
+                <RowDefinition MaxHeight="40"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="#4f4f4f"/>
+            <Grid x:Name="Multisell_Variables_Grid" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="ID" TextAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock Name="ID_Name_Details_TextBlock" Grid.Row="1" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="Test Name" TextAlignment="Center" TextWrapping="Wrap"/>
+
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="40"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Column="0" Grid.Row="1" x:Name="Taxed_Toggle" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Taxed}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Text="Taxed"/>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="40"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Column="0" Grid.Row="1" x:Name="Show_Only_Tradable_Toggle" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Show_All}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Text="Show All"/>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="40"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Column="0" Grid.Row="1" x:Name="Keep_Enchants_Toggle" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Keep_Enchants}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Text="Keep Enchants"/>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="40"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Grid.Column="0" Grid.Row="1" x:Name="Variations_Toggle" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Show_Variations}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Text="Show Variations"/>
+                </Grid>
+
+                <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="Required NPCs"/>
+                <ListView x:Name="Requires_NPCs_Listview" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="1,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch" Background="#2f2f2f" Height="40" Margin="4,4,4,4" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="40"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ScrollViewer  Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Name="scv">
+                                </ScrollViewer>
+
+                                <TextBlock  Grid.Column="0" Margin="10" MaxWidth="{Binding ElementName=scv, Path=ActualWidth}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Focusable="False" Text="{Binding NPC_Name}" IsHitTestVisible="False"/>
+                                <Button Grid.Column="3" Content="-" FontFamily="Lucida_Console" Style="{StaticResource HomageButtonStyle}" Width="24" Height="24" Background="#2f2f2f" Click="Multisell_Required_NPC_Remove_Clicked"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <Button Grid.Column="3" Grid.Row="3" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Height="25" Content="Add Required NPC" Visibility="Visible" Click="Multisell_Required_NPC_Add_Clicked"/>
+            </Grid>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Sales</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Price</TextBlock>
+
+            <Border x:Name="multisell_entries_width_grid" Grid.Column="0" Grid.Row="2" Margin="7,0,20,0"></Border>
+            <ListView x:Name="Multisell_Sales_Listview" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="4" Width="{Binding ElementName=multisell_entries_width_grid, Path=ActualWidth}" BorderBrush="#4f4f4f" BorderThickness="1">
+                            <Grid Width="{Binding ElementName=multisell_entries_width_grid, Path=ActualWidth}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button Grid.Row="0" Style="{StaticResource HomageButtonStyle}" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Visibility="Visible" Tag="up" Click="Multisell_Reorder_Sale"/>
+                                    <Button Grid.Row="1" Style="{StaticResource HomageButtonStyle}" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Visibility="Visible" Tag="down" Click="Multisell_Reorder_Sale"/>
+
+                                </Grid>
+
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Grid.Column="1" Grid.ColumnSpan="4" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Multisell_Sale_Click" Focusable="False" IsChecked="{Binding IsSelected}"/>
+
+                                <Grid Grid.Column="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.25*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="0.25*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Button Grid.Row="1" Margin="1" Content="+" FontFamily="Lucida_Console" Style="{StaticResource HomageButtonStyle}" Width="24" Height="24" Background="#2f2f2f" Click="Multisell_Sale_Add_To_Bundle_Clicked"/>
+                                    <Button Grid.Row="2" Margin="1" Content="-" FontFamily="Lucida_Console" Style="{StaticResource HomageButtonStyle}" Width="24" Height="24" Background="#2f2f2f" Click="Multisell_Sale_Remove_Clicked"/>
+                                    
+                                </Grid>
+                                
+
+                                <Border x:Name="multisell_item_sale_width_grid" Grid.Column="1" Grid.Row="2" Margin="0,0,10,0"></Border>
+                                <ListView Grid.Column="1" Margin="0,0,0,0" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Multisell_Sale_Items}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" Width="{Binding ElementName=multisell_item_sale_width_grid, Path=ActualWidth}">
+                                    <ListView.Template>
+                                        <ControlTemplate>
+                                            <ItemsPresenter></ItemsPresenter>
+                                        </ControlTemplate>
+                                    </ListView.Template>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                        <ContentPresenter />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid MinHeight="50" Margin="-5,0,-5,0" Width="{Binding ElementName=multisell_item_sale_width_grid, Path=ActualWidth}" HorizontalAlignment="Stretch" Focusable="False" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="40"/>
+                                                    <ColumnDefinition Width="4*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="40"/>
+                                                </Grid.ColumnDefinitions>
+                                                
+                                                <Grid Grid.Column="0" Grid.ColumnSpan="2" IsHitTestVisible="False">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    
+                                                    <Image Grid.Column="0" Source="{Binding GetItemIcon}" Width="32" Height="32" Focusable="False"/>
+                                                    <TextBlock Background="#00000000" Grid.Column="1"  Margin="0" Padding="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Focusable="False" Text="{Binding Instance}"/>
+
+                                                </Grid>
+
+                                                <Border Background="#4f4f4f" Grid.Column="2" Height="24" MinHeight="24">
+                                                    <TextBox  Grid.Column="2" Margin="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" TextWrapping="Wrap" MinWidth="40" Height="22" MinHeight="22" VerticalContentAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Lucida_Console" BorderBrush="#4f4f4f" BorderThickness="0" Text="{Binding GetAmount, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" PreviewTextInput="Validate_Integer_Input"/>
+                                                </Border>
+
+                                                <Button Grid.Column="3" Content="-" FontFamily="Lucida_Console" Style="{StaticResource HomageButtonStyle}" Width="24" Height="24" Background="#2f2f2f" Click="Multisell_Sale_Remove_From_Bundle_Clicked"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>                                    
+                                </ListView>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>                
+            </ListView>
+
+            <Grid x:Name="Additional_Fee_Grid" Grid.Column="1" Grid.Row="2" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Castle Tax Base Value (not final):"  Grid.ColumnSpan="2" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                <ScrollViewer  Grid.Column="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Name="WidthOfTextBox">
+                </ScrollViewer>
+                <TextBox x:Name="Fee_Textbox" Margin="0,0,4,0" Grid.Column="2"  BorderThickness="0" HorizontalAlignment="Stretch" Style="{StaticResource HomageTextBox}" MaxWidth="2000" Width="{Binding ElementName=WidthOfTextBox, Path=ActualWidth}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="{Binding Separate_Adena_Cost, Mode=TwoWay}"/>
+
+            </Grid>
+            <ListView x:Name="Multisell_Costs_Listview" Grid.Column="1" Grid.Row="3" Grid.RowSpan="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="#2f2f2f" Height="40" Margin="4,4,4,4" MaxWidth="{Binding ElementName=multisell_entries_width_grid, Path=ActualWidth}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Image Grid.Column="0" Source="{Binding GetItemIcon}" Width="32" Height="32" Focusable="False" IsHitTestVisible="False"/>
+                            <TextBlock  Grid.Column="1" Margin="0" Padding="10" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Focusable="False" Text="{Binding Instance}" IsHitTestVisible="False"/>
+                            <Border Background="#4f4f4f" Grid.Column="2" MinWidth="40" Height="24" MinHeight="24">
+                                <TextBox  Grid.Column="2" Margin="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" TextWrapping="Wrap" MinWidth="40" Height="22" MinHeight="22" VerticalContentAlignment="Center" TextAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Lucida_Console" BorderBrush="#4f4f4f" BorderThickness="0" Text="{Binding GetAmount, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" PreviewTextInput="Validate_Integer_Input"/>
+                            </Border>
+                            
+                            <Button Grid.Column="3" Content="-" FontFamily="Lucida_Console" Style="{StaticResource HomageButtonStyle}" Width="24" Height="24" Background="#2f2f2f" Click="Multisell_Cost_Remove_Clicked"/>
+
+                        </Grid>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+            </ListView>
+            <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Height="25" Content="Add Item For Sale" Visibility="Visible" Click="Multisell_Sale_Add_Item_Clicked"/>
+            <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Height="25" Content="Add Cost" Visibility="Visible" Click="Multisell_Add_Cost_Clicked"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Height="25" Content="Add" Visibility="Visible" Click="Multisell_Add_Multisell_Clicked"/>
+            <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Height="25" Content="Clone" Visibility="Visible" Click="Multisell_Clone_Multisell_Clicked"/>
+            <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource HomageButtonStyle}" Margin="4,0,4,0" HorizontalAlignment="Stretch" FontFamily="Lucida_Console" HorizontalContentAlignment="Center" Height="25" Content="Delete" Visibility="Visible" Click="Multisell_Delete_Multisell_Clicked"/>
+        </Grid>
+
+
+    </Grid>
+</Page>

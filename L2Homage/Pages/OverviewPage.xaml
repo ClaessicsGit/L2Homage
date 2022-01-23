@@ -1,0 +1,196 @@
+﻿<Page x:Class="L2Homage.Pages.OverviewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:L2Homage.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1024"
+      Title="OverviewPage"
+      KeepAlive="True"
+      >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="180"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,0,10" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Initialization</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" Margin="0,4,0,10" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Export Settings</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,10" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Log</TextBlock>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <StackPanel >
+                <Button x:Name="StartInitializationButton" Height="20" Margin="10,5,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="StartInitializeProcess" Tag="StartInitializeProcess">Start</Button>
+                <Button x:Name="SaveButton" Height="20" Margin="10,0,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Tag="Save">Save</Button>
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="0">
+            
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,0,4" Width="130" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Loaded Objects</TextBlock>
+            
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="2">
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,5,0,2">Items</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Weapons</TextBlock>
+                    <TextBlock x:Name="UI_LoadedWeaponsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Armors</TextBlock>
+                    <TextBlock x:Name="UI_LoadedArmorsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Etcs</TextBlock>
+                    <TextBlock x:Name="UI_LoadedEtcsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Sets</TextBlock>
+                    <TextBlock x:Name="UI_LoadedSetsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Recipes</TextBlock>
+                    <TextBlock x:Name="UI_LoadedRecipesCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">NPCs</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">NPCs</TextBlock>
+                    <TextBlock x:Name="UI_LoadedNPCCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">Shops</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Multisell</TextBlock>
+                    <TextBlock x:Name="UI_LoadedMultisellCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">Droplists</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Single</TextBlock>
+                    <TextBlock x:Name="UI_LoadedDroplists_SingleCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Multi</TextBlock>
+                    <TextBlock x:Name="UI_LoadedDroplists_MultiCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Custom Single</TextBlock>
+                    <TextBlock x:Name="UI_LoadedDroplists_Custom_SingleCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Custom Multi</TextBlock>
+                    <TextBlock x:Name="UI_LoadedDroplists_Custom_MultiCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">Spawns</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Domains</TextBlock>
+                    <TextBlock x:Name="UI_LoadedDomainsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Spawn Areas</TextBlock>
+                    <TextBlock x:Name="UI_LoadedSpawnAreasCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">NPC Spawners</TextBlock>
+                    <TextBlock x:Name="UI_LoadedNPCMakersCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">NPC Spawns</TextBlock>
+                    <TextBlock x:Name="UI_LoadedNPCSpawns" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">Zones</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Huntingzones</TextBlock>
+                    <TextBlock x:Name="UI_HuntingzonesCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Raids</TextBlock>
+                    <TextBlock x:Name="UI_RaidsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Zonenames</TextBlock>
+                    <TextBlock x:Name="UI_ZonenamesCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">Skills</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Normal</TextBlock>
+                    <TextBlock x:Name="UI_LoadedSkillsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Enchanted</TextBlock>
+                    <TextBlock x:Name="UI_LoadedSkillsEnchantedCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" TextAlignment="Left" Foreground="#adadad" Margin="10,10,0,2">System Text</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Chat Filter</TextBlock>
+                    <TextBlock x:Name="UI_ChatFilterCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Game Tips</TextBlock>
+                    <TextBlock x:Name="UI_GametipsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">NPC Strings</TextBlock>
+                    <TextBlock x:Name="UI_NPCStringsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">Messages</TextBlock>
+                    <TextBlock x:Name="UI_SystemMessagesCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="100" TextAlignment="Left">System Strings</TextBlock>
+                    <TextBlock x:Name="UI_SystemStringsCount" Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="1" TextAlignment="Left">0</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!--<Button Grid.Row="5" Height="20" Margin="0,0,0,10" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="About_Clicked">About L2 Homage</Button>-->
+
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Grid.RowSpan="3" Margin="0,4,0,0">
+            <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="170" TextAlignment="Left" Margin="10,4,10,0">Server Address</TextBlock>
+            <TextBox x:Name="Overview_Server_Address_Textbox" Margin="10,1,10,10" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  BorderThickness="0"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="130" TextAlignment="Left" Margin="10,10,10,0">Custom Spawns Only</TextBlock>
+                <ToggleButton x:Name="Overview_Export_Settings_Custom_Only_Toggle" Width="16" Height="16" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding ExportOnlyCustomSpawnAreas}"></ToggleButton>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="130" TextAlignment="Left" Margin="10,10,10,0">Diablomized Skills</TextBlock>
+                <ToggleButton x:Name="Overview_Export_Settings_Diablomize_Toggle" Width="16" Height="16" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding UsingDiablomizedSkills}"></ToggleButton>
+            </StackPanel>
+
+
+            <Button Height="20" Margin="10,10,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="Test_Export">Export</Button>
+
+        </StackPanel>
+
+        <RichTextBox x:Name="LogPanel" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" 
+                     Margin="10,5,10,10" Background="#2f2f2f" BorderThickness="1" BorderBrush="#3f3f3f" Foreground="#f2f2f2"
+                     FontFamily="Lucida Console" FontSize="10" TextBlock.TextAlignment="Left"
+                     VerticalContentAlignment="Bottom" IsReadOnly="true" HorizontalAlignment="Stretch" Focusable="false" Style="{DynamicResource HomageRichTextbox}" VerticalScrollBarVisibility="Visible" Loaded="LogPanel_Loaded"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,520 @@
+﻿<Page x:Class="L2Homage.Pages.SystemTextPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:L2Homage.Pages"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1260"
+      Title="SystemTextPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Search</TextBlock>
+
+        <TextBlock x:Name="SubTypeTitle" Grid.Row="0" Grid.Column="2" Margin="0,0,0,0" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Details</TextBlock>
+
+
+
+        <Grid Grid.Row="2" Grid.Column="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="ID" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Text_Filter_ID" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Filter_ID_TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="Contains" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="Text_Filter_Contains" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Filter_Contains_TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,0,4" Width="130" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" Foreground="#F2F2F2" FontSize="14" Focusable="False">Type</TextBlock>
+
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <ToggleButton x:Name="System_Text_Type_Chat_Button" Grid.Row="0" Height="20" Margin="10,0,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" TextBlock.TextAlignment="Center" Tag="chat" Click="System_Text_Type_Clicked" IsChecked="True">Chat Filter</ToggleButton>
+                <ToggleButton x:Name="System_Text_Type_EULA_Button" Grid.Row="1" Height="20" Margin="10,2,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Tag="eula" Click="System_Text_Type_Clicked">EULA</ToggleButton>
+                <ToggleButton x:Name="System_Text_Type_Gametips_Button" Grid.Row="2" Height="20" Margin="10,2,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Tag="gametip" Click="System_Text_Type_Clicked">Game Tips</ToggleButton>
+                <ToggleButton x:Name="System_Text_Type_NPC_Button" Grid.Row="3" Height="20" Margin="10,2,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Tag="npc" Click="System_Text_Type_Clicked">NPC Strings</ToggleButton>
+                <ToggleButton x:Name="System_Text_Type_System_Messages_Button" Grid.Row="4" Height="20" Margin="10,2,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Tag="message" Click="System_Text_Type_Clicked">System Messages</ToggleButton>
+                <ToggleButton x:Name="System_Text_Type_System_Strings_Button" Grid.Row="5" Height="20" Margin="10,2,10,2" Style="{StaticResource HomageToggleFilterButton}" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" Tag="string" Click="System_Text_Type_Clicked">System Strings</ToggleButton>
+            </Grid>
+
+        </Grid>
+        <Border Grid.Column="1" Grid.Row="1" BorderThickness="1,0,0,0" BorderBrush="#4f4f4f"/>
+        <Grid x:Name="sizegrid" Grid.Column="1" Grid.Row="1"/>
+        <Grid x:Name="Chat_Filter_Listview_Grid" Grid.Column="1" Grid.Row="1" Visibility="Hidden" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="0,0,0,1" Margin="3,0,-3,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}" Text="Text" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="2" Style="{StaticResource HomagePropertyTitleText}" Text="Delete" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ListView x:Name="Chat_Filter_Listview" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="52" Background="#1f1f1f" Margin="2" Width="{Binding ElementName=sizegrid, Path=ActualWidth}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="{Binding ID, Mode=OneWay}" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                            <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="44" BorderThickness="0"/>
+                            <Button Grid.Column="2" Style="{StaticResource HomageButtonStyle}" Content="-" HorizontalContentAlignment="Center" Margin="0,0,1,0" FontSize="10" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="24" Height="24" Click="Delete_Object"/>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+            </ListView>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add Filter" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Add_Chatfilter_Clicked"/>
+        </Grid>
+        <Grid x:Name="Eula_Grid" Grid.Column="1" Grid.Row="1" Margin="2,1,2,0" Visibility="Hidden" HorizontalAlignment="Stretch">
+            <TextBox x:Name="Eula_Text" Grid.Row="1"  MinWidth="{Binding ElementName=Eula_Grid, Path=ActualWidth}" MinHeight="{Binding ElementName=Eula_Grid, Path=ActualHeight}" Focusable="true" Style="{StaticResource HomageTextBox}" Padding="2,2,2,2" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding Text}" TextAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" FontSize="12" FontFamily="lucida console" BorderThickness="0" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Visible"/>
+        </Grid>
+        <Grid x:Name="Gametips_Listview_Grid" Grid.Column="1" Grid.Row="1" Visibility="Hidden" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="0,0,0,1" Margin="3,0,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="0" MinWidth="10"  TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}" Text="Priority" Margin="0" MinWidth="10"  TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="2" Style="{StaticResource HomagePropertyTitleText}" Text="LvL?" Margin="0" MinWidth="10" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="3" Style="{StaticResource HomagePropertyTitleText}" Text="Enabled" MinWidth="10"  Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="4" Style="{StaticResource HomagePropertyTitleText}" Text="Unicode" MinWidth="10"  Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="10" Style="{StaticResource HomagePropertyTitleText}" Text="Text" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="6" Style="{StaticResource HomagePropertyTitleText}" Text="Delete" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ListView x:Name="Gametips_Listview" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="52" Background="#1f1f1f" Margin="2" Width="{Binding ElementName=sizegrid, Path=ActualWidth}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="{Binding ID, Mode=OneWay}" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                            <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding INT1}" TextWrapping="Wrap" TextAlignment="Center" Padding="0,-2,0,0" MinHeight="24" BorderThickness="0" MinWidth="20"/>
+                            <TextBox Grid.Column="2" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding INT2}" TextWrapping="Wrap" TextAlignment="Center" Padding="0,-2,0,0" MinHeight="24" BorderThickness="0" MinWidth="20"/>
+                            <ToggleButton Grid.Column="3" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsEnabled}"/>
+                            <ToggleButton Grid.Column="4" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsUnicode}"/>
+                            <TextBox Grid.Column="5" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="44" BorderThickness="0"/>
+                            <Button Grid.Column="6" Style="{StaticResource HomageButtonStyle}" Content="-" HorizontalContentAlignment="Center" Margin="0,0,1,0" FontSize="10" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="24" Height="24" Click="Delete_Object"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Add_Gametip_Clicked"/>
+        </Grid>
+        <Grid x:Name="NPC_Strings_Listview_Grid" Grid.Column="1" Grid.Row="1" Visibility="Hidden" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="0,0,0,1" Margin="4,0,-4,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}" Text="Unicode" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="10" Style="{StaticResource HomagePropertyTitleText}" Text="Text" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="3" Style="{StaticResource HomagePropertyTitleText}" Text="Delete" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ListView x:Name="NPC_Strings_Listview" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="1,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="52" Background="#1f1f1f" Margin="2" Width="{Binding ElementName=sizegrid, Path=ActualWidth}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="{Binding ID, Mode=OneWay}" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                            <ToggleButton Grid.Column="1" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsUnicode}"/>
+                            <TextBox Grid.Column="2" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="44" BorderThickness="0"/>
+                            <Button Grid.Column="3" Style="{StaticResource HomageButtonStyle}" Content="-" HorizontalContentAlignment="Center" Margin="0,0,1,0" FontSize="10" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="24" Height="24" Click="Delete_Object"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+            </ListView>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add NPC String" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Add_NPC_String_Clicked"/>
+        </Grid>
+        <Grid x:Name="System_Messages_Listview_Grid" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="System_Messages_sizegrid" Grid.Column="0" Grid.Row="0"/>
+            <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="0,0,0,1" Margin="3,0,0,0" Width="{Binding ElementName=System_Messages_sizegrid, Path=ActualWidth}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" MinWidth="10" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}" Text="Unicode" MinWidth="10" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="2" Style="{StaticResource HomagePropertyTitleText}" Text="Text" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="3" Style="{StaticResource HomagePropertyTitleText}" Text="Delete" MinWidth="10"  Margin="0,0,0,0" TextAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ListView x:Name="System_Messages_Listview" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ToggleButton Style="{StaticResource HomageToggleFilterButton}" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,3,0,0" Click="System_Message_Click" IsChecked="{Binding IsSelected}">
+                            <Grid Height="52" Background="#1f1f1f" Margin="0,2,0,0"  Width="{Binding ElementName=System_Messages_sizegrid, Path=ActualWidth}" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.8*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="0.8*"/>
+                                    <ColumnDefinition Width="20"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Grid.RowSpan="3" Style="{StaticResource HomagePropertyTitleText}" Text="{Binding ID, Mode=OneWay}" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                                
+                                <ToggleButton Grid.Column="1" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsUnicode}"/>
+                                <Border Grid.Column="2" BorderThickness="0" Background="#2f2f2f" Focusable="False">
+                                    <TextBlock Grid.Column="1" Grid.RowSpan="1" Style="{StaticResource HomagePropertyTitleText}" Background="Transparent" HorizontalAlignment="Stretch"  Margin="4" FontSize="14" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"  Focusable="False"  Foreground="{Binding SelectedColorAsBrush, UpdateSourceTrigger=PropertyChanged}"/>
+                                </Border>
+                                <Button Grid.Column="3" Grid.RowSpan="2" Style="{StaticResource HomageButtonStyle}" Content="-" HorizontalContentAlignment="Center" Margin="0,0,1,0" FontSize="10" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="24" Height="24" Click="Delete_Object"/>
+
+                            </Grid>
+                        </ToggleButton>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+            </ListView>
+            <Grid x:Name="System_Message_Details_Grid" Grid.Column="1" Grid.RowSpan="2">
+                <StackPanel Orientation="Vertical" Margin="2">
+                    <!-- Top Row -->
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="System Message Details" Margin="10" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Text" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="2,0,2,0" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="128" BorderThickness="0" Foreground="{Binding SelectedColorAsBrush, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Type" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <ComboBox Grid.Column="1"  Margin="2,0,2,0" Style="{DynamicResource HomageDropdownBoxStyle}" Background="#4f4f4f" SelectedIndex="{Binding TypeIndex}" Height="15" FontSize="10" FontFamily="Lucida Console" BorderThickness="0">
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Background" Value="#2f2f2f"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBox.Items>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="none"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="siege"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="battle"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="server"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="damage"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="popup"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="error"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="petition"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="useitems"/>
+                            </ComboBox.Items>
+                        </ComboBox>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Color" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <xctk:ColorPicker Name="System_Message_ColorPicker" Margin="2,0,2,0" Background="Transparent" SelectedColor="{Binding SelectedColor}" DropDownBackground="#2f2f2f" Grid.Column="2" Grid.Row="0" MaxHeight="20" ShowDropDownButton="False"  BorderBrush="#2f2f2f" BorderThickness="1,1,1,3" ShowTabHeaders="True" ShowAvailableColors="True" TabBackground="#2f2f2f" ShowStandardColors="False" TabForeground="#FFF2F2F2" DropDownBorderBrush="#4f4f4f" HeaderBackground="#2f2f2f" HeaderForeground="#FFF2F2F2" Foreground="#FFF2F2F2" DisplayColorTooltip="False" AvailableColors="{Binding ColorList}"></xctk:ColorPicker>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="1" Style="{StaticResource HomagePropertyTitleText}" Text="On-Screen Position" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <ComboBox Grid.Column="1" Margin="2,0,2,0" Style="{DynamicResource HomageDropdownBoxStyle}" Background="#4f4f4f" SelectedIndex="{Binding Screen_Position}" Height="15" FontSize="10" FontFamily="Lucida Console" BorderThickness="0">
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Background" Value="#2f2f2f"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBox.Items>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="System UI"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Top Left"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Top Center"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Top Right"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Center Left"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Center"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Center Right"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Bottom Center"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Bottom Right"/>
+                            </ComboBox.Items>
+                        </ComboBox>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="3" Style="{StaticResource HomagePropertyTitleText}" Text="Message Duration" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="2,0,2,0" Text="{Binding Duration}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" BorderThickness="0"/>
+                    </Grid>
+                    
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" Text="Animation Speed" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <ComboBox Grid.Column="1" Margin="2,0,2,0" Style="{DynamicResource HomageDropdownBoxStyle}" Background="#4f4f4f" SelectedIndex="0" Height="15" FontSize="10" FontFamily="Lucida Console" BorderThickness="0">
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Background" Value="#2f2f2f"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBox.Items>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Quick"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Slow"/>
+                                <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Very Slow"/>
+                            </ComboBox.Items>
+                        </ComboBox>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="4" Style="{StaticResource HomagePropertyTitleText}" Text="System Message Ref" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <TextBox Grid.Column="3" Grid.Row="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="2,0,2,0" Text="{Binding sys_msg_ref}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" BorderThickness="0"/>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="5" Style="{StaticResource HomagePropertyTitleText}" Text="Sound" MaxWidth="40" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="2,0,2,0" Text="{Binding Sound}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" BorderThickness="0"/>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Sub Message" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="2,0,2,0" Text="{Binding Sub_Message}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="48" BorderThickness="0"/>
+                    </Grid>
+                    <Grid Margin="2" MinHeight="24">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="9" Style="{StaticResource HomagePropertyTitleText}" Text="Decorative Effect" TextWrapping="Wrap" Margin="0" TextAlignment="Left" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="20"/>
+                        <ToggleButton Grid.Column="1" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Decorative}"/>
+                    </Grid>
+
+
+
+
+
+
+                </StackPanel>
+            </Grid>
+
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Add_System_Message_Clicked"/>
+        </Grid>
+        <Grid x:Name="System_Strings_Listview_Grid" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="#2f2f2f" BorderThickness="0,0,0,1" Margin="3,0,-3,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}" Text="Unicode" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="0" Grid.ColumnSpan="10" Style="{StaticResource HomagePropertyTitleText}" Text="Text" Margin="0,0,3,0" TextAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="3" Style="{StaticResource HomagePropertyTitleText}" Text="Delete" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
+            </Border>
+            <ListView x:Name="System_Strings_Listview" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="52" Background="#1f1f1f" Margin="2" Width="{Binding ElementName=sizegrid, Path=ActualWidth}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="{Binding ID, Mode=OneWay}" Margin="0" TextAlignment="Center" HorizontalAlignment="Center" MinWidth="20"/>
+                            <ToggleButton Grid.Column="1" Style="{StaticResource HomageToggleButton}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsUnicode}"/>
+                            <TextBox Grid.Column="2" Style="{StaticResource HomagePropertyTextBox}" HorizontalAlignment="Stretch" BorderBrush="#4f4f4f" Margin="4" Text="{Binding Text}" TextWrapping="Wrap" TextAlignment="Left" Padding="4,-2,0,0" MinHeight="44" BorderThickness="0"/>
+                            <Button Grid.Column="3" Style="{StaticResource HomageButtonStyle}" Content="-" HorizontalContentAlignment="Center" Margin="0,0,1,0" FontSize="10" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="24" Height="24" Click="Delete_Object"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>                
+            </ListView>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Add_System_String_Clicked"/>
+        </Grid>
+
+    </Grid>
+</Page>

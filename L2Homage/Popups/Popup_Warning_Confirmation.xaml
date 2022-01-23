@@ -1,0 +1,63 @@
+﻿<Window x:Class="L2Homage.Popup_Warning_Confirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:L2Homage"
+        mc:Ignorable="d"
+        Title="Popup_Warning_Confirmation" Height="660" Width="600" Background="#1F1F1F" BorderBrush="DarkGray" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Border BorderThickness="2" BorderBrush="#4f4f4f">
+        <Grid>
+
+            <Grid Margin="4,4,4,4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="#4f4f4f" BorderThickness="0,0,0,2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Style="{StaticResource HomagePropertyTitleText}" Text="Warning" MinWidth="20" HorizontalAlignment="Center" Margin="0" FontSize="14"/>
+
+
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1" Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="Confirmation_Description_Start" Style="{StaticResource HomageLoadedText}" Text="Please read carefully before clicking yes or no." TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="Confirmation_Description_Action" Grid.Row="1" Margin="4" Style="{StaticResource HomageLoadedText}" Foreground="#e0310d" FontSize="20" Text="This CANNOT be undone" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="Confirmation_Description_Details" Grid.Row="2" Margin="4" Style="{StaticResource HomageLoadedText}" Text="This action will iterate through all NPCs, adjusting their level based on their EXP value. That means the EXP value for every NPC will remain the same, but levels may change, depending on the values in the Experience Table." TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" LineHeight="20"/>
+                    <TextBlock x:Name="Confirmation_Description_Are_You_Sure" Grid.Row="3"  Style="{StaticResource HomageLoadedText}" Text="Are you sure you want to continue?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Margin="4,4,4,4" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    
+                </StackPanel>
+                <Border Grid.Row="2" BorderBrush="#4f4f4f" BorderThickness="0,2,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Style="{StaticResource HomageButtonStyle}" Width="80" Content="Yes" Click="Confirm_Decision" Height="30" Margin="0,0,10,0"/>
+                        <Button Style="{StaticResource HomageButtonStyle}" Width="80" Content="No" Click="Deny_Decision" Height="30" Margin="0,0,0,0"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>
+

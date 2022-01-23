@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73C91220-59DD-4952-9FEA-E06A1361FCC2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>L2Homage</RootNamespace>
+    <AssemblyName>L2Homage</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>L2Homage.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=25.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.25.0.0\lib\net47\CsvHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Client\Client_Armor.cs" />
+    <Compile Include="Client\Client_Charcreate.cs" />
+    <Compile Include="Client\Client_Classinfo.cs" />
+    <Compile Include="Client\Client_Etc.cs" />
+    <Compile Include="Client\Client_Eula.cs" />
+    <Compile Include="Client\Client_File.cs" />
+    <Compile Include="Client\Client_Gametip.cs" />
+    <Compile Include="Client\Client_Huntingzone.cs" />
+    <Compile Include="Client\Client_Instantzone.cs" />
+    <Compile Include="Client\Client_Itemname.cs" />
+    <Compile Include="Client\Client_L2ini.cs" />
+    <Compile Include="Client\Client_Mobskillanim.cs" />
+    <Compile Include="Client\Client_Npc.cs" />
+    <Compile Include="Client\Client_Npcname.cs" />
+    <Compile Include="Client\Client_Obscene.cs" />
+    <Compile Include="Client\Client_Questname.cs" />
+    <Compile Include="Client\Client_Raid.cs" />
+    <Compile Include="Client\Client_Recipe.cs" />
+    <Compile Include="Client\Client_Skill.cs" />
+    <Compile Include="Client\Client_Skillname.cs" />
+    <Compile Include="Client\Client_Skillsound.cs" />
+    <Compile Include="Client\Client_System_String.cs" />
+    <Compile Include="Client\Client_System_Message.cs" />
+    <Compile Include="Client\Client_Weapon.cs" />
+    <Compile Include="Client\Client_Zonename.cs" />
+    <Compile Include="Modules\AffixCSV.cs" />
+    <Compile Include="Modules\Diablomizer.cs" />
+    <Compile Include="L2H\L2H_Huntingzone.cs" />
+    <Compile Include="L2H\L2H_Initial_Equipment.cs" />
+    <Compile Include="L2H\L2H_Multisell.cs" />
+    <Compile Include="L2H\L2H_NPC_AI_Parameter.cs" />
+    <Compile Include="L2H\L2H_Raid.cs" />
+    <Compile Include="L2H\L2H_Skill_Acquire.cs" />
+    <Compile Include="L2H\L2H_Capsuled_Item.cs" />
+    <Compile Include="L2H\L2H_Character_Class.cs" />
+    <Compile Include="L2H\L2H_Droplist.cs" />
+    <Compile Include="L2H\L2H_Droplist_Connection.cs" />
+    <Compile Include="L2H\L2H_Drop_Details_Multi.cs" />
+    <Compile Include="L2H\L2H_Exporter.cs" />
+    <Compile Include="L2H\L2H_Item.cs" />
+    <Compile Include="L2H\L2H_Log.cs" />
+    <Compile Include="L2H\L2H_NPC.cs" />
+    <Compile Include="L2H\L2H_Filter_Npc_Type.cs" />
+    <Compile Include="L2H\L2H_Property.cs" />
+    <Compile Include="L2H\L2H_Recipe.cs" />
+    <Compile Include="L2H\L2H_Set.cs" />
+    <Compile Include="L2H\L2H_Drop_Details_Single.cs" />
+    <Compile Include="L2H\L2H_Skill.cs" />
+    <Compile Include="L2H\L2H_Skill_Effect.cs" />
+    <Compile Include="L2H\L2H_Spawn_Area.cs" />
+    <Compile Include="L2H\L2H_Spawn_Selection_Block.cs" />
+    <Compile Include="L2H\L2H_Spawn_Shortcut.cs" />
+    <Compile Include="L2H\L2H_SystemText.cs" />
+    <Compile Include="L2H\L2H_Textbox_Input_Restrictions.cs" />
+    <Compile Include="L2H\L2H_Zonename.cs" />
+    <Compile Include="Modules\L2H_Module.cs" />
+    <Compile Include="Pages\ClassesPage.xaml.cs">
+      <DependentUpon>ClassesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DroplistsPage.xaml.cs">
+      <DependentUpon>DroplistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SystemTextPage.xaml.cs">
+      <DependentUpon>SystemTextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpPage.xaml.cs">
+      <DependentUpon>ExpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MultisellPage.xaml.cs">
+      <DependentUpon>MultisellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecipesPage.xaml.cs">
+      <DependentUpon>RecipesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SkillsPage.xaml.cs">
+      <DependentUpon>SkillsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpawnsPage.xaml.cs">
+      <DependentUpon>SpawnsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NPCsPage.xaml.cs">
+      <DependentUpon>NPCsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Character_Table.xaml.cs">
+      <DependentUpon>Popup_Character_Table.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Create_Equipment.xaml.cs">
+      <DependentUpon>Popup_Class_Create_Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Description.xaml.cs">
+      <DependentUpon>Popup_Class_Description.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Movement_Speed.xaml.cs">
+      <DependentUpon>Popup_Class_Movement_Speed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Selection.xaml.cs">
+      <DependentUpon>Popup_Class_Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Stats.xaml.cs">
+      <DependentUpon>Popup_Class_Stats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Weight_Parameters.xaml.cs">
+      <DependentUpon>Popup_Class_Weight_Parameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Karma_Constant.xaml.cs">
+      <DependentUpon>Popup_Class_Karma_Constant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Single_Value.xaml.cs">
+      <DependentUpon>Popup_Class_Single_Value.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Classes Popups\Popup_Class_Start_Equipment.xaml.cs">
+      <DependentUpon>Popup_Class_Start_Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Confirmation_Only_Text.xaml.cs">
+      <DependentUpon>Popup_Confirmation_Only_Text.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_NPC_AI_Parameters.xaml.cs">
+      <DependentUpon>Popup_NPC_AI_Parameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Skill_Add_Levels.xaml.cs">
+      <DependentUpon>Popup_Skill_Add_Levels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Confirmation.xaml.cs">
+      <DependentUpon>Popup_Confirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Droplist_Selection.xaml.cs">
+      <DependentUpon>Popup_Droplist_Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Skill_Batch.xaml.cs">
+      <DependentUpon>Popup_Skill_Batch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_NPC_Selection.xaml.cs">
+      <DependentUpon>Popup_NPC_Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Multiple_Selections_Multiple_Choice.xaml.cs">
+      <DependentUpon>Popup_Multiple_Selections_Multiple_Choice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Item_Selection.xaml.cs">
+      <DependentUpon>Popup_Item_Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Multiple_Selections_Single_Choice.xaml.cs">
+      <DependentUpon>Popup_Multiple_Selections_Single_Choice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Capsuled_Items.xaml.cs">
+      <DependentUpon>Popup_Capsuled_Items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Skill_Selection.xaml.cs">
+      <DependentUpon>Popup_Skill_Selection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\Popup_Warning_Confirmation.xaml.cs">
+      <DependentUpon>Popup_Warning_Confirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Server\Server_Droplist.cs" />
+    <Compile Include="Server\Server_Itemdata.cs" />
+    <Compile Include="Server\Server_Item_pch.cs" />
+    <Compile Include="Server\Server_Multisell.cs" />
+    <Compile Include="Server\Server_Npcdata.cs" />
+    <Compile Include="Server\Server_Npcpos.cs" />
+    <Compile Include="Server\Server_Npc_pch.cs" />
+    <Compile Include="Client\Client_Npc_String.cs" />
+    <Compile Include="Server\Server_PC_Parameter.cs" />
+    <Compile Include="Server\Server_Recipe.cs" />
+    <Compile Include="Server\Server_Setting.cs" />
+    <Compile Include="Server\Server_Skillacquire.cs" />
+    <Compile Include="Server\Server_Skilldata.cs" />
+    <Compile Include="Server\Server_Skillenchantcost.cs" />
+    <Compile Include="Server\Server_Skillenchantdata.cs" />
+    <Compile Include="Server\Server_Skill_pch.cs" />
+    <Compile Include="L2H\L2H_Multi_Droplist_Pointer.cs" />
+    <Compile Include="L2H\L2H_Npc_Droplist_Pointer.cs" />
+    <Compile Include="L2H\L2H_Settings.cs" />
+    <Compile Include="L2H\L2H_Template_Pointer.cs" />
+    <Compile Include="L2H\L2H_Parser.cs" />
+    <Compile Include="L2H\L2H_Constants.cs" />
+    <Compile Include="Utility\ObjectExtensions.cs" />
+    <Compile Include="Viewmodels\Viewmodels.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\ClassesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DroplistsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SystemTextPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ItemsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MultisellPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RecipesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SkillsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SpawnsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NPCsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Character_Table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Create_Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Description.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Movement_Speed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Selection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Stats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Weight_Parameters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Karma_Constant.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Single_Value.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Classes Popups\Popup_Class_Start_Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Confirmation_Only_Text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_NPC_AI_Parameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Skill_Add_Levels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Confirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Droplist_Selection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Skill_Batch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_NPC_Selection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Multiple_Selections_Multiple_Choice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Item_Selection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Multiple_Selections_Single_Choice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\Popup_Capsuled_Items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Skill_Selection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Warning_Confirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pages\ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OverviewPage.xaml.cs">
+      <DependentUpon>OverviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Libraries\Xceed.Wpf.Toolkit.dll" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Libraries\CsvHelper.dll" />
+    <EmbeddedResource Include="Libraries\CsvHelper.xml" />
+    <EmbeddedResource Include="Libraries\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <EmbeddedResource Include="Libraries\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <EmbeddedResource Include="Libraries\Microsoft.Bcl.HashCode.dll" />
+    <EmbeddedResource Include="Libraries\Microsoft.Bcl.HashCode.xml" />
+    <EmbeddedResource Include="Libraries\System.Buffers.dll" />
+    <EmbeddedResource Include="Libraries\System.Buffers.xml" />
+    <EmbeddedResource Include="Libraries\System.Memory.dll" />
+    <EmbeddedResource Include="Libraries\System.Memory.xml" />
+    <EmbeddedResource Include="Libraries\System.Numerics.Vectors.dll" />
+    <EmbeddedResource Include="Libraries\System.Numerics.Vectors.xml" />
+    <EmbeddedResource Include="Libraries\System.Runtime.CompilerServices.Unsafe.dll" />
+    <EmbeddedResource Include="Libraries\System.Runtime.CompilerServices.Unsafe.xml" />
+    <EmbeddedResource Include="Libraries\System.Threading.Tasks.Extensions.dll" />
+    <EmbeddedResource Include="Libraries\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="Tools\mxencdec\decrypt_armorgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_etcitemgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_itemname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_mobskillanimgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_npcgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_npcname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_recipe-c.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_skillgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_skillname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_skillsoundgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_weapongrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_armorgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_etcitemgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_itemname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_mobskillanimgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_npcgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_npcname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_recipe-c.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_skillgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_skillname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_skillsoundgrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_weapongrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_charcreategrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_classinfo-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_eula-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_gametip-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_huntingzone-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_instantzonedata-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_l2ini.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_obscene-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_questname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_raiddata-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_sysstring-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_systemmsg-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\decrypt_zonename-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_charcreategrp.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_classinfo-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_eula-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_gametip-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_huntingzone-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_instantzonedata-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_l2ini.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_obscene-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_questname-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_raiddata-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_sysstring-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_systemmsg-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\encrypt_zonename-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Decrypted Client Files\" />
+    <Folder Include="Data\Encrypted Client Files\" />
+    <Folder Include="Data\L2H\" />
+    <Folder Include="Data\Logs\" />
+    <Folder Include="Data\Server\" />
+    <Folder Include="Images\Game\L2Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ImageNotFound.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\white.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tools\mxencdec\mxencdec.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

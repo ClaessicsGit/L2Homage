@@ -1,0 +1,635 @@
+﻿<Page x:Class="L2Homage.Pages.NPCsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:L2Homage.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1260"
+      Title="NPCsPage"
+      KeepAlive="True">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="NPC_Main_Grid" Grid.Row="1" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="122"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Search</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Name</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Details</TextBlock>
+
+            <Button x:Name="SearchIsShowingButton" Grid.Column="2" Grid.Row="0" Width="100" HorizontalAlignment="Left" Style="{StaticResource HomageButtonStyle}" Height="20" Content="Hide Search" Click="ToggleSearchVisibility"></Button>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="ID" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="NPC_Filter_ID" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="NPC_Filter_Name_TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="Name" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="NPC_Filter_Name" Width="106" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="NPC_Filter_Name_TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="Level" Width="90" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox x:Name="NPC_Filter_Level_Min" Width="47" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-2,0,0" TextChanged="NPC_Filter_Name_TextChanged"/>
+                    <TextBlock Text="-" Width="10" Style="{StaticResource HomageLoadedText}" Margin="1,8,1,4" TextAlignment="Center"/>
+                    <TextBox x:Name="NPC_Filter_Level_Max" Width="47" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-2,0,0" TextChanged="NPC_Filter_Name_TextChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                    <TextBlock Text="Only Custom NPCs" Width="120" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <ToggleButton x:Name="NPC_Filter_Custom_Toggle" Style="{StaticResource HomageToggleButton}" Margin="60,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock Grid.Row="2" Style="{StaticResource HomageLoadedText}"  Margin="0,4,0,4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontFamily="Lucida Console">Type</TextBlock>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="3" >
+                <ListView x:Name="NPC_Type_Filters_ListView_Left" Width="100" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,8,4" Height="40" Width="97" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="NPC_Filter_Type_Clicked" Focusable="False" Loaded="NPC_Filter_Toggle_Button_Loaded">
+                                <ToggleButton.Content>
+                                    <TextBlock Margin="4,0,4,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Instance}"/>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <ListView x:Name="NPC_Type_Filters_ListView_Right" Width="100" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,8,4" Height="40" Width="97" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="NPC_Filter_Type_Clicked" Focusable="False">
+                                <ToggleButton.Content>
+                                    <TextBlock Margin="4,0,4,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Instance}"/>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+
+
+            <ListView x:Name="NPC_Name_Listview" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="1,0,1,0" Loaded="NPC_Name_Listview_Loaded" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,12,4" Height="40" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="NPC_Name_Click" Focusable="False" IsChecked="{Binding IsSelected}">
+                            <ToggleButton.Content>
+                                <TextBlock Margin="20,0,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Instance}"/>
+                            </ToggleButton.Content>
+                        </ToggleButton>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+            </ListView>
+
+            <Grid x:Name="NPC_Details_Grid" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Visibility="Hidden" MinWidth="792" Margin="0,0,6,0" Loaded="NPC_Force_Select_Waiting">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="40" MinHeight="40"/>
+                    <RowDefinition MinHeight="360"/>
+
+                    <RowDefinition MaxHeight="40" MinHeight="40"/>
+                    <RowDefinition MaxHeight="512"/>
+                    <RowDefinition MaxHeight="40" MinHeight="40"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="NPC_Details_Name" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Text="{Binding NPC_Name, UpdateSourceTrigger=LostFocus}"/>
+
+                <Image x:Name="NPC_Details_Image" MinWidth="128" MinHeight="128" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+
+                </Image>
+
+                <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Offense</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Defense</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Stats</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="3" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Misc</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Base</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource HomageLoadedText}" Margin="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">Items</TextBlock>
+
+                <!--Identifiers-->
+                <ListView Grid.Row="1" Grid.Column="2" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,1,0" BorderBrush="#4f4f4f">
+                    <ListViewItem  Focusable="False" HorizontalContentAlignment="Stretch" Style="{DynamicResource HomagePropertiesListviewItem}">
+                        <StackPanel Orientation="Vertical" Focusable="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="0" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="NPC_Clone_Clicked"/>
+                                <Button Grid.Column="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="NPC_Delete_Clicked"/>
+                                <Button Grid.Column="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="AI" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="NPC_AI_Clicked"/>
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition MinHeight="15"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" MinWidth="80" Margin="2,2,2,0" Text="ID"/>
+                                <TextBox Grid.Row="1" x:Name="NPC_Details_Property_ID" Style="{StaticResource HomagePropertyTextBox}"  Margin="0,0,2,0" MinWidth="87" Text="{Binding NPC_ID, Mode=OneWay}" />
+                                <TextBlock Grid.Column="1" Style="{StaticResource HomagePropertyTitleText}"  MinWidth="80" Margin="4,2,0,0" Text="Template"/>
+                                <TextBox Grid.Column="1" Grid.Row="1" x:Name="NPC_Details_Property_Template" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,0,0" MinWidth="87" Text="{Binding NPC_Template, Mode=OneWay}" />
+
+                            </Grid>
+
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Name ID" MinWidth="178"/>
+                            <TextBox x:Name="NPC_Details_Property_Name_ID" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding NPC_Name_ID, UpdateSourceTrigger=LostFocus}"  MinWidth="178" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="In-Game Name"   MinWidth="178"/>
+                            <TextBox x:Name="NPC_Details_Property_Ingame_Name" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding NPC_Name, UpdateSourceTrigger=LostFocus}" MinWidth="178" PreviewTextInput="Validate_Any_Case_Input"/>
+                            
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Description"   MinWidth="178" />
+                            <TextBox x:Name="NPC_Details_Property_Description" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding NPC_Description, UpdateSourceTrigger=LostFocus}" MinWidth="178" PreviewTextInput="Validate_Any_Case_Input"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="24"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Undead" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Center"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="0" x:Name="NPC_Details_Property_Base_Toggle_Undead" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Undead}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource HomagePropertyTitleText}" Text="Can Move" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="1" x:Name="NPC_Details_Property_Base_Toggle_Can_Move" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Can_Move}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" Text="Flying" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Center"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="2" x:Name="NPC_Details_Property_Base_Toggle_Flying" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Flying}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource HomagePropertyTitleText}" Text="Targetable" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="3" x:Name="NPC_Details_Property_Base_Toggle_Targetable" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Targetable}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource HomagePropertyTitleText}" Text="Attackable" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="4" x:Name="NPC_Details_Property_Base_Toggle_Attackable" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Attackable}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource HomagePropertyTitleText}" Text="Event Flag" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="5" x:Name="NPC_Details_Property_Base_Toggle_Event_Flags" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Event_Flag}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Unique" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="6" x:Name="NPC_Details_Property_Base_Toggle_Unique" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Unique}"/>
+                            </Grid>
+
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!--Appearance-->
+                <ListView Grid.Column="3" Grid.Row="1" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,0,0" BorderBrush="#4f4f4f">
+                    <ListViewItem  Focusable="False" HorizontalContentAlignment="Stretch" Style="{DynamicResource HomagePropertiesListviewItem}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Equipment" TextAlignment="Center" MinWidth="60" Margin="0,10.5"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Chest" Margin="2,2,0,0" MinWidth="80"/>
+                            <TextBox x:Name="NPC_Details_Property_Equipment_Chest" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="80" Text="{Binding NPC_Equipment_Chest, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Right Hand" Margin="2,8,0,0" MinWidth="80"/>
+                            <TextBox x:Name="NPC_Details_Property_Equipment_Right_Hand" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="80" Text="{Binding NPC_Equipment_Rhand, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Left Hand" Margin="2,8,0,0" MinWidth="80"/>
+                            <TextBox x:Name="NPC_Details_Property_Equipment_Left_Hand" Style="{StaticResource HomagePropertyTextBox}" MinWidth="80" Text="{Binding NPC_Equipment_Lhand, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Droplists" TextAlignment="Center" Margin="0,19.50,0,19.5" MinWidth="80"/>
+
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MaxWidth="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="1" Margin="2">
+                                    
+                                </Grid>
+                                <TextBlock Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Normal"  Margin="2,-8,0,0" />
+                                
+                                <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource HomagePropertyButtonStyle}" Margin="0" Content="{Binding NPC_Droplist_Normal_ID, UpdateSourceTrigger=PropertyChanged}" Height="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NPC_Droplist_Clicked" Tag="normal"/>
+                                <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" Margin="2,0,0,0" Content="Go To" Height="15" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="NPC_Droplist_GoTo_Clicked" Tag="normal"/>
+
+                                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" Text="Spoil"  Margin="2,8,0,0"/>
+                                <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource HomagePropertyButtonStyle}" Margin="0" Content="{Binding NPC_Droplist_Spoil_ID, UpdateSourceTrigger=PropertyChanged}" Height="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NPC_Droplist_Clicked" Tag="spoil"/>
+                                
+                                <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource HomageButtonStyle}" Margin="2,0,0,0" Content="Go To" Height="15" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="NPC_Droplist_GoTo_Clicked" Tag="spoil"/>
+
+                                <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource HomagePropertyTitleText}" Text="Multi" Margin="2,8,0,0" />
+                                <Button Grid.Column="0" Grid.Row="5" Style="{StaticResource HomagePropertyButtonStyle}" Margin="0" Content="{Binding NPC_Droplist_Multi_ID, UpdateSourceTrigger=PropertyChanged}" Height="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NPC_Droplist_Clicked" Tag="multi"/>
+                                
+                                <Button Grid.Column="1" Grid.Row="5" Style="{StaticResource HomageButtonStyle}" Margin="2,0,0,0" Content="Go To" Height="15" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Center" Click="NPC_Droplist_GoTo_Clicked" Tag="multi"/>
+
+                                <TextBlock Grid.Column="0" Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Extra"  Margin="2,8,0,0"/>
+                                <Button Grid.Column="0" Grid.Row="7" Style="{StaticResource HomagePropertyButtonStyle}" Margin="0" Content="{Binding NPC_Droplist_Extra_ID, UpdateSourceTrigger=PropertyChanged}" Height="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="NPC_Droplist_Clicked" Tag="extra"/>
+                                
+                                <Button Grid.Column="1" Grid.Row="7" Style="{StaticResource HomageButtonStyle}" Margin="2,0,0,0" Content="Go To" Height="15" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Center" Click="NPC_Droplist_GoTo_Clicked" Tag="extra"/>
+                            </Grid>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!--Stats-->
+                <ListView Grid.Column="0" Grid.Row="3" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,1,0" BorderBrush="#4f4f4f">
+                    <ListViewItem Focusable="False"  HorizontalContentAlignment="Stretch" Style="{DynamicResource HomagePropertiesListviewItem}">
+                        <StackPanel Orientation="Vertical" >
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="STR" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="0" Grid.Row="1"  x:Name="NPC_Details_Property_Stats_STR" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10"  Margin="1,0,1,0"  Text="{Binding NPC_Stats_STR, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="INT" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="1" Grid.Row="1"  x:Name="NPC_Details_Property_Stats_INT" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10"  Margin="1,0,1,0" Text="{Binding NPC_Stats_INT, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="2" Grid.Row="0"  Style="{StaticResource HomagePropertyTitleText}" Text="DEX" MinWidth="10"  TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="2" Grid.Row="1"  x:Name="NPC_Details_Property_Stats_DEX" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10" Margin="1,0,1,0" Text="{Binding NPC_Stats_DEX, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="3" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="WIT" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox  Grid.Column="3" Grid.Row="1"   x:Name="NPC_Details_Property_Stats_WIT" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10" Margin="1,0,1,0" Text="{Binding NPC_Stats_WIT, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="CON" MinWidth="10"  TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox  Grid.Column="4" Grid.Row="1"  x:Name="NPC_Details_Property_Stats_CON" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10"  Margin="1,0,1,0" Text="{Binding NPC_Stats_CON, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="5" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="MEN" MinWidth="10"  TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox  Grid.Column="5" Grid.Row="1"  x:Name="NPC_Details_Property_Stats_MEN" Style="{StaticResource HomagePropertyTextBox}" Tag="ID" MinWidth="10"  Margin="1,0,1,0" Text="{Binding NPC_Stats_MEN, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="HP" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="0" Grid.Row="1" x:Name="NPC_Details_Property_Stats_HP" Style="{StaticResource HomagePropertyTextBox}" Tag="float" MinWidth="10" Margin="2,0,2,0" Text="{Binding NPC_Stats_HP, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Regen" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="1" Grid.Row="1" x:Name="NPC_Details_Property_Stats_HP_Regen" Style="{StaticResource HomagePropertyTextBox}" Tag="float" MinWidth="10" Margin="2,0,2,0" Text="{Binding NPC_Stats_HP_Regen, UpdateSourceTrigger=LostFocus}"  PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock Grid.Column="3" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="MP" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="3" Grid.Row="1" x:Name="NPC_Details_Property_Stats_MP" Style="{StaticResource HomagePropertyTextBox}" Tag="float" MinWidth="10" Margin="2,0,2,0" Text="{Binding NPC_Stats_MP, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Regen" MinWidth="10" TextAlignment="Center" Margin="0,8,0,0"/>
+                                <TextBox Grid.Column="4" Grid.Row="1" x:Name="NPC_Details_Property_Stats_MP_Regen" Style="{StaticResource HomagePropertyTextBox}" Tag="float" MinWidth="10" Margin="2,0,2,0" Text="{Binding NPC_Stats_MP_Regen, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical" Margin="0,0,1,0">
+
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Margin="1,0,1,0">
+
+                                </StackPanel>
+
+                                <StackPanel Orientation="Vertical" Margin="7,0,1,0">
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Margin="1,0,2,0">
+                                </StackPanel>
+                            </StackPanel>
+
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Level Specifics" TextAlignment="Center" Margin="0,20,0,3"/>
+
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Margin="0,8,1,0" MinWidth="50" Text="Level" TextAlignment="Center"/>
+                                <TextBox Grid.Column="0" Grid.Row="1" x:Name="NPC_Details_Property_Level" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="50" Tag="ID" Text="{Binding NPC_Level, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" LostFocus="NPC_Level_Specifics_Lost_Focus" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Experience" MinWidth="50" TextAlignment="Center" Margin="1,8,0,0"/>
+                                <TextBox Grid.Column="1" Grid.Row="1" x:Name="NPC_Details_Property_Experience" Style="{StaticResource HomagePropertyTextBox}" MinWidth="50" Margin="1,0,0,0" Width="Auto" Text="{Binding NPC_Experience, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" LostFocus="NPC_Level_Specifics_Lost_Focus" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                            </Grid>
+
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Kill Experience"  MinWidth="60" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Kill_Experience" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="60" Tag="float" Text="{Binding NPC_Kill_Experience, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" LostFocus="NPC_Level_Specifics_Lost_Focus" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Kill Skill Spoints"  MinWidth="60" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Kill_Skill_Points" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="60" Tag="float" Text="{Binding NPC_Kill_Skill_Points, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" LostFocus="NPC_Level_Specifics_Lost_Focus" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Kill Reputation Points" MinWidth="60" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Kill_Reputation_Points" Style="{StaticResource HomagePropertyTextBox}" MinWidth="60" Tag="float" Text="{Binding NPC_Kill_Reputation_Points, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" LostFocus="NPC_Level_Specifics_Lost_Focus" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!--Offense-->
+                <ListView Grid.Column="1" Grid.Row="3" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,1,0" BorderBrush="#4f4f4f">
+                    <ListViewItem Focusable="False" Style="{DynamicResource HomagePropertiesListviewItem}" HorizontalContentAlignment="Stretch">
+                        <StackPanel Orientation="Vertical" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0"  Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="P. Atk."/>
+                                <TextBox  Grid.Column="0" Grid.Row="1"   x:Name="NPC_Details_Property_Offense_PAtk" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_P_Atk, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="0"  Style="{StaticResource HomagePropertyTitleText}" Margin="2,8,0,0" MinWidth="92" Text="M. Atk."/>
+                                <TextBox  Grid.Column="1" Grid.Row="1"   x:Name="NPC_Details_Property_Offense_MAtk" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92"  Text="{Binding NPC_M_Atk, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock  Grid.Column="1" Grid.Row="2"  Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="Atk. Type"/>
+                                <TextBox   Grid.Column="1" Grid.Row="3"   x:Name="NPC_Details_Property_Offense_Atk_Type" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_Atk_Type, UpdateSourceTrigger=LostFocus}"/>
+
+                                <TextBlock Grid.Column="0" Grid.Row="4"   Style="{StaticResource HomagePropertyTitleText}" Margin="2,8,0,0" MinWidth="92" Text="Atk. Range"/>
+                                <TextBox   Grid.Column="0" Grid.Row="5"   x:Name="NPC_Details_Property_Offense_Atk_Range" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_Range, UpdateSourceTrigger=LostFocus}"/>
+
+                                <TextBlock  Grid.Column="0" Grid.Row="8"  Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="DMG Range"/>
+                                <TextBox   Grid.Column="0" Grid.Row="9"   x:Name="NPC_Details_Property_Offense_DMG_Range" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_Damage_Range, UpdateSourceTrigger=LostFocus}"/>
+
+                                <TextBlock  Grid.Column="1" Grid.Row="8"  Style="{StaticResource HomagePropertyTitleText}" Margin="2,8,0,0" MinWidth="92"  Text="Random DMG"/>
+                                <TextBox   Grid.Column="1" Grid.Row="9"   x:Name="NPC_Details_Property_Offense_Random_DMG" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_Damage_Rand, UpdateSourceTrigger=LostFocus}"/>
+
+
+                                <TextBlock  Grid.Column="0" Grid.Row="6"  Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="Crit Chance"/>
+                                <TextBox   Grid.Column="0" Grid.Row="7"   x:Name="NPC_Details_Property_Offense_Crit_Chance" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_Critical, UpdateSourceTrigger=LostFocus}"/>
+
+
+                                <TextBlock  Grid.Column="1" Grid.Row="6"  Style="{StaticResource HomagePropertyTitleText}" Margin="2,8,0,0" MinWidth="92"  Text="Hit Chance+"/>
+                                <TextBox    Grid.Column="1" Grid.Row="7"  x:Name="NPC_Details_Property_Offense_Hit_Chance" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_Hit_Modify, UpdateSourceTrigger=LostFocus}"/>
+
+                                <TextBlock  Grid.Column="1" Grid.Row="4"  Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="Reuse Delay" />
+                                <TextBox    Grid.Column="1" Grid.Row="5"  x:Name="NPC_Details_Property_Offense_Reuse_Delay" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_Reuse_Delay, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock  Grid.Column="0" Grid.Row="2"   Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="Atk. Speed" />
+                                <TextBox    Grid.Column="0" Grid.Row="3"  x:Name="NPC_Details_Property_Offense_Atk_Speed" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_Attack_Speed, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock  Grid.Column="0" Grid.Row="10"  Style="{StaticResource HomagePropertyTitleText}" Margin="2,43,0,0" MinWidth="92" Text="Attr. Type"/>
+                                
+                                <ComboBox Grid.Column="0" Grid.Row="11" x:Name="NPC_Details_Property_Offense_Attribute" Margin="0,0,1,0" Style="{DynamicResource HomageDropdownBoxStyle}" Background="#4f4f4f" SelectedIndex="{Binding NPC_Attribute_Type}" Height="15" FontSize="10" FontFamily="Lucida Console" BorderThickness="0">
+
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ComboBoxItem}">
+                                            <Setter Property="Background" Value="#2f2f2f"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="None"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Fire"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Water"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Wind"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Earth"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Holy"/>
+                                        <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Unholy"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                                <TextBlock  Grid.Column="1" Grid.Row="10"  Style="{StaticResource HomagePropertyTitleText}" Margin="2,43,0,0" MinWidth="92" Text="Attr. %"/>
+                                <TextBox    Grid.Column="1" Grid.Row="11"  x:Name="NPC_Details_Property_Offense_Attribute_Percent" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_Attribute_Percent, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+                            </Grid>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!--Defense-->
+                <ListView Grid.Column="2" Grid.Row="3" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,1,0" BorderBrush="#4f4f4f">
+                    <ListViewItem Focusable="False" Style="{DynamicResource HomagePropertiesListviewItem}" HorizontalContentAlignment="Stretch">
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="P. Def."/>
+                                <TextBox Grid.Column="0" Grid.Row="1" x:Name="NPC_Details_Property_Defense_PDef" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_P_Def, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock  Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Margin="2,8,0,0" MinWidth="92" Width="92" Text="M. Def."/>
+                                <TextBox  Grid.Column="1" Grid.Row="1" x:Name="NPC_Details_Property_Defense_MDef" Style="{StaticResource HomagePropertyTextBox}" Margin="1,0,0,0" MinWidth="92" Text="{Binding NPC_M_Def, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" MinWidth="90" Margin="2,8,0,0" Text="Evasion" />
+                                <TextBox Grid.Column="0" Grid.Row="3" x:Name="NPC_Details_Property_Defense_Evasion" Style="{StaticResource HomagePropertyTextBox}" Margin="0,0,1,0" MinWidth="92" Text="{Binding NPC_Evasion, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+
+                            </Grid>
+
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Shield" TextAlignment="Center" Margin="0,20,0,0"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Shield Defense Rate" MinWidth="60" Margin="2,11,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Defense_Shield_Rate" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="60" Text="{Binding NPC_Shield_Rate, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Shield P. Def." MinWidth="60" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Defense_Shield_PDef" Style="{StaticResource HomagePropertyTextBox}"   MinWidth="60" Text="{Binding NPC_Shield_Defense, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Resistances" TextAlignment="Center" Margin="0,23,0,0"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Fire" Margin="-2,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="0" Grid.Row="1" x:Name="NPC_Details_Property_Defense_Resistances_Fire" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="0,0,2,0" Text="{Binding NPC_Defense_Attribute_Fire, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Water" Margin="0,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="1" Grid.Row="1" x:Name="NPC_Details_Property_Defense_Resistances_Water" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="2,0,2,0" Text="{Binding NPC_Defense_Attribute_Water, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="2" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Wind" Margin="0,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="2" Grid.Row="1" x:Name="NPC_Details_Property_Defense_Resistances_Wind" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="2,0,2,0"  Text="{Binding NPC_Defense_Attribute_Wind, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+                                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Earth" Margin="-2,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="0" Grid.Row="3" x:Name="NPC_Details_Property_Defense_Resistances_Earth" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="0,0,2,0" Text="{Binding NPC_Defense_Attribute_Earth, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Holy" Margin="0,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="1" Grid.Row="3" x:Name="NPC_Details_Property_Defense_Resistances_Holy" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="2,0,2,0" Text="{Binding NPC_Defense_Attribute_Holy, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                                <TextBlock Grid.Column="2" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" MinWidth="10" Text="Unholy" Margin="0,8,0,0" TextAlignment="Center"  />
+                                <TextBox Grid.Column="2" Grid.Row="3" x:Name="NPC_Details_Property_Defense_Resistances_Unholy" Style="{StaticResource HomagePropertyTextBox}" MinWidth="10" TextAlignment="Center" Margin="2,0,2,0" Text="{Binding NPC_Defense_Attribute_Unholy, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                            </Grid>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <!--Misc-->
+                <ListView Grid.Column="3" Grid.Row="3" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Focusable="False" BorderThickness="0,0,0,0" BorderBrush="#4f4f4f">
+                    <ListViewItem  Focusable="False"  Style="{DynamicResource HomagePropertiesListviewItem}" HorizontalContentAlignment="Stretch">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Race" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Race" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="178" Text="{Binding NPC_Race, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Sex" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Sex" Style="{StaticResource HomagePropertyTextBox}"   MinWidth="178" Text="{Binding NPC_Sex, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Clan" MinWidth="178"  Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Clan" Style="{StaticResource HomagePropertyTextBox}" MinWidth="178" Text="{Binding NPC_Clan, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Ignore Clan" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Ignore_Clan" Style="{StaticResource HomagePropertyTextBox}" MinWidth="178" Text="{Binding NPC_Clan_Ignore, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Clan Help Range" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Clan_Help_Range" Style="{StaticResource HomagePropertyTextBox}" MinWidth="178" Text="{Binding NPC_Clan_Help_Range, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Corpse Duration" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Corpse_Duration" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="178" Text="{Binding NPC_Corpse_Time, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Aggro Range" MinWidth="178" Margin="2,8,0,0"/>
+                            <TextBox x:Name="NPC_Details_Property_Misc_Aggro_Range" Style="{StaticResource HomagePropertyTextBox}"  MinWidth="178" Text="{Binding NPC_Agro_Range, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+                            <!--Grid here-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="24"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="1" Grid.Row="0"      Style="{StaticResource HomagePropertyTitleText}" Text="Has Summoner" MinWidth="80" Height="14"  TextAlignment="Left" VerticalAlignment="Bottom" Margin="2,8,0,0"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="0"   x:Name="NPC_Details_Property_Misc_Toggle_Has_Summoner" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Has_Summoner}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="1"       Style="{StaticResource HomagePropertyTitleText}" Text="Unsowing" MinWidth="80" Height="14" TextAlignment="Left" VerticalAlignment="Bottom" Margin="2,8,0,0"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="1"   x:Name="NPC_Details_Property_Misc_Toggle_Unsowing" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Unsowing}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="2"      Style="{StaticResource HomagePropertyTitleText}" Text="No Sleep Mode" MinWidth="80" Height="14"  TextAlignment="Left" VerticalAlignment="Bottom" Margin="2,8,0,0"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="2"   x:Name="NPC_Details_Property_Misc_Toggle_No_Sleep_Mode" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_No_Sleep_Mode}"/>
+                            </Grid>
+
+
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+                <StackPanel Orientation="Vertical" Grid.Row="4" Grid.ColumnSpan="4">
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="Passive Skills" MinWidth="60" Margin="8,0,6,0"/>
+                    <TextBox x:Name="NPC_Details_Property_Skills" Style="{StaticResource HomagePropertyTextBox}"   MinWidth="60" Height="16" MinHeight="16" MaxHeight="16" Margin="6,0,6,0" Text="{Binding NPC_Skills}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                </StackPanel>
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Page>

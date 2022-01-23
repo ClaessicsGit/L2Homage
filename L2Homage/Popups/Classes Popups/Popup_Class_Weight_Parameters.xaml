@@ -1,0 +1,59 @@
+﻿<Window x:Class="L2Homage.Popup_Class_Weight_Parameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:L2Homage"
+        mc:Ignorable="d"
+        Title="Popup_Class_Weight_Parameters" Height="280" Width="400" Background="#1F1F1F" BorderBrush="DarkGray" WindowStyle="None" KeyDown="Window_KeyDown" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="Popup_Class_Weight_Parameters_Main_Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="80"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="80"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Weights_Title_Textblock" Grid.Row="0" Style="{StaticResource HomageLoadedText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="20" FontFamily="Lucida_Console" Text="Weights"/>
+        <Border Grid.Row="1" BorderBrush="#4f4f4f" BorderThickness="0,1,0,1">
+            <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="Sit"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Tag="sit" Margin="2,0,2,0" Text="{Binding sit}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="Stand"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="stand" Margin="2,0,2,0" Text="{Binding stand}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="Low"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="low" Margin="2,0,2,0" Text="{Binding low}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="High"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="high" Margin="2,0,2,0" Text="{Binding high}" FontFamily="Lucida_Console" />
+                </Grid>
+                
+            </StackPanel>
+        </Border>
+        <Button Grid.Row="2" Style="{StaticResource HomageButtonStyle}" Content="Close" Width="100" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Click="Close"/>
+    </Grid>
+</Window>

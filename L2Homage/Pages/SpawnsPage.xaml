@@ -1,0 +1,1295 @@
+﻿<Page x:Class="L2Homage.Pages.SpawnsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:L2Homage.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="850" d:DesignWidth="1220"
+      Title="SpawnsPage">
+
+    <Grid>
+        <Grid x:Name="Spawns_Zone_Selection_Overview_Grid" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition MinWidth="660" MaxWidth="{Binding MaxHeight,ElementName=Spawns_Zone_Selection_Grid }"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource HomageLoadedText}" Text="World Zone Selection" Margin="0" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center"/>
+
+            <Grid x:Name="Spawns_Zone_Selection_Grid"  Grid.Column="2" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top" MaxHeight="{Binding ActualHeight, ElementName=Spawns_Zone_Shortcuts_Panel}" >
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel x:Name="Image_Row_0" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_1" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_2" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_3" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_4" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_5" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_6" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_7" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_8" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_9" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_10" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_11" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_12" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_13" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_14" Orientation="Horizontal">
+                            </StackPanel>
+                            <StackPanel x:Name="Image_Row_15" Orientation="Horizontal">
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Viewbox>
+            </Grid>
+            <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Style="{StaticResource HomageLoadedText}" Text="Preview" Margin="0" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="16" VerticalAlignment="Center"/>
+
+                    <Border Grid.Row="1" BorderThickness="0,0,1,0" BorderBrush="#4f4f4f">
+                    </Border>
+                    <Grid Grid.Row="1"  VerticalAlignment="Stretch" Height="2160">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="256"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Image x:Name="Spawns_Zone_Preview_Image" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Spawns_Zone_Preview_Name" Grid.Row="1" Style="{StaticResource HomageLoadedText}" Text="" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Spawns_Zone_Preview_Layers_Text" Grid.Row="2" Style="{StaticResource HomageLoadedText}" Text="Sub Layers" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
+
+                        <WrapPanel x:Name="Spawns_Zone_Preview_Layers_Panel" Grid.Row="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center"/>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Text="Shortcuts" Margin="0,0,10,0" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="16" VerticalAlignment="Center"/>
+            <Grid x:Name="Spawns_Zone_Shortcuts_Panel" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ListView x:Name="Spawns_Zone_Shortcuts_Listview" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Margin="4,0,4,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource HomageButtonStyle}" Margin="4,4,12,4" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Focusable="False" Click="Spawns_Zone_Shortcut_Clicked" MouseEnter="Spawns_Zone_Shortcut_Mouse_Over">
+                                <Button.Content>
+                                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Shortcut_Name}" />
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+
+            </Grid>
+
+        </Grid>
+        <Grid x:Name="Spawns_Zone_Details_Grid" Visibility="Visible" Margin="0,0,0,10" SizeChanged="Spawns_Zone_Details_Grid_SizeChanged">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content=" ← Back to Map  " HorizontalAlignment="Left" VerticalContentAlignment="Center" Click="Spawns_Zone_Details_Grid_Back_Clicked" Margin="4,4,4,4"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource HomageLoadedText}" Text="Zone Details" Margin="0" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock Name="Top_Right_Title" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource HomageLoadedText}" Text="NPC Maker Spawns" Margin="0" HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center"/>
+
+            <!--#region Togglebuttons-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton x:Name="Zone_Type_Toggle_Spawn_Areas" Grid.Column="0" Grid.Row="1" Style="{StaticResource HomageToggleFilterButton}" MinWidth="50" Height="36" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,0,2,0" Click="Zone_Type_Clicked" Tag="spawn" IsChecked="True">
+                    <ToggleButton.Content>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Spawn" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Areas" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <ToggleButton x:Name="Zone_Type_Toggle_Huntingzones" Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageToggleFilterButton}" MinWidth="50" Height="36" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,0,2,0" Click="Zone_Type_Clicked" Tag="hunting">
+                    <ToggleButton.Content>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Hunting" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Zones" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <ToggleButton x:Name="Zone_Type_Toggle_Zonenames" Grid.Column="2" Grid.Row="1" Style="{StaticResource HomageToggleFilterButton}" MinWidth="50" Height="36" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Stretch" Margin="2,0,2,0" Click="Zone_Type_Clicked" Tag="names">
+                    <ToggleButton.Content>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Zone" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Names" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton.Content>
+                </ToggleButton>
+                <ToggleButton x:Name="Zone_Type_Toggle_Raids" Grid.Column="3" Grid.Row="1" Style="{StaticResource HomageToggleFilterButton}" MinWidth="50" Height="36" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Stretch" Margin="2,0,2,0" Click="Zone_Type_Clicked" Tag="raids">
+                    <ToggleButton.Content>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <TextBlock Text="Raids" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </ToggleButton.Content>
+                </ToggleButton>
+
+            </Grid>
+
+            <!--#region Region Layers-->
+            <Border Grid.Column="1" Grid.Row="2" MaxWidth="102" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Text="Layers" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <ListView x:Name="Spawns_Zone_Details_Grid_Layers_ListView" Grid.Column="0" Grid.Row="1" Margin="0,0,0,0" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Hidden" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="0" Height="48" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" VerticalContentAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Focusable="False" IsChecked="{Binding IsSelected}" Click="Spawn_Area_Layer_Clicked">
+                                    <ToggleButton.Content>
+                                        <Image Source="{Binding Image}" MaxHeight="48" Margin="0"/>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </Grid>
+            </Border>
+            <!--#region Canvas and Image-->
+            <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition MaxHeight="300"/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="Spawns_Zone_Details_Grid_Image_Grid" Margin="53,0,0,0" Grid.Row="0">
+
+                    <Image x:Name="Spawns_Zone_Details_Grid_Image" Source="pack://application:,,,/L2Homage;component/Images/ImageNotFound.png" VerticalAlignment="Center"/>
+                    <Canvas x:Name="Spawns_Zone_Canvas" Height="{Binding ActualHeight, ElementName=Spawns_Zone_Details_Grid_Image}" Width="{Binding ActualWidth, ElementName=Spawns_Zone_Details_Grid_Image}" Visibility="Hidden">
+
+                        <Polygon x:Name="Spawns_Zone_Details_Grid_Image_Polygon_Preview" Stroke="Black" StrokeThickness="1" Fill="Red" Opacity="0.6"/>
+                        <Polygon x:Name="Spawns_Zone_Details_Grid_Image_Polygon_Selected" Stroke="Black" StrokeThickness="1" Fill="#FF255BCF" Opacity="0.6"/>
+                        <Polygon x:Name="Spawns_Zone_Details_Grid_Image_Polygon_Preview_Arrow"  Stroke="Black" StrokeThickness="2" Fill="Red" Opacity="0.8"/>
+                        <Polygon x:Name="Spawns_Zone_Details_Grid_Image_Polygon_Selected_Arrow" Stroke="Black" StrokeThickness="2" Fill="#FF255BCF" Opacity="0.8"/>
+                        
+                    </Canvas>
+                    <Canvas x:Name="Huntingzone_Canvas" Height="{Binding ActualHeight, ElementName=Spawns_Zone_Details_Grid_Image}" Width="{Binding ActualWidth, ElementName=Spawns_Zone_Details_Grid_Image}" Visibility="Visible">
+
+                        <Polygon x:Name="Huntingzone_Details_Grid_Image_Polygon_Preview" Stroke="Black" StrokeThickness="1" Fill="Red" Opacity="0.6"/>
+                        <Polygon x:Name="Huntingzone_Details_Grid_Image_Polygon_Selected" Stroke="Black" StrokeThickness="1" Fill="#FF255BCF" Opacity="0.6"/>
+                        <Polygon x:Name="Huntingzone_Details_Grid_Image_Polygon_Preview_Arrow"  Stroke="Black" StrokeThickness="2" Fill="Red" Opacity="0.8"/>
+                        <Polygon x:Name="Huntingzone_Details_Grid_Image_Selected_Arrow" Stroke="Black" StrokeThickness="2" Fill="#FF255BCF" Opacity="0.8"/>
+
+
+                    </Canvas>
+                    <Canvas x:Name="Zonename_Canvas" Height="{Binding ActualHeight, ElementName=Spawns_Zone_Details_Grid_Image}" Width="{Binding ActualWidth, ElementName=Spawns_Zone_Details_Grid_Image}" Visibility="Hidden">
+
+                        <Polygon x:Name="Zonename_Details_Grid_Image_Polygon_Preview" Stroke="Black" StrokeThickness="1" Fill="Red" Opacity="0.6"/>
+                        <Polygon x:Name="Zonename_Details_Grid_Image_Polygon_Selected" Stroke="Black" StrokeThickness="1" Fill="#FF255BCF" Opacity="0.6"/>
+                        <Polygon x:Name="Zonename_Details_Grid_Image_Polygon_Preview_Arrow"  Stroke="Black" StrokeThickness="2" Fill="Red" Opacity="0.8"/>
+                        <Polygon x:Name="Zonename_Details_Grid_Image_Selected_Arrow" Stroke="Black" StrokeThickness="2" Fill="#FF255BCF" Opacity="0.8"/>
+
+                    </Canvas>
+                    <Canvas x:Name="Raid_Canvas" Height="{Binding ActualHeight, ElementName=Spawns_Zone_Details_Grid_Image}" Width="{Binding ActualWidth, ElementName=Spawns_Zone_Details_Grid_Image}" Visibility="Hidden">
+
+                        <Polygon x:Name="Raid_Details_Grid_Image_Polygon_Preview" Stroke="Black" StrokeThickness="1" Fill="Red" Opacity="0.6"/>
+                        <Polygon x:Name="Raid_Details_Grid_Image_Polygon_Selected" Stroke="Black" StrokeThickness="1" Fill="#FF255BCF" Opacity="0.6"/>
+                        <Polygon x:Name="Raid_Details_Grid_Image_Polygon_Preview_Arrow"  Stroke="Black" StrokeThickness="2" Fill="Red" Opacity="0.8"/>
+                        <Polygon x:Name="Raid_Details_Grid_Image_Selected_Arrow" Stroke="Black" StrokeThickness="2" Fill="#FF255BCF" Opacity="0.8"/>
+
+                    </Canvas>
+                </Grid>
+                <!--#region Bottom Middle Spawn Makers Grid-->
+                <Grid Name="Spawn_Makers_Grid" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource HomageLoadedText}" Text="NPC Makers" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+
+
+
+                        <ListView x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Makers_Listview" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Margin="0,0,2,0" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,12,4" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Focusable="False" IsChecked="{Binding IsSelected}" Click="Spawn_NPC_Maker_Clicked">
+                                        <ToggleButton.Content>
+                                            <TextBlock Margin="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Maker_Name}"/>
+                                        </ToggleButton.Content>
+                                    </ToggleButton>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                        <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_NPC_Maker_Add_Basic_Clicked">
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <TextBlock Style="{StaticResource HomageLoadedText}" Text="Add Basic" Margin="0,1,0,0" VerticalAlignment="Center"/>
+                                    <TextBlock Style="{StaticResource HomageLoadedText}" Text="Maker" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_NPC_Maker_Add_Extended_Clicked">
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                    <TextBlock Style="{StaticResource HomageLoadedText}" Text="Add Extended" Margin="0,1,0,0" VerticalAlignment="Center"/>
+                                    <TextBlock Style="{StaticResource HomageLoadedText}" Text="Maker" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete Maker" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_NPC_Maker_Remove_Clicked"/>
+                    </Grid>
+
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource HomageLoadedText}" Text="NPC Maker Parameters" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+                    <Grid x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Parameters_Panel_Overview" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Maker Type" Margin="4,0,2,0" VerticalAlignment="Center"/>
+                        <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Type" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,4,0" IsReadOnly="True" Text="{Binding Maker_Type, Mode=OneWay}"/>
+
+                        <Border x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Parameters_Panel" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" BorderThickness="0,0,0,0" BorderBrush="#4f4f4f" Visibility="Hidden">
+                            <StackPanel Orientation="Vertical">
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Initial Spawns" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Initial_Spawn" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_Initial_Spawns}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Spawn Time" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Spawn_Time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_Spawn_Time}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Max Spawns" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Max_Spawns" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_Max_Spawns}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Event Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Event_Name" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_Event_Name}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border x:Name="Spawns_Zone_Details_Grid_NPC_Maker_Ex_Parameters_Panel" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" BorderThickness="0,0,0,0" BorderBrush="#4f4f4f" Visibility="Hidden">
+                            <StackPanel Orientation="Vertical">
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_Name" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_Name}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Max Spawns" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_Max_Spawns" Margin="2,0,2,0" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Maker_Max_Spawns}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="AI" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_AI" Margin="2,0,2,0" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Maker_AI}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="AI Parameters" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_AI_Parameters" Margin="2,0,2,0" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Maker_AI_Parameters}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Flying" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <ToggleButton x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_NPC_Maker_Parameter_Flying" Grid.Column="1" Margin="2,0,2,0" HorizontalAlignment="Left" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding Maker_Flying}"/>
+                                </Grid>
+                                <Grid VerticalAlignment="Top" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Banned Territory" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_Area_Parameter_Banned_Territory" Margin="2,0,2,0" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Maker_Banned_Territory}"  PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <ItemsControl x:Name="Spawns_Zone_Details_Grid_Spawn_Area_NPC_Maker_Spawns_ItemsControl" Grid.Column="1">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel x:Name="WrapWrap" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#4f4f4f" Margin="4,2,4,2" BorderThickness="0">
+
+                                        <StackPanel Orientation="Vertical">
+                                            <Image Width="32" Height="32" Margin="2" Source="{Binding ImagePath}"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Text="{Binding NPC_Name}" Style="{StaticResource HomageLoadedText}" Margin="0" TextAlignment="Center"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </Grid>
+                </Grid>
+
+
+            </Grid>
+
+            <!--#region Spawn Areas Grid-->
+            <Border x:Name="Spawn_Areas_Grid" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Spawns_Zone_Details_Grid_Spawn_Areas_Listview" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" MouseEnter="Spawn_Area_Mouse_Over" MouseLeave="Spawn_Area_Mouse_Leave" Click="Spawn_Area_Clicked" Height="25" HorizontalAlignment="Stretch" Margin="2" BorderThickness="0" IsChecked="{Binding IsSelected}">
+                                    <ToggleButton.Content>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Area_Name}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone Spawn Area" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_Area_Clone_Clicked"/>
+                        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete Spawn Area" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Click="Spawn_Area_Delete_Clicked" Margin="4,4,4,4"/>
+
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <!--#region Spawn Makers Grid-->
+            <Border x:Name="Spawn_Maker_Spawns_Grid" BorderBrush="#4f4f4f" BorderThickness="1,0,0,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,2,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,0" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" MaxWidth="{Binding ActualWidth, ElementName=Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview}"   Margin="4,4,4,4" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"  HorizontalContentAlignment="Left" Focusable="False" Click="Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawn_Clicked" IsChecked="{Binding IsSelected}">
+                                    <ToggleButton.Content>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition MaxWidth="70"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Width="64" Height="64" Margin="4" Source="{Binding GetNPCImage}"/>
+                                            <TextBlock Grid.Column="1" Margin="4,4,0,4" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding NPC_Name}"/>
+                                        </Grid>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                    <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Add NPC Spawn" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_NPC_Maker_NPC_Spawn_Add_Clicked"/>
+                    <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete NPC Spawn" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Spawn_NPC_Maker_NPC_Spawn_Remove_Clicked"/>
+                </Grid>
+            </Border>
+            <!--#region Spawn Parameters Grid-->
+            <Border x:Name="Spawn_Parameters_Grid" Grid.Column="3" Grid.Row="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomageLoadedText}" Text="NPC Spawn Parameters" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="1,0,0,0" BorderBrush="#4f4f4f">
+                        <StackPanel Orientation="Vertical" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Panel" Visibility="Visible">
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_NPC_Name" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" IsReadOnly="true" Text="{Binding NPC_Name, Mode=OneWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Max Possible Spawns" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Max_Spawns" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Max_Spawns}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Respawn Time" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <Grid Grid.Column="1" Margin="2,0,2,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition MaxWidth="80"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Respawn_Time" Style="{StaticResource HomagePropertyTextBox}" MinWidth="40" Text="{Binding Respawn_Time}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                    <ComboBox Grid.Column="1" x:Name="Respawn_Time_Type_Dropdown" BorderThickness="0" Style="{DynamicResource HomageDropdownBoxStyle}" SelectedIndex="{Binding Respawn_Time_Type}" Height="15" Margin="2,0,0,0" FontSize="9" FontFamily="Lucida Console">
+                                        <ComboBox.Resources>
+                                            <Style TargetType="{x:Type ComboBox}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsEnabled" Value="False">
+                                                        <Setter Property="Background" Value="#2f2f2f"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ComboBox.Resources>
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ComboBoxItem}">
+                                                <Setter Property="Background" Value="#2f2f2f"/>
+                                                <Setter Property="Foreground" Value="#f2f2f2"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Margin" Value="-2,0,-2,0"/>
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content=""/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Seconds"/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Minutes"/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Hours"/>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+                                </Grid>
+
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Respawn Deviance" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <Grid Grid.Column="1" Margin="2,0,2,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition MaxWidth="80"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox Grid.Column="0" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Respawn_Deviance" Style="{StaticResource HomagePropertyTextBox}" MinWidth="40" Text="{Binding Respawn_Deviance}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                    <ComboBox Grid.Column="1" x:Name="Respawn_Deviance_Type_Dropdown" BorderThickness="0" Style="{DynamicResource HomageDropdownBoxStyle}" SelectedIndex="{Binding Respawn_Deviance_Type}" Height="15" Margin="2,0,0,0" FontSize="9" FontFamily="Lucida Console">
+                                        <ComboBox.Resources>
+                                            <Style TargetType="{x:Type ComboBox}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsEnabled" Value="False">
+                                                        <Setter Property="Background" Value="#2f2f2f"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ComboBox.Resources>
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ComboBoxItem}">
+                                                <Setter Property="Background" Value="#2f2f2f"/>
+                                                <Setter Property="Foreground" Value="#f2f2f2"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Margin" Value="-2,0,-2,0"/>
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content=""/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Seconds"/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Minutes"/>
+                                            <ComboBoxItem Style="{StaticResource HomageComboBoxItemStyle}" Content="Hours"/>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+                                </Grid>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Fixed Position(s)" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <ToggleButton x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle" Grid.Column="1" Margin="2,0,0,0" HorizontalAlignment="Left" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding Fixed_Position}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition MinHeight="16"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Positions" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Center"/>
+                                <ComboBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Fixed_Positions}" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown" BorderThickness="0" Style="{DynamicResource HomageDropdownBoxStyle}"  Height="20" Margin="2,0,2,0" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" SelectionChanged="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown_SelectionChanged">
+                                    <ComboBox.Resources>
+                                        <Style TargetType="{x:Type ComboBox}">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                    <Setter Property="Background" Value="#2f2f2f"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ComboBox.Resources>
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ComboBoxItem}">
+                                            <Setter Property="Background" Value="#2f2f2f"/>
+                                            <Setter Property="Foreground" Value="#f2f2f2"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="Margin" Value="-2,0,-2,0"/>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                </ComboBox>
+
+                                <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource HomageButtonStyle}"  Margin="2,0,2,0" Content="Add" HorizontalAlignment="Stretch" Height="15" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Click="NPC_Parameter_Fixed_Positions_Add_Clicked"/>
+
+                                <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="X" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="2" Grid.Row="2"  Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Y" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Z" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_X" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Text="{Binding Fixed_Position_X, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Y" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Text="{Binding Fixed_Position_Y, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="2" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Z" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Text="{Binding Fixed_Position_Z, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+                                <TextBlock Grid.Column="6" Grid.ColumnSpan="1" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" Text="Yaw" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Column="6" Grid.ColumnSpan="1" Grid.Row="3" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Rotation" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Text="{Binding Fixed_Position_Yaw, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBlock Grid.Column="7" Grid.Row="2" Style="{StaticResource HomagePropertyTitleText}" Text="%" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Column="7" Grid.Row="3" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Probability" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" IsEnabled="{Binding IsChecked, ElementName=Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Toggle}" Text="{Binding Fixed_Position_Chance, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+
+
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,6,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Database Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_DB_Name" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding DB_Name}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Database Save" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_DB_Save" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding DB_Save}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Boss Respawn" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <ToggleButton x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Boss_Respawn" Grid.Column="1" Margin="2,0,2,0" HorizontalAlignment="Left" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding Boss_Respawn}"/>
+                                
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Minions" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Privates" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Privates}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Nickname" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Nickname" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Nickname}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Maker AI" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Maker_AI" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Tag="ID" Text="{Binding Maker_AI}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Maker AI Parameters" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Maker_AI_Parameters" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Maker_AI_Parameters}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Chase_Player_Label" Style="{StaticResource HomagePropertyTitleText}" Text="Chase Player" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" x:Name="Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Chase_Player" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Chase_Player}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+            </Border>
+
+            <!--#region Hunting Zones Grid-->
+            <Border x:Name="Huntingzone_Grid" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Huntingzones_Listview" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Width="{Binding ElementName=zone_list_entry_size_grid, Path=ActualWidth}"  MouseEnter="Huntingzone_Mouse_Over" MouseLeave="Huntingzone_Mouse_Leave" Click="Huntingzone_Clicked" Height="25" HorizontalAlignment="Stretch" Margin="2" IsChecked="{Binding IsSelected}" BorderThickness="0">
+                                    
+                                    <ToggleButton.Content>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone Hunting Zone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Huntingzone_Clone_Clicked"/>
+                        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete Hunting Zone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Click="Huntingzone_Delete_Clicked" Margin="4,4,4,4"/>
+
+
+                    </Grid>
+                </Grid>
+            </Border>
+            <!--#region Hunting Zones Parameters Grid-->
+            <Border x:Name="Huntingzone_Parameters_Grid" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" BorderThickness="1,0,0,0" BorderBrush="#4f4f4f">
+                        <StackPanel Orientation="Vertical" x:Name="Huntingzone_Details_Grid" Visibility="Visible">
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1"  Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" IsReadOnly="true" Text="{Binding ID, Mode=OneWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Name, Mode=TwoWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Affiliated Area ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Affiliated_Area_ID}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Hunting Type" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Hunting_Type}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Level" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Level}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition MinHeight="16"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Position" HorizontalAlignment="Left" Margin="2,0,0,0" MinWidth="1" VerticalAlignment="Center"/>
+
+                                <TextBlock Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="X" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="4" Grid.Row="0"  Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Y" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Z" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Hunting_Zone_Loc_X" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_X, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Hunting_Zone_Loc_Y" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_Y, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Hunting_Zone_Loc_Z" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_Z, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+
+
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+            </Border>
+
+            <!--#region Zone Names Grid-->
+            <Border x:Name="Zonename_Grid" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Zonenames_Listview" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Width="{Binding ElementName=zone_list_entry_size_grid, Path=ActualWidth}"  MouseEnter="Zone_Name_Mouse_Over" MouseLeave="Zone_Name_Mouse_Leave" Click="Zone_Name_Clicked" Height="25" HorizontalAlignment="Stretch" Margin="2" BorderThickness="0" IsChecked="{Binding IsSelected}">
+                                    <ToggleButton.Content>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Instance}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </Grid>
+            </Border>
+            <!--#region Zone Names Parameters Grid-->
+            <Border x:Name="Zonename_Parameters_Grid" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" BorderThickness="1,0,0,0" BorderBrush="#4f4f4f">
+                        <StackPanel Orientation="Vertical" x:Name="Zonename_Details_Grid" Visibility="Visible">
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1"  Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" IsReadOnly="true" Text="{Binding ID, Mode=OneWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1"  Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Zone_Name, Mode=TwoWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Color ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Zone_Color_ID}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+
+
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Continent ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Dupa}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="World Grid X" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding X_World_Grid}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="World Grid Y" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Y_World_Grid}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Top Z" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Top_Z}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Bottom Z" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Bottom_Z}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,16,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Extra Map Properties" Margin="2,0,2,0" VerticalAlignment="Center" TextAlignment="Center"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="+Button X Position" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_0}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="+Button Y Position" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_1}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Center X Position" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_2}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Center Y Position" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_3}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Map Width" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_4}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2,2,2,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Map Height" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Coord_5}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Map Scale" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Tag="float"  Margin="2,0,2,0" Text="{Binding Map_Zoom}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Map Image Name" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Map_ID}" PreviewTextInput="Validate_Lower_Case_And_Symbols_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+
+
+
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+            </Border>
+
+            <!--#region Raids Grid-->
+            <Grid x:Name="zone_list_entry_size_grid" Grid.Row="2" Margin="0,0,32,0">
+
+            </Grid>
+            <Border x:Name="Raid_Grid" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Raids_Listview" Grid.Column="0" Grid.ColumnSpan="2" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Width="{Binding ElementName=zone_list_entry_size_grid, Path=ActualWidth}"  MouseEnter="Raid_Mouse_Over" MouseLeave="Raid_Mouse_Leave" Click="Raid_Clicked" Height="25" HorizontalAlignment="Stretch" Margin="2" IsChecked="{Binding IsSelected}" BorderThickness="0">
+                                    <ToggleButton.Content>
+                                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding NPC_Name}" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ToggleButton.Content>
+                                    
+                                </ToggleButton>
+                                
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone Raid" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Raid_Clone_Clicked"/>
+                        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete Raid" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Click="Raid_Delete_Clicked" Margin="4,4,4,4"/>
+
+                    </Grid>
+                </Grid>
+            </Border>
+            <!--#region Raid Parameters Grid-->
+            <Border x:Name="Raid_Parameters_Grid" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" BorderThickness="1,0,0,0" BorderBrush="#4f4f4f">
+                        <StackPanel Orientation="Vertical" x:Name="Raid_Details_Grid" Visibility="Visible">
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1"  Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" IsReadOnly="true" Text="{Binding ID, Mode=OneWay}"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="NPC" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <Button Grid.Column="1" Style="{StaticResource HomagePropertyButtonStyle}" Margin="2,0,2,0" Content="{Binding NPC_Name, UpdateSourceTrigger=PropertyChanged}" Height="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="Raid_NPC_Clicked"/>
+                                <Button Grid.Column="2" Style="{StaticResource HomageButtonStyle}" Content="Go To" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Height="15" Margin="2,0,2,0" Click="Raid_GoTo_Clicked" FontSize="8"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="NPC Level" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding NPC_Level, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource HomagePropertyTitleText}" Text="Affiliated Area ID" Margin="2,0,2,0" VerticalAlignment="Center"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" Text="{Binding Affiliated_Area_ID}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid VerticalAlignment="Top" Margin="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition MinHeight="16"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Position" HorizontalAlignment="Left" Margin="2,0,0,0" MinWidth="1" VerticalAlignment="Center"/>
+
+                                <TextBlock Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="X" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="4" Grid.Row="0"  Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Y" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBlock Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Z" HorizontalAlignment="Center" Margin="0" MinWidth="1" VerticalAlignment="Bottom"/>
+                                <TextBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Raid_Loc_X" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_X, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Raid_Loc_Y" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_Y, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                                <TextBox Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" x:Name="Raid_Loc_Z" Margin="2,0,2,0" MinWidth="10" Style="{StaticResource HomagePropertyTextBox}" Text="{Binding Loc_Z, UpdateSourceTrigger=LostFocus}" PreviewTextInput="Validate_Integer_Input" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
+                            </Grid>
+                            <Grid x:Name="description_grid" Margin="2,4,6,2"/>
+                            <Grid Margin="2,8,2,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}" Text="Description" HorizontalAlignment="Left" Margin="2,0,0,0" MinWidth="1" VerticalAlignment="Center"/>
+                                <TextBox x:Name="Raid_Description" Grid.Row="1"  MinWidth="{Binding ElementName=description_grid, Path=ActualWidth}" MinHeight="180" Grid.ColumnSpan="2" Height="180" Focusable="true" Style="{StaticResource HomageTextBox}" Margin="2,4,2,2" Padding="2,2,2,2" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding Description}" TextAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" FontSize="12" FontFamily="lucida console" BorderThickness="0" TextWrapping="Wrap"/>
+                            </Grid>
+
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

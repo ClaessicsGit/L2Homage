@@ -1,0 +1,236 @@
+﻿<Window x:Class="L2Homage.Popup_Droplist_Selection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:L2Homage"
+        mc:Ignorable="d"
+        Title="Popup_Droplist_Selection" Height="450" Width="660" Background="#1F1F1F" BorderBrush="DarkGray" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Border BorderThickness="2" BorderBrush="#4f4f4f">
+        <Grid>
+
+            <Grid Margin="4,4,4,4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="#4f4f4f" BorderThickness="0,0,0,2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="89"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+
+                        <TextBlock x:Name="Popup_Title" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Style="{StaticResource HomagePropertyTitleText}" Text="Droplist Selection" MinWidth="20" HorizontalAlignment="Center" Margin="0" FontSize="14"/>
+
+
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border  Grid.Row="2" Grid.Column="0" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0">
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Vertical" Grid.Row="0">
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="ID" Width="100" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="Droplist_Filter_ID" Width="96" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Droplist_Filter_Changed"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="Contains Item" Width="100" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="Droplist_Filter_Contains_Item" Width="96" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Droplist_Filter_Changed"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="Connected NPC" Width="100" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="Droplist_Filter_NPC_Ref" Width="96" HorizontalAlignment="Right" Style="{StaticResource HomageTextBox}" TextAlignment="Left" VerticalContentAlignment="Center" Padding="2,-2,0,0" Text="" TextChanged="Droplist_Filter_Changed"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="Hide Empty Droplists" Width="160" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <ToggleButton x:Name="Droplist_Filter_Hide_Empty" Style="{StaticResource HomageToggleButton}" Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Droplist_Filter_Changed" IsChecked="true"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="Only Custom" Width="120" Style="{StaticResource HomageLoadedText}" Margin="10,4,4,4" TextAlignment="Left" VerticalAlignment="Center"/>
+                                    <ToggleButton x:Name="Droplist_Filter_Custom_Toggle" Style="{StaticResource HomageToggleButton}" Margin="60,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Droplist_Filter_Changed"/>
+                                </StackPanel>
+                                <ToggleButton x:Name="Droplist_Filter_Droplist_Type_All" Style="{StaticResource HomageToggleFilterButton}" Content="All" HorizontalAlignment="Stretch" Height="25" Margin="10,0,9,8" IsChecked="True" Click="Droplist_Filter_Droplist_Type_Clicked"/>
+                                <ToggleButton x:Name="Droplist_Filter_Droplist_Type_Multi" Style="{StaticResource HomageToggleFilterButton}" Content="Multi" HorizontalAlignment="Stretch" Height="25" Margin="10,0,9,8" Click="Droplist_Filter_Droplist_Type_Clicked"/>
+                                <ToggleButton x:Name="Droplist_Filter_Droplist_Type_Single" Style="{StaticResource HomageToggleFilterButton}" Content="Single" HorizontalAlignment="Stretch" Height="25" Margin="10,0,9,48" Click="Droplist_Filter_Droplist_Type_Clicked"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ListView x:Name="Selections_Listview" Grid.Column="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,0,1,0" Loaded="Selections_Listview_Loaded" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Style="{StaticResource HomageToggleFilterButton}" Margin="4,4,12,4" Height="60" Width="188" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Droplist_Name_Clicked" Focusable="False" IsChecked="{Binding IsSelected}">
+                                    <ToggleButton.Content>
+                                        <TextBlock Margin="20,0,20,0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource HomageLoadedText}" Text="{Binding Instance}"/>
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                    <Grid x:Name="Selection_Single_Droplist_Preview_Grid" Grid.Column="2" Visibility="Hidden">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition />
+                            <RowDefinition Height="42"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="Selection_Single_Droplist_Preview_Grid_Droplist_ID" Text="ID" Style="{StaticResource HomageLoadedText}" Margin="0" TextAlignment="Center" VerticalAlignment="Center"/>
+
+                        <ListView x:Name="Droplists_Drops_Listview" Grid.Row="1" Grid.ColumnSpan="10" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,1,0,1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="4,2,4,2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="40"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="32"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="{Binding ImagePath}" VerticalAlignment="Center"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" Style="{StaticResource HomageLoadedText}" TextAlignment="Left" VerticalAlignment="Center" MinWidth="10" Margin="4,0,0,0" TextWrapping="Wrap"/>
+                                        <TextBlock Grid.Column="2" Text="{Binding DropAmountString}" Style="{StaticResource HomageLoadedText}" TextAlignment="Left" VerticalAlignment="Center" MinWidth="10" Margin="4,0,0,0"/>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+
+                        <Border Grid.Row="4">
+                            <Button Style="{StaticResource HomageButtonStyle}" Width="80" Content="Confirm" Click="Confirm_Selection" Height="30" Margin="0"/>
+                        </Border>
+
+                    </Grid>
+
+                    <Grid x:Name="Selection_Multi_Droplist_Preview_Grid" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition />
+                            <RowDefinition Height="42"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock x:Name="Selection_Multi_Droplist_Preview_Grid_Droplist_ID" Text="ID" Style="{StaticResource HomageLoadedText}" Margin="0" TextAlignment="Center" VerticalAlignment="Center"/>
+                        
+                        <ListView x:Name="Droplists_Details_Grid_Multi_Drops_Listview" Grid.Column="1" Grid.Row="1" Background="Transparent" BorderBrush="#4f4f4f" BorderThickness="0,1,0,1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Focusable="False" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Visible">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#4f4f4f" Margin="4,2,4,2" BorderThickness="0,0,0,1">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding ID}" Style="{StaticResource HomageLoadedText}" Margin="0" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+                                            <ItemsControl Grid.Column="1" ItemsSource="{Binding drops_details}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel x:Name="WrapWrap" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderBrush="#4f4f4f" Margin="4,2,4,2" BorderThickness="0">
+                                                            <StackPanel Orientation="Vertical">
+                                                                <Image Width="32" Height="32" Margin="2" Source="{Binding ImagePath}"/>
+                                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                                    <TextBlock Text="{Binding DropAmountString}" Style="{StaticResource HomageLoadedText}" Margin="0" TextAlignment="Center"/>
+                                                                </StackPanel>
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
+                        </ListView>
+
+                        <Border Grid.Row="4">
+                            <Button Style="{StaticResource HomageButtonStyle}" Width="80" Content="Confirm" Click="Confirm_Selection" Height="30" Margin="0"/>
+                        </Border>
+                    </Grid>
+
+                </Grid>
+
+
+                <Border Grid.Row="2" BorderBrush="#4f4f4f" BorderThickness="0,2,0,0">
+                    <Button Style="{StaticResource HomageButtonStyle}" Width="80" Content="Close" Click="Close_Window" Height="30" Margin="0"/>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="L2Homage.Popup_Class_Karma_Constant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:L2Homage"
+        mc:Ignorable="d"
+        Title="Popup_Class_Karma_Constant" Height="280" Width="400" Background="#1F1F1F" BorderBrush="DarkGray" WindowStyle="None" KeyDown="Window_KeyDown" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="Popup_Class_Karma_Constant_Main_Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="80"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="80"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Style="{StaticResource HomageLoadedText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="20" FontFamily="Lucida_Console" Text="Karma Constant"/>
+        <Border Grid.Row="1" BorderBrush="#4f4f4f" BorderThickness="0,1,0,1">
+            <StackPanel Orientation="Vertical" Margin="20,0,20,0" VerticalAlignment="Center">
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="penalty_start_karma"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}" Tag="penalty_start_karma" Margin="2,0,2,0" Text="{Binding penalty_start_karma}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="penalty_duration_default"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="penalty_duration_default" Margin="2,0,2,0" Text="{Binding penalty_duration_default}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="penalty_duration_increase"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="penalty_duration_increase" Margin="2,0,2,0" Text="{Binding penalty_duration_increase}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="down_time_multiple"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="down_time_multiple" Margin="2,0,2,0" Text="{Binding down_time_multiple}" FontFamily="Lucida_Console" />
+                </Grid>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Style="{StaticResource HomagePropertyTitleText}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Center" FontFamily="Lucida_Console" Text="criminal_duration_multiple"/>
+                    <TextBox Grid.Column="1" Style="{StaticResource HomagePropertyTextBox}"  Tag="criminal_duration_multiple" Margin="2,0,2,0" Text="{Binding criminal_duration_multiple}" FontFamily="Lucida_Console" />
+                </Grid>
+                
+            </StackPanel>
+        </Border>
+        <Button Grid.Row="2" Style="{StaticResource HomageButtonStyle}" Content="Close" Width="100" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Click="Close"/>
+    </Grid>
+</Window>

@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+L2Homage/Modules/AffixCSV.cs
+L2Homage/Modules/Diablomizer.cs
