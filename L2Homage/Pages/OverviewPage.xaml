@@ -178,8 +178,8 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="130" TextAlignment="Left" Margin="10,10,10,0">Diablomized Skills</TextBlock>
-                <ToggleButton x:Name="Overview_Export_Settings_Diablomize_Toggle" Width="16" Height="16" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding UsingDiablomizedSkills}"></ToggleButton>
+                <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="130" TextAlignment="Left" Margin="10,10,10,0">Use Export Module</TextBlock>
+                <ToggleButton x:Name="Overview_Export_Settings_Use_Module_Toggle" Width="16" Height="16" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding UsingDiablomizedSkills}"></ToggleButton>
             </StackPanel>
 
 

@@ -66,7 +66,7 @@ namespace L2Homage.Pages
 
                     Overview_Server_Address_Textbox.Text = L2H_Settings.serverAddress;
                     Overview_Export_Settings_Custom_Only_Toggle.IsChecked = ((L2H_Settings.exportOnlyCustomSpawnAreas == "true") ? true : false);
-                    Overview_Export_Settings_Diablomize_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
+                    Overview_Export_Settings_Use_Module_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
 
 
                 }
@@ -84,12 +84,12 @@ namespace L2Homage.Pages
                 L2H_Settings = new L2H_Settings(settingsData);
                 Overview_Server_Address_Textbox.Text = L2H_Settings.serverAddress;
                 Overview_Export_Settings_Custom_Only_Toggle.IsChecked = (L2H_Settings.exportOnlyCustomSpawnAreas == "true") ? true : false;
-                Overview_Export_Settings_Diablomize_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
+                Overview_Export_Settings_Use_Module_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
             }
 
             Overview_Server_Address_Textbox.DataContext = L2H_Settings;
             Overview_Export_Settings_Custom_Only_Toggle.DataContext = L2H_Settings;
-            Overview_Export_Settings_Diablomize_Toggle.DataContext = L2H_Settings;
+            Overview_Export_Settings_Use_Module_Toggle.DataContext = L2H_Settings;
         }
 
         public void UpdateLoadedNumber(LoadedTypes loadType)
