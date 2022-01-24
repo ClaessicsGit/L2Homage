@@ -894,4 +894,16 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF NOT EXIST $(TargetDir)Data mkdir  $(TargetDir)Data
+IF NOT EXIST  $(TargetDir)Data\AI mkdir  $(TargetDir)Data\AI
+IF NOT EXIST  "$(TargetDir)Data\Decrypted Client Files" mkdir  "$(TargetDir)Data\Decrypted Client Files"
+IF NOT EXIST  "$(TargetDir)Data\Encrypted Client Files" mkdir  "$(TargetDir)Data\Encrypted Client Files"
+IF NOT EXIST  $(TargetDir)Data\L2H mkdir  $(TargetDir)Data\L2H
+IF NOT EXIST $(TargetDir)Data\Logs mkdir  $(TargetDir)Data\Logs
+IF NOT EXIST  $(TargetDir)Data\Server mkdir  $(TargetDir)Data\Server
+IF NOT EXIST  $(TargetDir)Images mkdir  $(TargetDir)Images
+IF NOT EXIST  $(TargetDir)Images\Game mkdir  $(TargetDir)Images\Game
+IF NOT EXIST  $(TargetDir)Images\Game\L2Icons mkdir  $(TargetDir)Images\Game\L2Icons</PostBuildEvent>
+  </PropertyGroup>
 </Project>

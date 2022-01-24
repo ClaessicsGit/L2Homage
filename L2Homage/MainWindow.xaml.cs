@@ -570,12 +570,11 @@ namespace L2Homage
         }
         private void HookDroplists(object sender, EventArgs e)
         {
-            //(pages.Find(x => x.GetType() == typeof(Pages.DroplistsPage)) as Pages.DroplistsPage).Hook_Droplists_Into_NPCs();
+
         }
 
         private void LoadNpcs(object sender, EventArgs e)
         {
-            //(pages.Find(x => x.GetType() == typeof(Pages.NPCsPage)) as Pages.NPCsPage).LoadNpcs();
             (pages.Find(x => x.GetType() == typeof(Pages.NPCsPage)) as Pages.NPCsPage).LoadNpcs();
         }
         private void LoadSpawns(object sender, EventArgs e)
