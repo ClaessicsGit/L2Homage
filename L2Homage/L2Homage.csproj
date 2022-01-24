@@ -904,6 +904,9 @@ IF NOT EXIST $(TargetDir)Data\Logs mkdir  $(TargetDir)Data\Logs
 IF NOT EXIST  $(TargetDir)Data\Server mkdir  $(TargetDir)Data\Server
 IF NOT EXIST  $(TargetDir)Images mkdir  $(TargetDir)Images
 IF NOT EXIST  $(TargetDir)Images\Game mkdir  $(TargetDir)Images\Game
-IF NOT EXIST  $(TargetDir)Images\Game\L2Icons mkdir  $(TargetDir)Images\Game\L2Icons</PostBuildEvent>
+IF NOT EXIST  $(TargetDir)Images\Game\L2Icons mkdir  $(TargetDir)Images\Game\L2Icons
+IF NOT EXIST $(TargetDir)Export mkdir  $(TargetDir)Export
+IF NOT EXIST $(TargetDir)Export\Client mkdir  $(TargetDir)Export\Client
+IF NOT EXIST $(TargetDir)Export\Server mkdir  $(TargetDir)Export\Server</PostBuildEvent>
   </PropertyGroup>
 </Project>
