@@ -11,6 +11,22 @@ The hope is to see a bunch of unique, new game worlds appear, instead of relaunc
 
 With this tool, you can edit all weapons, armors, misc items (etcs), recipes, npcs, droplists, spawns, system texts and much, much more. The list goes on, and expands as the project evolves.
 
+## Special Thanks
+A special thanks to the people who helped me make L2Homage possible!
+L2H wouldn't be here if it wasn't for:
+- Anarchy
+- eressea
+- Weedy
+- Sepultribe
+- L2Miko
+- Rootware
+- PARADISE
+- Badwatermage & the players of L2Knight
+- Sindelia of PlayINERA
+- Matrix (EDL Team)
+- And many, many more who provided answers when I needed them. Thank you! If I forgot to mention anyone, please let me know, you deserve the credit.
+- Above all, thank you to the doctors and nurses who kept me alive these past years. L2H is a passion project, developed before, during and after my fight with leukemia. If you find some weird or bad code, this will also be my go-to excuse.
+
 ## Current Features
 - Add, delete or modify weapons
 - Add, delete or modify armors
