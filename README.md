@@ -15,7 +15,7 @@ With this tool, you can edit all weapons, armors, misc items (etcs), recipes, np
 A special thanks to the people who helped me make L2Homage possible!
 L2H wouldn't be here if it wasn't for:
 - Anarchy
-- eressea
+- Eressea of L2Shrine
 - Weedy
 - Sepultribe
 - L2Miko
