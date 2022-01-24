@@ -1,4 +1,6 @@
-﻿using System;
+﻿//L2Homage - By Bumble
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -452,18 +454,12 @@ namespace L2Homage
 
         private void StartLoadingPhase_2()
         {
-            //UpdateLog("Waiting for Loading Phase 1 to finish..");
-
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.ItemsPage)) as Pages.ItemsPage).AllItemsAreLoaded, Timeout.Infinite);
             if ((pages.Find(x => x.GetType() == typeof(Pages.DroplistsPage)) as Pages.DroplistsPage).existingDroplistsFound)
             {
                 SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.DroplistsPage)) as Pages.DroplistsPage).existing_Single_Droplists_Loaded, Timeout.Infinite);
                 SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.DroplistsPage)) as Pages.DroplistsPage).existing_Multi_Droplists_Loaded, Timeout.Infinite);
             }
-            //bool wait_a_second = false;
-
-            //UpdateLog("Loading Phase 1 Finished!", L2H_Constants.Color_Add);
-            //UpdateLog("Initializing Loading Phase 2..");
 
             (pages.Find(x => x.GetType() == typeof(Pages.ItemsPage)) as Pages.ItemsPage).LoadSets();
 
@@ -488,9 +484,6 @@ namespace L2Homage
         private void StartLoadingPhase_3()
         {
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.NPCsPage)) as Pages.NPCsPage).allNPCsLoaded, Timeout.Infinite);
-            //SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.RecipesPage)) as Pages.RecipesPage).recipesLoaded, Timeout.Infinite);
-
-
 
             UpdateLog("Initializing Thread: Droplist Loaders..", L2H_Constants.Color_Log_Thread_Begin);
             ThreadWorker ThreadWorker_LoadDroplists = new ThreadWorker();
@@ -508,7 +501,6 @@ namespace L2Homage
 
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.DroplistsPage)) as Pages.DroplistsPage).droplistsFullyLoaded, Timeout.Infinite);
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.RecipesPage)) as Pages.RecipesPage).recipesLoaded, Timeout.Infinite);
-            //SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.SkillsPage)) as Pages.SkillsPage).allSkillsLoaded, Timeout.Infinite);
 
             UpdateLog("Initializing Thread: Skill Acquires and Server Settings..", L2H_Constants.Color_Log_Thread_Begin);
             ThreadWorker ThreadWorker_LoadSkillAcquireAndServerSettings = new ThreadWorker();
@@ -525,10 +517,6 @@ namespace L2Homage
             Thread thread_LoadMultisells = new Thread(ThreadWorker_LoadMultisells.ThreadProc);
             thread_LoadMultisells.Start();
 
-            //Dispatcher.Invoke(() =>
-            //{
-            //    (pages.Find(x => x.GetType() == typeof(Pages.ClassesPage)) as Pages.ClassesPage).Load_Classes_ServerSettings_SkillAcquire();
-            //});
 
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.ClassesPage)) as Pages.ClassesPage).finishedLoading, Timeout.Infinite);
             SpinWait.SpinUntil(() => (pages.Find(x => x.GetType() == typeof(Pages.MultisellPage)) as Pages.MultisellPage).multisellsLoaded, Timeout.Infinite);
@@ -540,12 +528,6 @@ namespace L2Homage
                 finishedLoading = true;
             });
 
-            //ThreadWorker ThreadWorker_HookDroplists = new ThreadWorker();
-            //ThreadWorker_HookDroplists.Job += (sender, e) => HookDroplists(sender, e);
-            //ThreadWorker_HookDroplists.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "Completed Thread: Droplist Loaders");
-            //Thread thread_HookDroplists = new Thread(ThreadWorker_HookDroplists.ThreadProc);
-
-            //thread_HookDroplists.Start();
 
         }
 
