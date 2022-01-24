@@ -1,0 +1,20 @@
+FS = "\t";
+RECCNT = OFF;
+HEADER = YES;
+MTXCNT_OUT = YES;
+MATCNT_OUT = YES;
+MAGIC = 0;
+ORD_IGNORE = NO;
+
+{
+	ASCF name;
+	UINT id_mk;
+	UINT id_recipe;
+	UINT level;
+	UINT id_item;
+	UINT count;
+	UINT mp_cost;
+	UINT success_rate;
+	MAT2 materials;
+		SOFTM = 11;
+}

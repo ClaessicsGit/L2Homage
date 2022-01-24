@@ -614,6 +614,237 @@
     <Content Include="Tools\mxencdec\encrypt_zonename-e.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\actionname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\additionaleffect.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\additionalitemgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\armorgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\britemgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\castlename-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\charcreategrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\chargrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\classinfo-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\commandname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\creditgrp-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\entereventgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\etcitemgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\eula-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\exceptionminimapdata.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\gametip-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\goodsicon.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\hairaccessorylocgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\hennagrp-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\huntingzone-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\instantzonedata-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\itemname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\ItemPrime.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\logongrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\mantleexception.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\mobskillanimgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\musicinfo.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\npcgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\npcname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\npcstring-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\obscene-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\optiondata_client-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\posteffectdata.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\ProductName-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\questname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\raiddata-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\recipe-c.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\ridedata.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\sceneplayerdata.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\servername-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\shortcutalias.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\skillgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\skillname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\skillsoundgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\skillsoundsource.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\staticobject-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\symbolname-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\sysstring-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\systemmsg-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\transformdata.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\variationeffectgrp-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\vehiclepartsgrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\weapongrp.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\dats\zonename-e.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\armorgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\charcreategrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\classinfo-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\etcitemgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\eula-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\gametip-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\huntingzone-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\instantzonedata-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\itemname-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\mobskillanimgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\npcgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\npcname-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\obscene-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\questname-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\raiddata-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\recipe-c-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\skillgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\skillname-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\skillsoundgrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\sysstring-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\systemmsg-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\weapongrp-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Tools\mxencdec\l2asm-disasm\newdats\zonename-e-new.ddf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -624,6 +855,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\AI\" />
     <Folder Include="Data\Decrypted Client Files\" />
     <Folder Include="Data\Encrypted Client Files\" />
     <Folder Include="Data\L2H\" />
@@ -642,6 +874,21 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Tools\mxencdec\l2asm-disasm\l2asm.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\l2asm-disasm\l2disasm.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\l2asm-disasm\libiconv-2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tools\mxencdec\l2asm-disasm\libmysql_d.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Tools\mxencdec\l2asm-disasm\newdats\generated dats appear here.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Tools\mxencdec\mxencdec.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
