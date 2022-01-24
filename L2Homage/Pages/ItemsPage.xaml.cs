@@ -1605,7 +1605,7 @@ namespace L2Homage.Pages
 
         }
 
-        private void Diablomize_Click(object sender, RoutedEventArgs e)
+        private void Module_Click(object sender, RoutedEventArgs e)
         {
 
         }

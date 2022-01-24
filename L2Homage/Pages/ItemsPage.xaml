@@ -394,7 +394,7 @@
 
                     <Button Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Clone_Item_Click"/>
                     <Button Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Delete_Item_Click"/>
-                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Diablomize" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Diablomize_Click"/>
+                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Module" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Module_Click"/>
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Focusable="False" Margin="2,0,2,0" LostKeyboardFocus="WeaponLostKeyboardFocus" >
                         <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,4,2,0"/>
@@ -981,7 +981,7 @@
 
                     <Button Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Clone_Item_Click"/>
                     <Button Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Delete_Item_Click"/>
-                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Diablomize" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Diablomize_Click"/>
+                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Module" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Module_Click"/>
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Focusable="False" Margin="2,0,2,0">
                         <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,4,2,0"/>
@@ -1382,7 +1382,7 @@
 
                     <Button Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Clone" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Clone_Item_Click"/>
                     <Button Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Delete" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Delete_Item_Click"/>
-                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Diablomize" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Diablomize_Click"/>
+                    <Button Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource HomageButtonStyle}" MinWidth="50" Height="25" Content="Module" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Margin="4,4,4,4" Click="Module_Click"/>
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="3" Focusable="False" Margin="2,0,2,0">
                         <TextBlock Style="{StaticResource HomagePropertyTitleText}" Text="ID" Margin="2,4,2,0"/>
