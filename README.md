@@ -597,6 +597,14 @@ This is Vrykolakas in all his glory. He was taken from all of us much too soon.
 | Unsowing| Can NPC be sown with manor seeds| 
 | No Sleep Mode| Not really sure, but it sounds really convenient. I wish I had a setting like that.| 
 
+At the bottom of the NPC page, you'll see a bar with a list of all the passive skills assigned to this NPC. It can be edited freely as well.
+
+Now, about those AI settings I mentioned earlier.
+
+If you have AI files that can be read, and are placed in the Data/AI folder, you can click the "AI" button next to the delete button. That'll open a popup, showing you all the different variables for the AI assigned to the NPC, _including_ any variables of inherited NPC AI files. For Vrykolakas, it looks like this:
+
+![text](https://user-images.githubusercontent.com/76498760/151066571-4e9a1f43-3139-486b-9ce2-b7e733997a4d.png)
+It's simple to edit. Toggle any variables on/off you want to, and fill in the values. That's it. You can't change the actual AI this way, but you can modify the existing AI parameters. You can change skills the NPC casts during combat, movement timings and stuff like that.
 
 
 
