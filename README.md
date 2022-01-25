@@ -89,6 +89,7 @@ Export settings are on the right. Options are:
 
 Clicking the "Export" button saves any changes and exports both server and client files. If you don't want to export the project, but save it for later, use the "Save" button below Initialization.
 
+---
 ### Classes
 There are two types of classes. The base classes and the specific classes.
 You can choose between class type by clicking one of the two buttons below the ID search field on the left.
@@ -158,6 +159,8 @@ The same applies to single droplists inside of a multi droplist.
 
 **WARNING**
 
+---
+
 ### Experience
 L2H allows you to modify the experience curve.
 ![experience_text](https://user-images.githubusercontent.com/76498760/150886936-3dce12d0-6cab-4145-9ae7-b7084704c6ae.png)
@@ -202,6 +205,8 @@ Compares the original level value with the new level value and adjusts the SKILL
 Compares the original level value with the new level value and adjusts the REPUTATION POINTS PER KILL value by the percentage difference..
 **EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
+---
+
 ### Items
 L2H lets you edit almost any item in the game. Items are split into four categories:
 
@@ -222,14 +227,26 @@ L2H lets you edit almost any item in the game. Items are split into four categor
 #### Sets
 ![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
 
+---
+
 ### Multisell
+
+---
 
 ### NPCs
 
+---
+
 ### Recipes
+
+---
 
 ### Skills
 
+---
+
 ### System Text
+
+---
 
 ### Zones
