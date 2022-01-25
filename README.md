@@ -60,7 +60,7 @@ L2H wouldn't be here if it wasn't for:
 3. Copy and paste the files from your server's "script" folder into the "Data/Server" folder.
 4. Open L2Homage.exe.
 
-## Usage.
+## Usage
 ### Initialization
 In the Initialization block, you should see the "start" button. Click it. Everything should start decrypting and loading.
 If installation was successful, you should see something similar to this:
@@ -139,3 +139,46 @@ This is the most commonly used droplist in L2. If you only use single droplists,
 L2H shows which single droplists are assigned, and the probability of them triggering. You can edit this freely. 
 
 ### Experience
+L2H allows you to modify the experience curve.
+![experience_text](https://user-images.githubusercontent.com/76498760/150886936-3dce12d0-6cab-4145-9ae7-b7084704c6ae.png)
+The experience value for each level is visualized with a dot on a graph, and shown in editable boxes on the right. 
+
+To edit the experience curve, you can input the values in the boxes or simply drag the dots if you prefer to work visually.
+
+**WARNING**
+Changing the experience curve does not automatically change NPC levels or player levels! Each level is defined by the amount of exp the NPC or player has. Any change to the experience curve should be one of the very first things you do for a project. If you change the experience curve later, you'll have to manually edit all NPCs to fit your new settings. I've tried adding some custom algorithms to alleviate this issue, but it'll only take you so far.
+**WARNING**
+
+#### Experience Algorithms
+##### Recalculate NPC EXPERIENCE based on LEVELS
+Maintains all NPC LEVELS and adjusts the EXPERIENCE values of all NPCs. The EXP value assigned will be the lowest EXP value of that level. 
+
+Example:
+
+1. Orc is level 2 with 300 EXP.
+2. You change the EXP curve so level 2 starts at 400 exp.
+3. Orc would now be considered level 1, even though all entries still show it as level 2.
+4. Clicking the **Recalculate NPC EXPERIENCE based on LEVELS** algorithm will recalculate the EXP value of the NPC and set it to 400.
+
+#### Recalculate NPC LEVELS based on EXPERIENCE
+Maintains all NPC EXPERIENCE values and adjusts the LEVEL of all NPCs.
+
+Example:
+
+1. Orc is level 2 with 300 EXP.
+2. You change the EXP curve so level 2 starts at 400 exp.
+3. Orc would now be considered level 1, even though all entries still show it as level 2.
+4. Clicking the **Recalculate NPC LEVELS based on EXPERIENCE** algorithm will recalculate the LEVEL of the NPC and set it to 1.
+
+#### Recalculate NPC EXPERIENCE PER KILL based on LEVELS
+Compares the original level value with the new level value and adjusts the EXPERIENCE PER KILL value by the percentage difference.
+**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+
+#### Recalculate NPC SKILL POINTS PER KILL based on LEVELS
+Compares the original level value with the new level value and adjusts the SKILL POINTS PER KILL value by the percentage difference..
+**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+
+#### Recalculate NPC REPUTATION POINTS PER KILL based on LEVELS
+Compares the original level value with the new level value and adjusts the REPUTATION POINTS PER KILL value by the percentage difference..
+**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+
