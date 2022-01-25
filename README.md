@@ -513,7 +513,92 @@ You can also adjust the castle tax base value above the costs. This is the amoun
 ---
 
 ### NPCs
+Modifying NPCs is very similar to modifying items. You can clone or delete NPCs, or edit the _properties_ of their AI variables. This is very different from editing their AI. More on that below.
 ![NPCs](https://user-images.githubusercontent.com/76498760/150894909-ddf00150-7a94-4134-b7d4-7374ce43d17f.png)
+This is Vrykolakas in all his glory. He was taken from all of us much too soon.
+
+| Base Property      | Description |
+| ----------- | ----------- |
+| ID| Unique integer ID| 
+| Template| ID of NPC this NPC is based on| 
+| Name ID| Unique string ID| 
+| In-Game Name| Name seen In-Game| 
+| Description| Description of NPC| 
+| Undead| Is NPC Undead| 
+| Can Move| Can NPC move| 
+| Flying| Is NPC flying| 
+| Targetable| Can NPC be targeted| 
+| Attackable| Can NPC be attacked| 
+| Event Flag| Can this NPC trigger events - Necessary for aggressive NPCs for instance| 
+| Unique| Is NPC unique| 
+
+| Items Property      | Description |
+| ----------- | ----------- |
+| Equipment
+| Chest| Item equipped in Chest slot| 
+| Right Hand| Item equipped in Right Hand| 
+| Left Hand| Item equipped in Left Hand| 
+| Droplists
+| Normal| Assigned normal droplist| 
+| Spoil| Assigned spoil droplist| 
+| Multi| Assigned multi droplist| 
+| Extra| Assigned extra droplist - This is just an extra multi droplist. It's pretty much only used for herbs, so they don't take up drop slots|
+
+| Stats Property      | Description |
+| ----------- | ----------- |
+| STR| Strength| 
+| INT| Intelligence| 
+| DEX| Dexterity| 
+| WIT| Wit| 
+| CON| Constitution| 
+| MEN| ....Men I guess| 
+
+| Level Specifics Property      | Description |
+| ----------- | ----------- |
+| Level| Level| 
+| Experience| Experience| 
+| Kill Experience| Experience rewarded when killed| 
+| Kill Skill Points| Skill points rewarded when killed| 
+| Kill Reputation Points| Reputation points rewarded when killed| 
+
+| Offense Specifics Property      | Description |
+| ----------- | ----------- |
+| P.Atk| Physical Attack| 
+| M.Atk| Magical Attack| 
+| Atk. Speed| Attack speed| 
+| Atk. Type| Attack Type| 
+| Atk. Range| Attack Range| 
+| Reuse Delay| Cooldown for reusing skills| 
+| Crit Chance| Added chance for critical strikes| 
+| Hit Chance| Added chance to hit| 
+| DMG Range| Not really sure| 
+| Random DMG| How much damage can vary per hit| 
+
+| Defense Specifics Property      | Description |
+| ----------- | ----------- |
+| P.Def| Physical Defense| 
+| M.Def| Magical Defense| 
+| Evasion| Evasion Rate| 
+| Shield Defense Rate| Added chance to block| 
+| Shield P. Def.| Physical defense added on successful block| 
+| Resistances| Resistances to attributes (Fire, water, wind, earth, holy, unholy)| 
+
+
+| Misc Specifics Property      | Description |
+| ----------- | ----------- |
+| Race| Race| 
+| Sex| Male or Female| 
+| Clan| Group of NPCs considered friends. This is related to NPC behavior. If clan members are attacked nearby, NPC will help friendly clans| 
+| Ignore Clan| NPC won't help these clans| 
+| Clan Help Range| How far away will NPC help friendly clan members| 
+| Corpse Duration| How long will NPC corpse stay on the ground| 
+| Aggro Range| How far away will NPC attack hostiles| 
+| Has Summoner| Is NPC a summoned minion| 
+| Unsowing| Can NPC be sown with manor seeds| 
+| No Sleep Mode| Not really sure, but it sounds really convenient. I wish I had a setting like that.| 
+
+
+
 
 ---
 
