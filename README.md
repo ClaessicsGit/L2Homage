@@ -778,12 +778,16 @@ When clicking the zones category, you'll be faced with a world map.
 
 You can click a part of the world map to go see all the zones in that part of the world. You can also click on the shortcuts on the left, if you don't quite remember where areas of interest are.
 
-When you've selected an area, you'll see something like this:
+When you've selected an area, you'll be taken to the spawn areas page.
+
+#### Spawns
 ![Spawn](https://user-images.githubusercontent.com/76498760/150895204-fa0507ed-a222-4223-84f1-cafdd2619010.png)
 
-Above is the Execution Grounds area. The list on the left are all the existing spawn areas, available for use. You can hover your mouse over each entry to see exactly where it is. Click on it to lock it into place, and you'll see existing NPC Makers in the NPC Makers block. If no NPC makers exist, you won't see any (for good reasons I'll say)
+Above is the Execution Grounds area. The list on the left are all the existing spawn areas, available for use. You can hover your mouse over each entry to see exactly where it is. Just right of the list of spawn areas, you can see all layers in this part of the world, if it has any. As you may or may not now, there's a catacomb beneath Execution Grounds. You can click the little thumbnail of that map to switch to that layer if you so please. I'll stay above grounds for this documentation though. Above the list of spawn areas, you'll see four buttons; Spawn Areas, Hunting Zones, Zone Names, Raids. Let's start with spawn areas.
 
-NPC Makers are responsible for spawning NPCs in an assigned area.
+Click on a spawn area to lock it into place, and you'll see existing NPC Makers in the NPC Makers block. NPC Makers are responsible for spawning NPCs in an assigned area.
+
+If no NPC makers exist, you won't see any (for good reasons I'll say)
 
 In the example above, I've selected the spawn zone called _dion02_2122_22_. There's only one NPC maker, so I selected that one. I can see the properties next to the NPC Maker list. The properties are:
 
@@ -803,7 +807,7 @@ In the top-right corner, you'll see the NPC Maker Spawns block. This is a list o
 
 Below the buttons are the NPC Spawn Parameters. These parameters apply to the selected NPC Maker Spawn:
 
-| NPC Maker Parameters      | Description |
+| NPC Maker Spawn Parameters      | Description |
 | ----------- | ----------- |
 | Name| Name of NPC spawning here| 
 | Max Possible Spawns| How many of this specific NPC can spawn in the parent NPC Maker| 
@@ -819,6 +823,55 @@ Below the buttons are the NPC Spawn Parameters. These parameters apply to the se
 | Maker AI| Specific AI used for this NPC Maker| 
 | Maker AI Parameters| AI Parameters for AI assigned above
 
+That's all there is to spawning NPCs. You can clone spawn areas, add NPC Makers, add NPC Maker Spawns and make the world your own.
+
+Let's move on to Hunting Zones.
+
+#### Hunting Zones
+Hunting zones are the list of areas accessible through the in-game map. It's nothing more than a list of points of interest for users to see. That makes it easy to edit.
 ![Hunting](https://user-images.githubusercontent.com/76498760/150895166-9c2fd813-e163-4f8f-8ea1-afdae9b4d82f.png)
+
+Hunting zones are just points in the game world. The properties for a hunting zone are:
+
+| Hunting Zone Parameters      | Description |
+| ----------- | ----------- |
+| ID | Unique integer ID| 
+| Name| In-Game name of the hunting zone| 
+| Affiliated Area ID| 
+| Hunting Type| 
+| Level| NPC levels in this area| 
+| Position| X, Y, Z values of the location| 
+
+That's it for hunting zones.
+
+#### Zone Names
+Zone names are the names displayed when entering the area in the game. You cannot change the location of these areas, but you can change the existing ones. Well, that's not entirely true, but it's a lot of work to change the areas. It's assigned with a Color ID, targeting a multi-layered image encrypted in the game files, which can tell you exactly which zone you're in when the game reads your location and compares it to the specific layer ID on the encrypted image. In short, it's a hassle. Let's look at the parameters instead.
+
 ![Name](https://user-images.githubusercontent.com/76498760/150895179-3223bb2b-fa2f-4dc3-8b21-8c2a0c82130c.png)
+
+| Zone Names Parameters      | Description |
+| ----------- | ----------- |
+| ID | Unique integer ID| 
+| Name| Name of zone as seen In-Game| 
+| Color ID| Layer ID of encrypted multi-layered image| 
+| Continent ID| Which continent is the zone name located| 
+| World Grid X,Y| Which world block is the zone name located in| 
+| Top Z, Bottom Z| The z height of the zone name| 
+| Extra Map Properties | These are properties for the little '+' icon next to towns and castles on the world map| 
+| +Button X, Y Position  | position of the + button on the map, based on the image dimensions (not world location)|
+| Center X, Y Position | 
+| Map Width, Height, Scale, Image Name| If the + button is clicked, Map Image Name is shown based on the width, height and scale entered. This is what happens when you click to zoom into a town map for instance| 
+
+#### Raids
+Editing raid zones are very similar to editing hunting grounds. It's a simple location with an NPC assigned. This doesn't have anything to do with the actual raids, this is for the Raids list accessible through the in-game map.
+
 ![Raid](https://user-images.githubusercontent.com/76498760/150895195-6941f9e3-839a-49ee-8b5b-5517d0b5ff98.png)
+
+| Raids Parameters      | Description |
+| ----------- | ----------- |
+| ID | Unique integer ID| 
+| NPC| Target NPC Raid - Click to change| 
+| NPC Level| NPC Level| 
+| Affiliated Area ID| 
+| Position| X,Y,Z position of the raid|
+| Description| Raid description| 
