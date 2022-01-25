@@ -218,8 +218,98 @@ L2H lets you edit almost any item in the game. Items are split into four categor
 * Etcs - Everything else, including arrows, quest items, consumables and so on.
 * Sets
 
+Items share some basic properties, but each item type has properties unique to that type. 
+
+I've exposed almost all interesting properties for users to modify. I've hidden the hundreds of properties that aren't of use to content modding. The hidden stuff is mostly client-side stuff, like how an armor piece fits each race model, rotation and so on.
+
+Most properties are self-explanatory, but some are a bit more obscure. Below are descriptions of each item property.
+
 #### Weapons
 ![Items_Weapon_Text](https://user-images.githubusercontent.com/76498760/150889947-e492d28b-37d1-4b4d-a365-d92c7cfcf2a5.png)
+| Base Property      | Description |
+| ----------- | ----------- |
+| ID  | Unique integer Item ID. | 
+| Template      | Item ID this item is copied from. This is an L2H property to keep track of custom item origins.       |
+| Name ID   | Unique string ID      |
+| Grade | Grade from none to s84| 
+| Type | Item type| 
+| In-Game Name | Name of item as shown in-game| 
+| Sub Type | Specific type of weapon| 
+| Additional Name | Added name to item. This is usually "Focus" or "Haste" etc| 
+| Slot Type| Where this item is equipped| 
+| Price | Base price before any taxes are applied| 
+| Durability | Used for shadow weapons. If -1, it's permanent. Any value above 0 is minutes the item can be equipped before disappearing|
+| Duration| How long the item exists after spawning| 
+| Weight | Weight| 
+| Enchanted| Amount of enchants the base item has| 
+
+| Appearance Property      | Description |
+| ----------- | ----------- |
+| Mesh 1-2| 3D model used to display the item in-game. Usually only 1 mesh is used. More can be used (for dual swords for instance)| 
+| Drop Mesh 1-3 | 3D model used to display the item on the ground. Usually only 1 mesh is used| 
+| Effect| Visual Effect| 
+| Texture 1-4| Texture used on Mesh 1-2| 
+| Drop Texture 1-4| Texture used on Drop Mesh 1-3| 
+| Equip Sound | Sound played when equipping item| 
+| Drop Sound | Sound played when dropping item| 
+| Sound 1-4 | Sound played when using item| 
+| Icon 1-5 | Icon used for item in-game. Usually only 1 icon is used| 
+
+| Combat Property      | Description |
+| ----------- | ----------- |
+| Physical Attack | P.Atk value| 
+| Magical Attack | M.Atk value| 
+| Crit Rate | Added chance of critical strike| 
+| Hit Rate| Added chance of hitting target| 
+| Attack Range| Max distance before an attack can happen| 
+| Damage Range | Not sure| 
+| Attack Speed | Milliseconds delay between attacks. Lower is faster| 
+| Random Damage | Amount damage output may vary| 
+| Attack Attribute| Damage Type (Fire, Water, Wind, Earth, Holy, Unholy)| 
+| Attribute Value | %Amount of damage is of Attack Attribute. Example: Attack attribute is set to Holy, Attribute value is set to 20. This means mean 20% of damage is holy, 80% is physical|
+| Shield Rate|Added Chance of blocking| 
+| Shield P Defense | Physical defense value added on successful block| 
+| Evasion| Added chance to avoid taking damage| 
+| Resistances| Adds attribute resistances| 
+
+| Conditions Property      | Description |
+| ----------- | ----------- |
+| Crystallizable| Can this item be crystallized and how many crystals will it make when crystallized|  
+| Hero| Is item for heroes only| 
+| Droppable | Can item be dropped| 
+| Tradable| Can item be traded| 
+| Private Store-able| Can Item be sold in private stores| 
+| Destructible| Can item be destroyed| 
+| Enchantable| Can item be enchanted| 
+| Use Elemental Attribute| Will item use its elemental attribute on attack| 
+| Magic Weapon| Is this item considered a magic weapon| 
+| NPC Use Only| Is this item only for NPCs| 
+| Allowed in Olympiad| Can this item be used during Olympiad battles| 
+| For Premium Users Only| Is this item restricted to accounts with premium status| 
+| Equip| Conditions for equipping the item. This can be level requirements or restricting item to certain races| 
+| Situational| Restrictions for when this item can be used when equipped. This is the item's behavior, you can set this to no_attack to prevent it from attacking if you want | 
+| Use| Conditions for using this item| 
+
+| Triggers Property      | Description |
+| ----------- | ----------- |
+| Soulshot Cost| How many soulshots item will use per attack| 
+| Spiritshot Cost| How many spiritshots item will use per spell| 
+| Reduce SS Chance| % Chance to reduce soulshot cost| 
+| Reduce SS Count| Soulshot cost reduced by this amount if reduce SS chance triggers| 
+| Reduce SPS Chance| % Chance to reduce spiritshot cost| 
+| Reduce SPS Count| Spiritshot cost reduced by this amount if reduce SPS chance triggers| 
+| MP Per Attack| MP cost per attack| 
+| +4 Skill| Gives this skill when enchanted to +4| 
+| Reuse Delay| Cooldown for reusing this item| 
+| Reuse Group| Shares cooldown with items in the same group| 
+| Equip Delay| Cooldown for equipping this item again| 
+| Item Skill| Active skill cast when using item| 
+| MP Cost per Use| MP cost when using Item Skill| 
+| Attack Skill| Skill triggering when attacking| 
+| Critical Skill| Skill triggering when a critical strike occurs| 
+| Magic Skill and Chance | Skill triggering when casting a spell at % chance| 
+| Unequip Skill| Skill triggered when unequipping item| 
+| Multi Skills| Skills provided by item when equipped, usually passive skills| 
 
 #### Armors
 ![Items_Armor](https://user-images.githubusercontent.com/76498760/150892233-4ec5777d-b950-4c6d-aa84-00bab658efca.png)
