@@ -439,7 +439,36 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 | Capsuled Items | Does this item give any items when used| 
 
 #### Sets
+Sets are a combination of different items that, when equipped together, provide a bonus to the player.
+
+Sets are tied to the **Chest Piece** of the set. The chest holds the reference to all other set pieces. Because of this structure, a chest piece cannot be part of more than one set. Well, maybe it can, but you definitely won't be able to see it reflected in-game. In short, keep sets to one chest piece.
+
+To create a set, make sure no set is selected, then click the "Create New Set" button in the middle of the screen.
+
+Select a set you want to edit. You should see something like this:
 ![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
+If you want to add any items to the set, click an empty slot. A popup will appear, showing you only valid options for that slot.
+If you want to change any set pieces, click on the set piece. A popup will appear, showing you only valid options for that slot.
+If you want to remove an item from a set, right click the set piece.
+
+It's that simple.
+
+Each set has different properties.
+
+
+| Set Property      | Description |
+| ----------- | ----------- |
+| Set Name| Give the set a name. Only visible in L2H| 
+| Set ID| Unique integer identifier| 
+| Template| ID of set this set is based on| 
+| Set Skill| Skill triggered when full set is equipped| 
+| Set Effect Skill| Set bonus effect enabled when full set (except for offhand) is equipped| 
+| Set Effect Skill (With Additional Slot)| Set bonus effect enabled when full set (including offhand) is equipped. This does not remove the regulard effect skill, but stacks with it| 
+| Enchanted Skill and #Enchants Required| Skill enabled when each set item is enchanted to # number of enchants| 
+| Description| Description of Set Effect Skill in-game. This has no effect on the actual skill bonus, this is only text visible to the player| 
+| Additional Description | Description of Set Effect Skill (With Additional Slot) in-game. This has no effect on the actual skill bonus, this is only text visible to the player| 
+| Enchanted Description | Description of Enchanted Skill. This has no effect on the actual skill bonus, this is only text visible to the player| 
+| Attribute Bonuses| Fixed bonuses to stats when a full set (except for offhand) is equipped| 
 
 ---
 
