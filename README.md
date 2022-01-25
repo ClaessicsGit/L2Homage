@@ -121,6 +121,8 @@ Take a Duelist for examples. It includes the "Gladiator" class, which includes t
 
 Modifying a base class will affect all of the classes which include that specific base class.
 
+---
+
 ### Droplists
 I wanted to keep droplist editing simple, so I designed a custom system for this purpose. The first thing L2H does, is to _separate_ all drops from NPCs. All the drops are then stored and _assigned_ to each NPC. L2H keeps references to droplists across NPCs, which means you can _reuse_ the same droplists for different NPCs, if you so like. If you assign the same droplist to multiple NPCs, any changes you make to the droplist will affect the drops of all those NPCs. It's pretty neat.
 
