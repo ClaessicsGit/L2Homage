@@ -25,7 +25,7 @@ L2H wouldn't be here if it wasn't for:
 - Sindelia of PlayINERA
 - Matrix (EDL Team)
 - And many, many more who provided answers when I needed them. Thank you! If I forgot to mention anyone, please let me know, you deserve the credit.
-- Above all, thank you to the doctors and nurses who kept me alive these past years. L2H is a passion project, developed before, during and after my fight with leukemia. If you find some weird or bad code, this will also be my go-to excuse.
+- Above all, thank you to the doctors and nurses who kept me alive these past years. L2H is a passion project, developed before, during and after my fight with leukemia. If you find some weird or bad code, that will also be my go-to excuse.
 
 ## Current Features
 - Add, delete or modify weapons
