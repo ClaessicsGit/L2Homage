@@ -154,7 +154,7 @@ Changing the experience curve does not automatically change NPC levels or player
 #### Experience Algorithms
 I've implemented five different experience algorithms. You can always click the "Reset EXP Table" button to revert changes to the EXP table, but any changes made with these algorithms are _permanent_. Make sure you know what you're doing. Also, keep a backup. Always keep a backup.
 
-##### **Recalculate NPC EXPERIENCE based on LEVELS**
+#### **Recalculate NPC EXPERIENCE based on LEVELS**
 Maintains all NPC LEVELS and adjusts the EXPERIENCE values of all NPCs. The EXP value assigned will be the lowest EXP value of that level. 
 Example:
 1. Orc is level 2 with 300 EXP.
