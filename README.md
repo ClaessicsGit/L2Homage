@@ -211,14 +211,20 @@ Compares the original level value with the new level value and adjusts the REPUT
 ---
 
 ### Items
-L2H lets you edit almost any item in the game. Items are split into four categories:
+L2H lets you edit almost any item in the game. 
+
+To create a new item, find an item you want to use as a template. Select it, and click the "Clone" button. You can also delete an item, but you should only ever delete custom items. Deleting original content causes trouble.
+The module button does nothing by default, but you can program your own module for modifying items.
+
+Items are split into four categories:
 
 * Weapons
 * Armors - All armor types, including accessories and decorations.
 * Etcs - Everything else, including arrows, quest items, consumables and so on.
 * Sets
 
-Items share some basic properties, but each item type has properties unique to that type. 
+Items share some basic properties, but each item type has properties unique to that type.
+
 
 I've exposed almost all interesting properties for users to modify. I've hidden the hundreds of properties that aren't of use to content modding. The hidden stuff is mostly client-side stuff, like how an armor piece fits each race model, rotation and so on.
 
@@ -313,9 +319,69 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 
 #### Armors
 ![Items_Armor](https://user-images.githubusercontent.com/76498760/150892233-4ec5777d-b950-4c6d-aa84-00bab658efca.png)
+| Base Property      | Description |
+| ----------- | ----------- |
+| ID  | Unique integer Item ID. | 
+| Template      | Item ID this item is copied from. This is an L2H property to keep track of custom item origins.       |
+| Name ID   | Unique string ID      |
+| Grade | Grade from none to s84| 
+| Armor Type | Armor type| 
+| In-Game Name | Name of item as shown in-game| 
+| Body Part | Body part of armor item| 
+| Additional Name | Added name to item| 
+| Price | Base price before any taxes are applied| 
+| Durability | Used for shadow weapons. If -1, it's permanent. Any value above 0 is minutes the item can be equipped before disappearing|
+| Duration| How long the item exists after spawning| 
+| Weight | Weight| 
+
+| Appearance Property      | Description |
+| ----------- | ----------- |
+| Drop Mesh 1-3 | 3D model used to display the item on the ground. Usually only 1 mesh is used| 
+| Drop Texture 1-4| Texture used on Drop Mesh 1-3| 
+| Equip Sound | Sound played when equipping item| 
+| Drop Sound | Sound played when dropping item| 
+| Sound 1-4 | Sound played when using item| 
+| Icon 1-5 | Icon used for item in-game. Usually only 1 icon is used| 
+
+| Combat Property      | Description |
+| ----------- | ----------- |
+|  Physical Defense|  P.Def |  
+|  Magical Defense|  M.Def|  
+|  Evasion|  Added chance to evade|  
+|  MP Bonus|  MP Bonus when equipped|  
+|  Resistances|  Adds resistances (Fire, Water, Wind, Earth, Holy, Unholy)|  
+
+| Conditions Property      | Description |
+| ----------- | ----------- |
+| Crystallizable| Can this item be crystallized and how many crystals will it make when crystallized| 
+| Droppable | Can item be dropped| 
+| Tradable| Can item be traded| 
+| Private Store-able| Can Item be sold in private stores| 
+| Destructible| Can item be destroyed| 
+| Enchantable| Can item be enchanted| 
+| Use Elemental Attribute| Is item considered Elemental| 
+| Magic Weapon| Is this item considered a magic weapon| 
+| NPC Use Only| Is this item only for NPCs| 
+| Allowed in Olympiad| Can this item be used during Olympiad battles| 
+| For Premium Users Only| Is this item restricted to accounts with premium status| 
+| Equip| Conditions for equipping the item. This can be level requirements or restricting item to certain races| 
+| Situational| Restrictions for when this item can be used when equipped| 
+| Use| Conditions for using this item| 
+
+| Triggers Property      | Description |
+| ----------- | ----------- |
+| +4 Skill| Gives this skill when enchanted to +4| 
+| Reuse Delay| Cooldown for reusing this item| 
+| Reuse Group| Shares cooldown with items in the same group| 
+| Equip Delay| Cooldown for equipping this item again| 
+| Item Skill| Active skill cast when using item| 
+| MP Cost per Use| MP cost when using Item Skill| 
+| Unequip Skill| Skill triggered when unequipping item| 
+| Multi Skills| Skills provided by item when equipped, usually passive skills| 
 
 #### Etcs
 ![Items_Etc](https://user-images.githubusercontent.com/76498760/150892250-e3f64c0a-62bb-4948-9597-ce4faad53580.png)
+
 
 #### Sets
 ![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
