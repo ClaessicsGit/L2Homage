@@ -768,13 +768,53 @@ The value type is tied to the existing types. If all numbers are integers, only 
 ---
 
 ### System Text
-![]
+System Text require no description. It's simple stuff.
 
 ---
 
 ### Zones
+When clicking the zones category, you'll be faced with a world map.
 ![Choose](https://user-images.githubusercontent.com/76498760/150895156-ae4b25f9-7967-48e6-9e6d-7138b6f00003.png)
+
+You can click a part of the world map to go see all the zones in that part of the world. You can also click on the shortcuts on the left, if you don't quite remember where areas of interest are.
+
+When you've selected an area, you'll see something like this:
 ![Spawn](https://user-images.githubusercontent.com/76498760/150895204-fa0507ed-a222-4223-84f1-cafdd2619010.png)
+
+Above is the Execution Grounds area. The list on the left are all the existing spawn areas, available for use. You can hover your mouse over each entry to see exactly where it is. Click on it to lock it into place, and you'll see existing NPC Makers in the NPC Makers block. If no NPC makers exist, you won't see any (for good reasons I'll say)
+
+NPC Makers are responsible for spawning NPCs in an assigned area.
+
+In the example above, I've selected the spawn zone called _dion02_2122_22_. There's only one NPC maker, so I selected that one. I can see the properties next to the NPC Maker list. The properties are:
+
+| NPC Maker Parameters      | Description |
+| ----------- | ----------- |
+| Maker Type| Basic or Extended Maker type| 
+| Initial Spawns| How many spawns are spawned when spawn area is enabled (when starting NPC server for instance)
+| Spawn Time| 
+| Max Spawns| How many spawns can be active in this NPC Maker at once| 
+| Event Name| Only spawns when event is enabled| 
+
+In the top-right corner, you'll see the NPC Maker Spawns block. This is a list of all NPCs assigned to the selected NPC maker. You can add or delete NPC spawns with the buttons just below the spawns.
+
+Below the buttons are the NPC Spawn Parameters. These parameters apply to the selected NPC Maker Spawn:
+
+| NPC Maker Parameters      | Description |
+| ----------- | ----------- |
+| Name| Name of NPC spawning here| 
+| Max Possible Spawns| How many of this specific NPC can spawn in the parent NPC Maker| 
+| Respawn Time| How long does it take for NPC to respawn after being killed| 
+| Respawn Deviance| Variance in respawn time| 
+| Fixed Position(s)| Does NPC spawn in a specific spot or randomly in assigned NPC Maker Area| 
+| X,Y,Z,Yaw,%| If a fixed position is added to the list of fixed positions for this NPC Spawn, the NPC will spawn at the fixed position. X,Y,Z are world coordinates, you can find these by going somewhere in Lineage 2 and writing //loc. Yaw is direction the NPC will look. Value ranges from 0-65535. % is chance of this spawn point being selected when spawning. You can add more if you want to annoy users by making them running around for an NPC that can spawn a number of specific places. I'm looking at you Master Toma| 
+| Database Name| Name used for storing NPC spawn data in database| 
+| Database Save| 
+| Boss Respawn| If Boss Respawn, cooldowns are preserved across server restarts| 
+| Minions| Does NPC spawn minions| 
+| Nickname| Nickname| 
+| Maker AI| Specific AI used for this NPC Maker| 
+| Maker AI Parameters| AI Parameters for AI assigned above
+
 ![Hunting](https://user-images.githubusercontent.com/76498760/150895166-9c2fd813-e163-4f8f-8ea1-afdae9b4d82f.png)
 ![Name](https://user-images.githubusercontent.com/76498760/150895179-3223bb2b-fa2f-4dc3-8b21-8c2a0c82130c.png)
 ![Raid](https://user-images.githubusercontent.com/76498760/150895195-6941f9e3-839a-49ee-8b5b-5517d0b5ff98.png)
