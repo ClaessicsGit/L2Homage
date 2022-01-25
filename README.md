@@ -473,7 +473,42 @@ Each set has different properties.
 ---
 
 ### Multisell
+Multisell is the term for NPC traders in the game.
+
+Adding a multisell to the actual game requires editing the AI and HTML files, but you can freely edit existing ones, if you don't feel like doing that.
 ![Multisell](https://user-images.githubusercontent.com/76498760/150894788-59b50377-cfe1-4c33-8542-78767b2ed474.png)
+
+There are four types of settings for a multisell list.
+
+| Multisell Property      | Description |
+| ----------- | ----------- |
+| Taxed| Will this multisell give castle owners tax| 
+| Keep Enchants| Will items traded from NPCs keep their enchants when transferred to the player| 
+| Show All| Will NPC show all items for sale, or only the items the player can purchase (useful for huge multisell lists)| 
+| Show Variations | Will NPC show different types of the same weapon base (used for NPCs selling enchanted stuff)| 
+
+You can also assign a required NPC, as an added security measure. If a multisell has a required NPC, it cannot work for any other NPCs, even if it's assigned to it through AI and HTML.
+
+There are two parts to a multisell list. A sale and a cost.
+
+A sale is one or more items (a bundle) for sale. It is a single transaction.
+
+A cost is the price for that one transaction.
+
+Usually, there's only one thing in a sale, with one or more items as its cost. There _can_ be more items for sale though.
+
+The following options are available for multisell sales:
+
+![sales](https://user-images.githubusercontent.com/76498760/151060763-11c9f07c-f7f4-4a8d-b6c0-d57506aa6a4f.png)
+| Sale      |  |
+| ----------- | ----------- |
+| A)|  Move sale up (affects in-game order too)
+| B)|  Move sale down
+| C)|  Remove item from sale bundle. If no other items are in the sale, remove the sale as a whole
+| D)|  Add item to the sale bundle
+| E)|  Remove sale
+
+You can also adjust the castle tax base value above the costs. This is the amount that's used to generate income for castle owners. It is independent from the actual cost of the item.
 
 ---
 
