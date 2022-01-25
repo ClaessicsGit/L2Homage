@@ -58,7 +58,8 @@ L2H wouldn't be here if it wasn't for:
 1. Download the newest L2H release and extract it in a folder of your choice.
 2. Copy and paste the content of your Lineage 2 High Five "system" folder into the "Data/Encrypted Client Files" folder.
 3. Copy and paste the files from your server's "script" folder into the "Data/Server" folder.
-4. Open L2Homage.exe.
+4. Pase images into the Images folder
+5. Open L2Homage.exe.
 
 ## Usage
 ### Initialization
@@ -183,10 +184,33 @@ Compares the original level value with the new level value and adjusts the REPUT
 **EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
 ### Items
+L2H lets you edit almost any item in the game. Items are split into four categories:
+
+* Weapons
+* Armors - All armor types, including accessories and decorations.
+* Etcs - Everything else, including arrows, quest items, consumables and so on.
+* Sets
+
 #### Weapons
 ![Items_Weapon_Text](https://user-images.githubusercontent.com/76498760/150889947-e492d28b-37d1-4b4d-a365-d92c7cfcf2a5.png)
 
 #### Armors
-#### Etcs
-#### Sets
+![Items_Armor](https://user-images.githubusercontent.com/76498760/150892233-4ec5777d-b950-4c6d-aa84-00bab658efca.png)
 
+#### Etcs
+![Items_Etc](https://user-images.githubusercontent.com/76498760/150892250-e3f64c0a-62bb-4948-9597-ce4faad53580.png)
+
+#### Sets
+![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
+
+### Multisell
+
+### NPCs
+
+### Recipes
+
+### Skills
+
+### System Text
+
+### Zones
