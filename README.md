@@ -184,6 +184,8 @@ Compares the original level value with the new level value and adjusts the REPUT
 
 ### Items
 #### Weapons
+![Items_Weapon_Text](https://user-images.githubusercontent.com/76498760/150889947-e492d28b-37d1-4b4d-a365-d92c7cfcf2a5.png)
+
 #### Armors
 #### Etcs
 #### Sets
