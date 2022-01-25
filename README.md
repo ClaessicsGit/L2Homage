@@ -182,3 +182,9 @@ Compares the original level value with the new level value and adjusts the SKILL
 Compares the original level value with the new level value and adjusts the REPUTATION POINTS PER KILL value by the percentage difference..
 **EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
+### Items
+#### Weapons
+#### Armors
+#### Etcs
+#### Sets
+
