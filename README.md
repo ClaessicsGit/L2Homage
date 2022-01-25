@@ -787,13 +787,17 @@ NPC Makers are responsible for spawning NPCs in an assigned area.
 
 In the example above, I've selected the spawn zone called _dion02_2122_22_. There's only one NPC maker, so I selected that one. I can see the properties next to the NPC Maker list. The properties are:
 
-| NPC Maker Parameters      | Description |
-| ----------- | ----------- |
-| Maker Type| Basic or Extended Maker type| 
-| Initial Spawns| How many spawns are spawned when spawn area is enabled (when starting NPC server for instance)
-| Spawn Time| 
-| Max Spawns| How many spawns can be active in this NPC Maker at once| 
-| Event Name| Only spawns when event is enabled| 
+| NPC Maker Parameters      | Maker Type | Description |
+| ----------- | ----------- | ----------- |
+| Maker Type| | Basic or Extended Maker type| 
+| Initial Spawns| Basic | How many spawns are spawned when spawn area is enabled (when starting NPC server for instance)
+| Spawn Time| Basic | 
+| Max Spawns| Both | How many spawns can be active in this NPC Maker at once| 
+| Name| Extended | Unique string ID of NPC Maker| 
+| AI| Extended | Assigned AI for NPC Maker|
+| AI Parameters| Extended | Parameters for Above| 
+| Flying| Extended| NPC Maker can spawn NPCs in air| 
+| Banned Territory| Extended| NPC Maker cannot spawn NPCs in banned territories| 
 
 In the top-right corner, you'll see the NPC Maker Spawns block. This is a list of all NPCs assigned to the selected NPC maker. You can add or delete NPC spawns with the buttons just below the spawns.
 
