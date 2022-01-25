@@ -58,8 +58,9 @@ L2H wouldn't be here if it wasn't for:
 1. Download the newest L2H release and extract it in a folder of your choice.
 2. Copy and paste the content of your Lineage 2 High Five "system" folder into the "Data/Encrypted Client Files" folder.
 3. Copy and paste the files from your server's "script" folder into the "Data/Server" folder.
-4. Pase images into the Images folder
-5. Open L2Homage.exe.
+4. If you have any images, put them into the Images folder.
+5. If you have any AI files, put them into the "Data/AI" folder.
+6. Open L2Homage.exe.
 
 ## Usage
 ### Initialization
