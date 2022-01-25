@@ -139,6 +139,25 @@ This is the most commonly used droplist in L2. If you only use single droplists,
 
 L2H shows which single droplists are assigned, and the probability of them triggering. You can edit this freely. 
 
+**WARNING**
+
+If the trigger chance of all the drops in a single droplist, or all the single droplists in a multi droplist exceeds 100, only the first 100 will work.
+
+Example:
+1. Gremlin has a single droplist assigned
+2. The single droplist has 5 items that can drop, each with 20% chance to trigger
+3. You decide to increase the drop chance of the first item to 50%
+4. The gremlin now has:
+* 50% chance to drop item 1
+* 20% chance to drop item 2
+* 20% chance to drop item 3
+* 10% chance to drop item 4
+* 0% chance to drop item 5
+
+The same applies to single droplists inside of a multi droplist.
+
+**WARNING**
+
 ### Experience
 L2H allows you to modify the experience curve.
 ![experience_text](https://user-images.githubusercontent.com/76498760/150886936-3dce12d0-6cab-4145-9ae7-b7084704c6ae.png)
