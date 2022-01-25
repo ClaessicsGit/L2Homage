@@ -146,39 +146,39 @@ The experience value for each level is visualized with a dot on a graph, and sho
 To edit the experience curve, you can input the values in the boxes or simply drag the dots if you prefer to work visually.
 
 **WARNING**
-Changing the experience curve does not automatically change NPC levels or player levels! Each level is defined by the amount of exp the NPC or player has. Any change to the experience curve should be one of the very first things you do for a project. If you change the experience curve later, you'll have to manually edit all NPCs to fit your new settings. I've tried adding some custom algorithms to alleviate this issue, but it'll only take you so far.
+
+Changing the experience curve does not automatically change NPC levels or player levels! Each level is defined by the amount of exp the NPC or player has. Any change to the experience curve should be one of the very first things you do for a project. If you change the experience curve later, you'll have to manually edit all NPCs to fit your new settings. I've tried adding some custom algorithms to alleviate this issue, but it'll only take you so far. 
+
 **WARNING**
 
 #### Experience Algorithms
-##### Recalculate NPC EXPERIENCE based on LEVELS
+I've implemented five different experience algorithms. You can always click the "Reset EXP Table" button to revert changes to the EXP table, but any changes made with these algorithms are _permanent_. Make sure you know what you're doing. Also, keep a backup. Always keep a backup.
+
+##### **Recalculate NPC EXPERIENCE based on LEVELS**
 Maintains all NPC LEVELS and adjusts the EXPERIENCE values of all NPCs. The EXP value assigned will be the lowest EXP value of that level. 
-
 Example:
-
 1. Orc is level 2 with 300 EXP.
 2. You change the EXP curve so level 2 starts at 400 exp.
 3. Orc would now be considered level 1, even though all entries still show it as level 2.
 4. Clicking the **Recalculate NPC EXPERIENCE based on LEVELS** algorithm will recalculate the EXP value of the NPC and set it to 400.
 
-#### Recalculate NPC LEVELS based on EXPERIENCE
+#### **Recalculate NPC LEVELS based on EXPERIENCE**
 Maintains all NPC EXPERIENCE values and adjusts the LEVEL of all NPCs.
-
 Example:
-
 1. Orc is level 2 with 300 EXP.
 2. You change the EXP curve so level 2 starts at 400 exp.
 3. Orc would now be considered level 1, even though all entries still show it as level 2.
 4. Clicking the **Recalculate NPC LEVELS based on EXPERIENCE** algorithm will recalculate the LEVEL of the NPC and set it to 1.
 
-#### Recalculate NPC EXPERIENCE PER KILL based on LEVELS
+#### **Recalculate NPC EXPERIENCE PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the EXPERIENCE PER KILL value by the percentage difference.
 **EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
-#### Recalculate NPC SKILL POINTS PER KILL based on LEVELS
+#### **Recalculate NPC SKILL POINTS PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the SKILL POINTS PER KILL value by the percentage difference..
 **EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
-#### Recalculate NPC REPUTATION POINTS PER KILL based on LEVELS
+#### **Recalculate NPC REPUTATION POINTS PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the REPUTATION POINTS PER KILL value by the percentage difference..
 **EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
