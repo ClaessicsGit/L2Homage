@@ -380,8 +380,63 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 | Multi Skills| Skills provided by item when equipped, usually passive skills| 
 
 #### Etcs
-![Items_Etc](https://user-images.githubusercontent.com/76498760/150892250-e3f64c0a-62bb-4948-9597-ce4faad53580.png)
+![Items_Etc](https://user-images.githubusercontent.com/76498760/151055217-71a625b9-ae90-43b5-a55c-a1a2a29f6489.png)
+| Base Property      | Description |
+| ----------- | ----------- |
+| ID  | Unique integer Item ID. | 
+| Template      | Item ID this item is copied from. This is an L2H property to keep track of custom item origins.       |
+| Name ID   | Unique string ID      |
+| Grade | Grade from none to s84| 
+| Type | Item type| 
+| In-Game Name | Name of item as shown in-game| 
+| Item Type | Specific item type| 
+| Additional Name | Added name to item. This is usually "Focus" or "Haste" etc| 
+| Etc Type| Specific sub type of Etc items| 
+| Price | Base price before any taxes are applied| 
+| Durability | Used for shadow weapons. If -1, it's permanent. Any value above 0 is minutes the item can be equipped before disappearing|
+| Duration| How long the item exists after spawning| 
+| Weight | Weight| 
+| Family| Not entirely sure of this one| 
 
+| Appearance Property      | Description |
+| ----------- | ----------- |
+| Drop Mesh 1-3 | 3D model used to display the item on the ground. Usually only 1 mesh is used| 
+| Drop Texture 1-4| Texture used on Drop Mesh 1-3| 
+| Equip Sound | Sound played when equipping item| 
+| Item Sound | Sound played when dropping or using item| 
+| Icon 1-5 | Icon used for item in-game. Usually only 1 icon is used| 
+
+| Conditions Property      | Description |
+| ----------- | ----------- |
+| Crystallizable| Can this item be crystallized and how many crystals will it make when crystallized| 
+| Droppable | Can item be dropped| 
+| Tradable| Can item be traded| 
+| Private Store-able| Can Item be sold in private stores| 
+| Destructible| Can item be destroyed| 
+| Stackable| Can item be stacked, and how much|
+| Enchantable| Can item be enchanted| 
+| Use Elemental Attribute| Is item considered Elemental| 
+| Magic Weapon| Is this item considered a magic weapon| 
+| NPC Use Only| Is this item only for NPCs| 
+| Allowed in Olympiad| Can this item be used during Olympiad battles| 
+| For Premium Users Only| Is this item restricted to accounts with premium status| 
+| Equip| Conditions for equipping the item. This can be level requirements or restricting item to certain races| 
+| Situational| Restrictions for when this item can be used when equipped| 
+| Use| Conditions for using this item| 
+
+| Triggers Property      | Description |
+| ----------- | ----------- |
+| Item Skill| Active skill cast when using item| 
+| MP Cost per Use| MP cost when using Item Skill| 
+| Unequip Skill| Skill triggered when unequipping item| 
+| +4 Skill| Gives this skill when enchanted to +4| 
+| Reuse Delay| Cooldown for reusing this item| 
+| Reuse Group| Shares cooldown with items in the same group| 
+| Equip Delay| Cooldown for equipping this item again| 
+| Consume Type| What happens when this item is triggered|
+| Default Action| What happens when this item is used|
+| Multi Skills| Skills provided by item when equipped, usually passive skills| 
+| Capsuled Items | Does this item give any items when used| 
 
 #### Sets
 ![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
