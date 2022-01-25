@@ -232,23 +232,36 @@ L2H lets you edit almost any item in the game. Items are split into four categor
 ---
 
 ### Multisell
+![Multisell](https://user-images.githubusercontent.com/76498760/150894788-59b50377-cfe1-4c33-8542-78767b2ed474.png)
 
 ---
 
 ### NPCs
+![NPCs](https://user-images.githubusercontent.com/76498760/150894909-ddf00150-7a94-4134-b7d4-7374ce43d17f.png)
 
 ---
 
 ### Recipes
+![Recipes](https://user-images.githubusercontent.com/76498760/150894935-9411daa7-093e-4579-b6ff-105ed17a4074.png)
 
 ---
 
 ### Skills
+![Skill](https://user-images.githubusercontent.com/76498760/150895042-f9d9fa74-2627-4149-8454-cc62b2614df9.png)
+
+#### Skill Batch Editing
+![Skill_Batch](https://user-images.githubusercontent.com/76498760/150895078-e9a7f941-fc2a-4e69-93c6-f500c9c14dcd.png)
 
 ---
 
 ### System Text
+![]
 
 ---
 
 ### Zones
+![Choose](https://user-images.githubusercontent.com/76498760/150895156-ae4b25f9-7967-48e6-9e6d-7138b6f00003.png)
+![Spawn](https://user-images.githubusercontent.com/76498760/150895204-fa0507ed-a222-4223-84f1-cafdd2619010.png)
+![Hunting](https://user-images.githubusercontent.com/76498760/150895166-9c2fd813-e163-4f8f-8ea1-afdae9b4d82f.png)
+![Name](https://user-images.githubusercontent.com/76498760/150895179-3223bb2b-fa2f-4dc3-8b21-8c2a0c82130c.png)
+![Raid](https://user-images.githubusercontent.com/76498760/150895195-6941f9e3-839a-49ee-8b5b-5517d0b5ff98.png)
