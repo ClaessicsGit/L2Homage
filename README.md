@@ -113,7 +113,29 @@ You can modify their stats individually by clicking on any of the buttons in the
 
 Specific classes are all classes, including the base classes. 
 In this section, you can modify which skills each class can learn, when they learn it, what it costs, any prerequisites and much more.
+
 You can also choose to include another class as a base. Think of classes in L2 as branches or tiers. If you're tier 3, the game considers you tier 1 and tier 2 as well.
-Take a Duelist for examples. It includes the "Gladiator" class, which includes the "Warrior" class, which includes the "Fighter" class. A duelist is considered all of those classes. Changing base classes affects all of the classes which include that specific base class.
+Take a Duelist for examples. It includes the "Gladiator" class, which includes the "Warrior" class, which includes the "Fighter" class. A duelist is considered all of those classes. 
 
+Modifying a base class will affect all of the classes which include that specific base class.
 
+### Droplists
+I wanted to keep droplist editing simple, so I designed a custom system for this purpose. The first thing L2H does, is to _separate_ all drops from NPCs. All the drops are then stored and _assigned_ to each NPC. L2H keeps references to droplists across NPCs, which means you can _reuse_ the same droplists for different NPCs, if you so like. If you assign the same droplist to multiple NPCs, any changes you make to the droplist will affect the drops of all those NPCs. It's pretty neat.
+
+There are two types of droplists, single and multi.
+
+#### Single Droplist
+![droplists_text](https://user-images.githubusercontent.com/76498760/150884830-c309cea9-66e4-49b7-8b6f-07b7748c7ff3.png)
+A single droplist contains X amount of _drops_, but only _ONE_ drop can trigger per single droplist. Each drop has:
+* %Chance to trigger when killing an assigned NPC.
+* Minimum amount dropped when triggered
+* Maximum amount dropped when triggered
+
+#### Multi Droplist
+![droplists_2_text](https://user-images.githubusercontent.com/76498760/150885966-c03e11df-1e36-49f9-aa86-5aafccb08706.png)
+A multi droplist contains X amount of _single droplists_. Each single droplist can trigger independently.
+This is the most commonly used droplist in L2. If you only use single droplists, each NPC would only be able to drop one thing at a time. That'd be a bit boring.
+
+L2H shows which single droplists are assigned, and the probability of them triggering. You can edit this freely. 
+
+### Experience
