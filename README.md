@@ -604,22 +604,166 @@ Now, about those AI settings I mentioned earlier.
 If you have AI files that can be read, and are placed in the Data/AI folder, you can click the "AI" button next to the delete button. That'll open a popup, showing you all the different variables for the AI assigned to the NPC, _including_ any variables of inherited NPC AI files. For Vrykolakas, it looks like this:
 
 ![text](https://user-images.githubusercontent.com/76498760/151066571-4e9a1f43-3139-486b-9ce2-b7e733997a4d.png)
-It's simple to edit. Toggle any variables on/off you want to, and fill in the values. That's it. You can't change the actual AI this way, but you can modify the existing AI parameters. You can change skills the NPC casts during combat, movement timings and stuff like that.
+
+It's simple to edit. Toggle variables on/off and fill in the values. That's it. You can't change the actual AI this way, but you can modify the existing AI parameters. You can change skills the NPC casts during combat, movement timings and stuff like that.
 
 
 
 ---
 
 ### Recipes
+The recipe page is for editing existing recipes. You cannot add recipes in here. Why, you may ask? Well, that's because recipes are tied to the item that teaches you that recipe. If you want to create a new recipe, go to the items page, find a recipe and clone it. The new, cloned recipe will appear in the Recipes page for you to edit.
+
 ![Recipes](https://user-images.githubusercontent.com/76498760/150894935-9411daa7-093e-4579-b6ff-105ed17a4074.png)
+
+Recipes have at least one outcome, two at most. You can click the outcome buttons to change the result of a recipe.
+
+You can also edit the amount of items a recipe creates. 
+
+Below the amount, you can edit the chance for that specific outcome to happen. **You have to make sure the chances of the outcomes equal 100%.**
+
+Required materials are listed below, in the Materials section. A recipe can have at most 11 types of required materials. You can add or replace an item by clicking the image or an empty slot. To remove an item from the recipe, use right click instead. Simple as that.
+
+Recipes have the following properties:
+
+| Misc Specifics Property      | Description |
+| ----------- | ----------- |
+| Owner Item ID| Name of the item referencing this specific recipe| 
+| Recipe ID| Unique integer ID| 
+| Name ID| Unique string ID| 
+| Craft Level| Level of item crafting skill required to learn and use this recipe| 
+| MP Cost| MP cost of recipe per craft| 
+| Success rate| Success rate of recipe in %| 
+| Common Recipe| Is recipe common| 
+| Require Extra Craft Recipe| Does recipe require an additional recipe on top of material costs| 
+| Description| Description of recipe| 
 
 ---
 
 ### Skills
+L2H allows for modifying and cloning existing skills. 
 ![Skill](https://user-images.githubusercontent.com/76498760/150895042-f9d9fa74-2627-4149-8454-cc62b2614df9.png)
 
+Skills are either Active, Passive or Toggleable.
+
+There's _a lot_ of properties for skills. Let's get into it.
+
+First of all, skills can come in different varieties. Each variety of a skill is available in the "Variants" block. You can navigate freely between them.
+
+If you want to add a skill, find it and click "Clone". To add more levels to your new skill, click the "Add Levels" button below the "Levels" block.
+
+You can also delete custom skills and batch edit all levels of a skill at once - we'll get back to that later.
+
+First, let's get all those properties out of the way:
+| Base Property      | Description |
+| ----------- | ----------- |
+| ID | Unique Integer ID| 
+| Template | ID of skill this skill is based on| 
+| Name ID| Unique string ID| 
+| In-Game Name| Name of skill as seen In-Game| 
+| Level| Level of skill| 
+| Client Category| The group in which this skill appears in the skill list ingame| 
+| Magic Skill| Is skill considered Magic| 
+| Magic Level| Magic Level of skill. Used for calculating hit chance, crit chance and more| 
+| Attribute, Type and Value| Attribute of skill (fire, wind, etc etc), the type and value| 
+| Add. Description| Additional Description| 
+| Add. Description 2| Additional Description 2| 
+| Character Animation| The type of animation a character will perform when casting this skill| 
+| Cast Style| I can't recall right now| 
+| Caster Animation Skill Effect| ID of skill effect appearing on caster while casting this skill| 
+| Target Animation Skill Effect| ID of skill effect appearing on target while casting this skill| 
+| Icon 1-2| Icon of skill| 
+
+
+| Casting Property      | Description |
+| ----------- | ----------- |
+| MP Cost (Initial)| MP cost immediately when using skill| 
+| MP Cost (Finish) | MP cost after successfully casting skill| 
+| MP Cost Per Tick| MP cost each tick| 
+| HP Cost| HP cost| 
+| Item Cost| Item required to cast skill| 
+| Etc Cost| Etc stuff required to cast skill| 
+| Cast Range| How far away can this be cast| 
+| Effective Range| How far away is this skill effective - used for still hitting when target runs away| 
+| Cast Time| Base value of how many seconds it takes to cast this skill| 
+| Animation Time| | 
+| Cancel Time Window| How long before the skill is cast can it be cancelled (I think)| 
+| Hit Chance| Added/Reduced chance to hit| 
+| Reuse Delay| Cooldown of skill| 
+| Lock Reuse Delay|| 
+
+
+| Targeting Property      | Description |
+| ----------- | ----------- |
+| Target Type| What can skill be used on| 
+| Target Object| What kind of relation is required to attack the target (friend, enemy, all etc)
+| Scope| How does the skill hit, single or AoE, what type of AoE etc| 
+| Affect Range| If AoE, how far does skill hit| 
+| Fan Range| If fan, how does the fan look - think of it as a cone| 
+| Scope Height| How far does skill hit vertically| 
+| Target Limits| How many targets can skill hit, min/max| 
+
+
+| Effects Property      | Description |
+| ----------- | ----------- |
+| Server Operate Type| Skill Type - Described in dropdowns| 
+| Start Effect| This happens as soon as you start casting skill| 
+| Effect| This happens when skill is cast| 
+| Self Effect| This happens to yourself when you cast the skill| 
+| Tick Effect| This happens at every tick interval| 
+| Attached Skill| Skill is cast at every tick interval| 
+| Tick Interval| How often does the skill tick| 
+| End Effect| What happens when the skill ends| 
+| PvP Effect| Does skill behave differently in PVP| 
+| PvE Effect| Does skill behave differently in PvE| 
+
+
+| Buffs/Debuffs Property      | Description |
+| ----------- | ----------- |
+| Type| Type of buff/debuff| 
+| Duration| Duration of buff/debuff| 
+| Trait| Trait of buff/debuff| 
+| Buff/Debuff Level| Level of buff/debuff. Used for calculating hit chance, resistances etc| 
+| Buff/Debuff Protect Level| Same as above| 
+| Debuff | Is skill considered debuff| 
+| Irreplacable| If skill is irreplacable, it cannot be removed with debuffs| 
+| Instant Effect| No delay for skill, usually for instant effect when picking up herbs| 
+| Remove On Logout| Does buff/debuff disappear when character logs out| 
+
+
+| Conditions Property      | Description |
+| ----------- | ----------- |
+| Operate Condition| When can player use this skill| 
+| Target Operate Condition| When can skill be used on specific target| 
+| Passive Condition| Constant restrictions| 
+| Basic Property| 
+| Ride State| Can this skill be used while mounted| 
+| Allow in Olympiad| Can skill be used in Olympiad Battles| 
+| Block Action Use Skill| | 
+| Multi Class| | 
+
+| Misc Property      | Description |
+| ----------- | ----------- |
+| Next Action| Automatically perform an action after skill is cast. Continuing attack target for instance, when using melee skills| 
+| Transform Type| 
+
+
+Enchanted skills are not as easily edited in High Five, but I've exposed the variables I could find.
+
+
 #### Skill Batch Editing
+When editing skills with many different levels, it became apparent that it's way too much work to adjust the values of each level individually. 
+
+Enter **BATCH EDITING**!
+
+Select a skill and click the "Batch" button. You'll be greeted with a popup like this:
+
 ![Skill_Batch](https://user-images.githubusercontent.com/76498760/150895078-e9a7f941-fc2a-4e69-93c6-f500c9c14dcd.png)
+Select a property with the dropdown on the left and easily edit that property across all levels of selected skill. 
+
+You can write the values manually or drag the points if you prefer to work visually.
+
+The value type is tied to the existing types. If all numbers are integers, only integers are allowed. If L2H sees a float value, floats are allowed.
 
 ---
 
