@@ -172,13 +172,13 @@ Example:
 
 #### **Recalculate NPC EXPERIENCE PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the EXPERIENCE PER KILL value by the percentage difference.
-**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+**EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
 #### **Recalculate NPC SKILL POINTS PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the SKILL POINTS PER KILL value by the percentage difference..
-**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+**EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
 #### **Recalculate NPC REPUTATION POINTS PER KILL based on LEVELS**
 Compares the original level value with the new level value and adjusts the REPUTATION POINTS PER KILL value by the percentage difference..
-**EFFECT IS CUMMULATIVE, ONLY DO THIS ONCE PER PROJECT**
+**EFFECT IS CUMULATIVE, ONLY DO THIS ONCE PER PROJECT**
 
