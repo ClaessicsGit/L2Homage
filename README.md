@@ -1,6 +1,8 @@
 # L2Homage
 Customizing Lineage 2
 
+(No fancy banner, I'm not that kind of artist, but I'd love one if you feel like providing it!)
+
 
 ## What is L2Homage
 L2Homage (L2H) is a comprehensive modding tool for files with the same datastructure used for Lineage 2 - High Five. 
