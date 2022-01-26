@@ -73,6 +73,8 @@ L2H wouldn't be here if it wasn't for:
 5. If you have any AI files, put them into the "Data/AI" folder.
 6. Open L2Homage.exe.
 
+If nothing happens when L2Homage.exe is opened, something is wrong with the data files.
+
 ## Usage
 
 Before you start, and this is the most important part, always, always, ALWAYS **REMEMBER TO TAKE BACKUPS!**. To do this, just save a copy of the whole /Data folder somewhere, or simply compress it into an archive. If something breaks, you can just replace the entire data folder with your backup and continue your project. Now then, let's do this.
