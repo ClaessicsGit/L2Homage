@@ -352,6 +352,10 @@ namespace L2Homage
             {
                 DecFile("npcgrp");
             }
+            if (!File.Exists(L2H_Constants.client_NPCstrings_Path))
+            {
+                DecFile("npcstring-e");
+            }
             if (!File.Exists(L2H_Constants.client_Recipes_Path))
             {
                 DecFile("recipe-c");

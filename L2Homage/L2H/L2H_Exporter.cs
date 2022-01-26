@@ -28,7 +28,7 @@ namespace L2Homage
         ExpPage expPage;
         ClassesPage classesPage;
 
-        int numberOfFilesToExport = 22;
+        int numberOfFilesToExport = 23;
         int numberOfThreadsCompleted;
 
         bool exporting = false;
@@ -511,6 +511,7 @@ namespace L2Homage
                 Export_Client_File("mobskillanimgrp");
                 Export_Client_File("npcgrp");
                 Export_Client_File("npcname-e");
+                Export_Client_File("npcstring-e");
                 Export_Client_File("recipe-c");
                 Export_Client_File("skillgrp");
                 Export_Client_File("skillname-e");
@@ -526,6 +527,7 @@ namespace L2Homage
                 Export_Client_File("classinfo-e");
                 Export_Client_File("charcreategrp");
                 Export_Client_File("l2ini");
+
 
             }
         }

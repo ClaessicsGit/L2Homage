@@ -618,6 +618,9 @@
     <Content Include="Tools\mxencdec\encrypt_zonename-e.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Tools\mxencdec\decrypt_npcstring-e.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Tools\mxencdec\l2asm-disasm\dats\actionname-e.ddf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
