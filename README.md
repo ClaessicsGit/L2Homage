@@ -1,7 +1,7 @@
 # L2Homage
 Customizing Lineage 2
 
-(No fancy banner, I'm not that kind of artist, but I'd love one if you feel like providing it!)
+*Imagine a really fancy banner right here*
 
 
 ## What is L2Homage
