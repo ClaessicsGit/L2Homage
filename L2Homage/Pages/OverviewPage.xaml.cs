@@ -266,9 +266,14 @@ namespace L2Homage.Pages
         }
 
 
-        private void Test_Export(object sender, RoutedEventArgs e)
+        private void Start_Export(object sender, RoutedEventArgs e)
         {
-            L2H_Exporter.Instance.Save_All();
+            L2H_Exporter.Instance.Save_All(true);
+        }
+
+        private void Save_Clicked(object sender, RoutedEventArgs e)
+        {
+            L2H_Exporter.Instance.Save_All(false);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace L2Homage
             classesPage = mainWindow.GetPageOfType(typeof(ClassesPage)) as ClassesPage;
         }
 
-        public void Save_All()
+        public void Save_All(bool export)
         {
             if (exporting || !(System.Windows.Application.Current.MainWindow as MainWindow).finishedLoading)
                 return;
@@ -71,7 +71,7 @@ namespace L2Homage
 
             mainWindow.UpdateLog("Initializing export thread..", L2H_Constants.Color_Log_Thread_Begin);
             ThreadWorker exportingThread = new ThreadWorker();
-            exportingThread.Job += (sender, e) => SaveItems(true);
+            exportingThread.Job += (sender, e) => SaveItems(export);
             exportingThread.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "Export Complete");
             Thread thread_ExportAll = new Thread(exportingThread.ThreadProc);
 

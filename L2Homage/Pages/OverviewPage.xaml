@@ -33,7 +33,7 @@
         <Grid Grid.Row="2" Grid.Column="0">
             <StackPanel >
                 <Button x:Name="StartInitializationButton" Height="20" Margin="10,5,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="StartInitializeProcess" Tag="StartInitializeProcess">Start</Button>
-                <Button x:Name="SaveButton" Height="20" Margin="10,0,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Tag="Save">Save</Button>
+                <Button x:Name="SaveButton" Height="20" Margin="10,0,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Tag="Save" Click="Save_Clicked">Save</Button>
             </StackPanel>
             
         </Grid>
@@ -183,7 +183,7 @@
             </StackPanel>
 
 
-            <Button Height="20" Margin="10,10,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="Test_Export">Export</Button>
+            <Button Height="20" Margin="10,10,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="Start_Export">Export</Button>
 
         </StackPanel>
 
