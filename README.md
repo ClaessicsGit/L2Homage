@@ -3,9 +3,18 @@ Customizing Lineage 2
 
 *Imagine a really fancy banner right here*
 
+I'm finally ready to share this. It's taken way, way longer than I hoped for, but here we are. I hope someone out there will put this tool to good use. I've poured a lot of love into this over the years.
+
+Thank you for your patience.
+
+If you have any questions, feel free to join L2Homage discord at https://discord.gg/97yAsCA
+
+- Bumble / Claessic
 
 ## What is L2Homage
 L2Homage (L2H) is a comprehensive modding tool for files with the same datastructure used for Lineage 2 - High Five. 
+
+I originally developed L2H for Lineage 2 - Gracia Epilogue, but I've upgraded it _vastly_. I've even added multithreading to speed up loadtimes, I've polished the interface and interaction design significantly, and it now works for Lineage 2 - High Five. This is the only chronicle I've developed this version for. It will not work for Interlude or anything newer than H5, but feel free to branch this project and convert it to that chronicle if you want to. You have my full support! Let's get modding!
 
 L2H makes modding Lineage 2 files faster, easier and safer, allowing users to rethink and reshape the world of Lineage 2, providing the hordes of burnt out players with new, exciting content, without having to spend hours learning how to manipulate the data structure.
 
@@ -65,6 +74,9 @@ L2H wouldn't be here if it wasn't for:
 6. Open L2Homage.exe.
 
 ## Usage
+
+Before you start, and this is the most important part, always, always, ALWAYS **REMEMBER TO TAKE BACKUPS!**. To do this, just save a copy of the whole /Data folder somewhere, or simply compress it into an archive. If something breaks, you can just replace the entire data folder with your backup and continue your project. Now then, let's do this.
+
 ### Initialization
 In the Initialization block, you should see the "start" button. Click it. Everything should start decrypting and loading.
 If installation was successful, you should see something similar to this:
@@ -877,3 +889,9 @@ Editing raid zones are very similar to editing hunting grounds. It's a simple lo
 | Affiliated Area ID| 
 | Position| X,Y,Z position of the raid|
 | Description| Raid description| 
+
+
+I genuinely look forward to seeing what you guys will create!
+
+Cheers,
+- Bumble / Claessic
