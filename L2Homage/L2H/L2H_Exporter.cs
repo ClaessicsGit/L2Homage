@@ -437,7 +437,7 @@ namespace L2Homage
             File.WriteAllLines(L2H_Constants.client_Raiddata_Path, client_Raids_Lines, Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_Charcreategrp_Path, client_Charcreategrp_Lines, Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_Classinfo_Path, client_Classinfo_Lines, Encoding.GetEncoding(65001));
-            File.WriteAllLines(L2H_Constants.client_L2ini_Path, mainWindow.client_L2Ini.GetExportStrings(overviewPage.L2H_Settings.serverAddress), Encoding.GetEncoding(65001));
+            File.WriteAllLines(L2H_Constants.client_L2ini_Path, mainWindow.client_L2Ini.GetExportStrings(overviewPage.L2H_Settings.serverAddress));
 
             //saving data to server files
             File.WriteAllLines(L2H_Constants.server_Item_PCH_Path, server_Item_PCH_Lines, Encoding.GetEncoding(1200));
