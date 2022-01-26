@@ -32,7 +32,7 @@ L2H wouldn't be here if it wasn't for:
 - L2Miko
 - Rootware
 - PARADISE
-- Badwatermage & the players of L2Knight
+- Badwatermagic & the players of L2Knight
 - Sindelia of PlayINERA
 - Matrix (EDL Team)
 - And many, many more who provided answers when I needed them. Thank you! If I forgot to mention anyone, please let me know, you deserve the credit.
