@@ -66,7 +66,7 @@ L2H wouldn't be here if it wasn't for:
 ### Initialization
 In the Initialization block, you should see the "start" button. Click it. Everything should start decrypting and loading.
 If installation was successful, you should see something similar to this:
-![alt text](https://user-images.githubusercontent.com/76498760/150880428-207ee03f-52f9-4262-a45d-312ecf6ee1f0.png)
+![overview](https://user-images.githubusercontent.com/76498760/151079976-e775c69c-5360-4d5f-b52e-322c413a23c0.png)
 
 Content categories are in the menu on the left. Options are:
 * Overview - Log, initialization and export options.
@@ -95,7 +95,7 @@ Clicking the "Export" button saves any changes and exports both server and clien
 There are two types of classes. The base classes and the specific classes.
 You can choose between class type by clicking one of the two buttons below the ID search field on the left.
 #### Base Classes
-![classes_text](https://user-images.githubusercontent.com/76498760/150883485-879fbcb3-31f0-402a-8a6b-1947ba93f654.png)
+![classes_text](https://user-images.githubusercontent.com/76498760/151079955-42a0c412-17f2-41ca-8b26-2edfd1c9602b.png)
 
 Base classes are:
 * Human Fighter
@@ -112,7 +112,7 @@ Base classes are:
 You can modify their stats individually by clicking on any of the buttons in the four categories on the right, Combat, Stats, Creation and Misc.
 
 #### Specific Classes
-![classes_2_text](https://user-images.githubusercontent.com/76498760/150883772-abfedb42-2117-4fba-a474-ce28192402cd.png)
+![classes_2_text](https://user-images.githubusercontent.com/76498760/151079958-96c221e9-41a5-4f89-ab6e-43343fdc5111.png)
 
 Specific classes are all classes, including the base classes. 
 In this section, you can modify which skills each class can learn, when they learn it, what it costs, any prerequisites and much more.
@@ -130,14 +130,14 @@ I wanted to keep droplist editing simple, so I designed a custom system for this
 There are two types of droplists, single and multi.
 
 #### Single Droplist
-![droplists_text](https://user-images.githubusercontent.com/76498760/150884830-c309cea9-66e4-49b7-8b6f-07b7748c7ff3.png)
+![droplists_text](https://user-images.githubusercontent.com/76498760/151079960-d82f2901-0ed2-44b3-ba8d-056a2bbcdeb9.png)
 A single droplist contains X amount of _drops_, but only _ONE_ drop can trigger per single droplist. Each drop has:
 * %Chance to trigger when killing an assigned NPC.
 * Minimum amount dropped when triggered
 * Maximum amount dropped when triggered
 
 #### Multi Droplist
-![droplists_2_text](https://user-images.githubusercontent.com/76498760/150885966-c03e11df-1e36-49f9-aa86-5aafccb08706.png)
+![droplists_2_text](https://user-images.githubusercontent.com/76498760/151079962-75a43ca7-55ef-400c-902f-09eeb5b39052.png)
 A multi droplist contains X amount of _single droplists_. Each single droplist can trigger independently.
 This is the most commonly used droplist in L2. If you only use single droplists, each NPC would only be able to drop one thing at a time. That'd be a bit boring.
 
@@ -166,7 +166,7 @@ The same applies to single droplists inside of a multi droplist.
 
 ### Experience
 L2H allows you to modify the experience curve.
-![experience_text](https://user-images.githubusercontent.com/76498760/150886936-3dce12d0-6cab-4145-9ae7-b7084704c6ae.png)
+![experience_text](https://user-images.githubusercontent.com/76498760/151079963-b4a4a1c6-1b39-4097-9e40-7ee7bf118f5f.png)
 The experience value for each level is visualized with a dot on a graph, and shown in editable boxes on the right. 
 
 To edit the experience curve, you can input the values in the boxes or simply drag the dots if you prefer to work visually.
@@ -231,7 +231,7 @@ I've exposed almost all interesting properties for users to modify. I've hidden 
 Most properties are self-explanatory, but some are a bit more obscure. Below are descriptions of each item property.
 
 #### Weapons
-![Items_Weapon_Text](https://user-images.githubusercontent.com/76498760/150889947-e492d28b-37d1-4b4d-a365-d92c7cfcf2a5.png)
+![Items_Weapon_Text](https://user-images.githubusercontent.com/76498760/151079969-cb856133-ff66-489e-916e-f023903f0abc.png)
 | Base Property      | Description |
 | ----------- | ----------- |
 | ID  | Unique integer Item ID. | 
@@ -318,7 +318,7 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 | Multi Skills| Skills provided by item when equipped, usually passive skills| 
 
 #### Armors
-![Items_Armor](https://user-images.githubusercontent.com/76498760/150892233-4ec5777d-b950-4c6d-aa84-00bab658efca.png)
+![Items_Armor](https://user-images.githubusercontent.com/76498760/151079964-cf28a540-58f8-4d64-aaea-8ccb773e61de.png)
 | Base Property      | Description |
 | ----------- | ----------- |
 | ID  | Unique integer Item ID. | 
@@ -380,7 +380,7 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 | Multi Skills| Skills provided by item when equipped, usually passive skills| 
 
 #### Etcs
-![Items_Etc](https://user-images.githubusercontent.com/76498760/151055217-71a625b9-ae90-43b5-a55c-a1a2a29f6489.png)
+![Items_Etc](https://user-images.githubusercontent.com/76498760/151079967-50e144ec-f11c-4b0b-8240-e430028fbaad.png)
 | Base Property      | Description |
 | ----------- | ----------- |
 | ID  | Unique integer Item ID. | 
@@ -446,7 +446,7 @@ Sets are tied to the **Chest Piece** of the set. The chest holds the reference t
 To create a set, make sure no set is selected, then click the "Create New Set" button in the middle of the screen.
 
 Select a set you want to edit. You should see something like this:
-![Items_Set](https://user-images.githubusercontent.com/76498760/150892261-415d69da-6e74-4aa4-adc4-555ec1e5d10d.png)
+![Items_Set](https://user-images.githubusercontent.com/76498760/151079968-4f5460b5-1288-443e-8b0b-708629d1180f.png)
 If you want to add any items to the set, click an empty slot. A popup will appear, showing you only valid options for that slot.
 If you want to change any set pieces, click on the set piece. A popup will appear, showing you only valid options for that slot.
 If you want to remove an item from a set, right click the set piece.
@@ -476,7 +476,7 @@ Each set has different properties.
 Multisell is the term for NPC traders in the game.
 
 Adding a multisell to the actual game requires editing the AI and HTML files, but you can freely edit existing ones, if you don't feel like doing that.
-![Multisell](https://user-images.githubusercontent.com/76498760/150894788-59b50377-cfe1-4c33-8542-78767b2ed474.png)
+![Multisell](https://user-images.githubusercontent.com/76498760/151079972-d53d8079-e665-4c01-88dd-8231644fec88.png)
 
 There are four types of settings for a multisell list.
 
@@ -514,7 +514,7 @@ You can also adjust the castle tax base value above the costs. This is the amoun
 
 ### NPCs
 Modifying NPCs is very similar to modifying items. You can clone or delete NPCs, or edit the _properties_ of their AI variables. This is very different from editing their AI. More on that below.
-![NPCs](https://user-images.githubusercontent.com/76498760/150894909-ddf00150-7a94-4134-b7d4-7374ce43d17f.png)
+![NPCs](https://user-images.githubusercontent.com/76498760/151079973-0a004219-c692-435c-a4e8-1872e0b9fdb3.png)
 This is Vrykolakas in all his glory. He was taken from all of us much too soon.
 
 | Base Property      | Description |
@@ -614,7 +614,7 @@ It's simple to edit. Toggle variables on/off and fill in the values. That's it. 
 ### Recipes
 The recipe page is for editing existing recipes. You cannot add recipes in here. Why, you may ask? Well, that's because recipes are tied to the item that teaches you that recipe. If you want to create a new recipe, go to the items page, find a recipe and clone it. The new, cloned recipe will appear in the Recipes page for you to edit.
 
-![Recipes](https://user-images.githubusercontent.com/76498760/150894935-9411daa7-093e-4579-b6ff-105ed17a4074.png)
+![Recipes](https://user-images.githubusercontent.com/76498760/151079977-38d2e6f5-6701-487d-b5ab-4b286dd821bb.png)
 
 Recipes have at least one outcome, two at most. You can click the outcome buttons to change the result of a recipe.
 
@@ -642,7 +642,7 @@ Recipes have the following properties:
 
 ### Skills
 L2H allows for modifying and cloning existing skills. 
-![Skill](https://user-images.githubusercontent.com/76498760/150895042-f9d9fa74-2627-4149-8454-cc62b2614df9.png)
+![Skill](https://user-images.githubusercontent.com/76498760/151079978-97abc548-0958-446b-8267-03a326643583.png)
 
 Skills are either Active, Passive or Toggleable.
 
@@ -758,7 +758,7 @@ Enter **BATCH EDITING**!
 
 Select a skill and click the "Batch" button. You'll be greeted with a popup like this:
 
-![Skill_Batch](https://user-images.githubusercontent.com/76498760/150895078-e9a7f941-fc2a-4e69-93c6-f500c9c14dcd.png)
+![Skill_Batch](https://user-images.githubusercontent.com/76498760/151079980-e5646a26-941a-4dd4-a901-6c466d74bb2e.png)
 Select a property with the dropdown on the left and easily edit that property across all levels of selected skill. 
 
 You can write the values manually or drag the points if you prefer to work visually.
@@ -774,14 +774,14 @@ System Text require no description. It's simple stuff.
 
 ### Zones
 When clicking the zones category, you'll be faced with a world map.
-![Choose](https://user-images.githubusercontent.com/76498760/150895156-ae4b25f9-7967-48e6-9e6d-7138b6f00003.png)
+![Choose](https://user-images.githubusercontent.com/76498760/151079981-0d3207ff-ef71-4e77-a0a9-6f3c063d5abf.png)
 
 You can click a part of the world map to go see all the zones in that part of the world. You can also click on the shortcuts on the left, if you don't quite remember where areas of interest are.
 
 When you've selected an area, you'll be taken to the spawn areas page.
 
 #### Spawns
-![Spawn](https://user-images.githubusercontent.com/76498760/150895204-fa0507ed-a222-4223-84f1-cafdd2619010.png)
+![Spawn](https://user-images.githubusercontent.com/76498760/151079990-ea2ddb1b-58c3-4cc0-ac52-830ac69f6717.png)
 
 Above is the Execution Grounds area. The list on the left are all the existing spawn areas, available for use. You can hover your mouse over each entry to see exactly where it is. Just right of the list of spawn areas, you can see all layers in this part of the world, if it has any. As you may or may not now, there's a catacomb beneath Execution Grounds. You can click the little thumbnail of that map to switch to that layer if you so please. I'll stay above grounds for this documentation though. Above the list of spawn areas, you'll see four buttons; Spawn Areas, Hunting Zones, Zone Names, Raids. Let's start with spawn areas.
 
@@ -829,7 +829,7 @@ Let's move on to Hunting Zones.
 
 #### Hunting Zones
 Hunting zones are the list of areas accessible through the in-game map. It's nothing more than a list of points of interest for users to see. That makes it easy to edit.
-![Hunting](https://user-images.githubusercontent.com/76498760/150895166-9c2fd813-e163-4f8f-8ea1-afdae9b4d82f.png)
+![Hunting](https://user-images.githubusercontent.com/76498760/151079984-d34c5f3d-dfd6-47ab-8bfc-2217a4d0fc7c.png)
 
 Hunting zones are just points in the game world. The properties for a hunting zone are:
 
@@ -847,7 +847,7 @@ That's it for hunting zones.
 #### Zone Names
 Zone names are the names displayed when entering the area in the game. You cannot change the location of these areas, but you can change the existing ones. Well, that's not entirely true, but it's a lot of work to change the areas. It's assigned with a Color ID, targeting a multi-layered image encrypted in the game files, which can tell you exactly which zone you're in when the game reads your location and compares it to the specific layer ID on the encrypted image. In short, it's a hassle. Let's look at the parameters instead.
 
-![Name](https://user-images.githubusercontent.com/76498760/150895179-3223bb2b-fa2f-4dc3-8b21-8c2a0c82130c.png)
+![Name](https://user-images.githubusercontent.com/76498760/151079986-478532cf-03b9-4cef-87d6-695164cdf524.png)
 
 | Zone Names Parameters      | Description |
 | ----------- | ----------- |
@@ -865,7 +865,7 @@ Zone names are the names displayed when entering the area in the game. You canno
 #### Raids
 Editing raid zones are very similar to editing hunting grounds. It's a simple location with an NPC assigned. This doesn't have anything to do with the actual raids, this is for the Raids list accessible through the in-game map.
 
-![Raid](https://user-images.githubusercontent.com/76498760/150895195-6941f9e3-839a-49ee-8b5b-5517d0b5ff98.png)
+![Raid](https://user-images.githubusercontent.com/76498760/151079987-c69e4251-ec50-4002-9871-5ea8001c5323.png)
 
 | Raids Parameters      | Description |
 | ----------- | ----------- |
