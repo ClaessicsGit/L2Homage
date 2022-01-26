@@ -37,6 +37,9 @@
   <PropertyGroup>
     <StartupObject>L2Homage.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=25.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.25.0.0\lib\net47\CsvHelper.dll</HintPath>
@@ -470,6 +473,7 @@
     <EmbeddedResource Include="Libraries\System.Runtime.CompilerServices.Unsafe.xml" />
     <EmbeddedResource Include="Libraries\System.Threading.Tasks.Extensions.dll" />
     <EmbeddedResource Include="Libraries\System.Threading.Tasks.Extensions.xml" />
+    <Resource Include="icon.ico" />
     <Content Include="Tools\mxencdec\decrypt_armorgrp.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -320,7 +320,7 @@ namespace L2Homage
         string set_end_text;
 
 
-        string korean; 
+        string korean;
         string endingText;
 
 
@@ -361,7 +361,7 @@ namespace L2Homage
                     maximum_count = StripExcessServerText(maximum_count_textstart, dataLine[16], maximum_count_textend);
                 else
                 {
-                    maximum_count = "1";
+                    maximum_count = "";
                     emptyVariables++;
                 }
                 soulshot_count = StripExcessServerText(soulshot_count_textstart, dataLine[17 - emptyVariables], soulshot_count_textend);
@@ -563,7 +563,8 @@ namespace L2Homage
 
             if (beginning_text == "item_begin")
             {
-                return
+                string returnString = "";
+                returnString +=
                     beginning_text + '\t' +
                     type + '\t' +
                     itemId + '\t' +
@@ -579,8 +580,12 @@ namespace L2Homage
                     ConvertToServerText(weight_textstart, weight, weight_textend) + '\t' +
                     ConvertToServerText(default_action_textstart, default_action, default_action_textend) + '\t' +
                     ConvertToServerText(consume_type_textstart, consume_type, consume_type_textend) + '\t' +
-                    ConvertToServerText(initial_count_textstart, initial_count, initial_count_textend) + '\t' +
-                    ConvertToServerText(maximum_count_textstart, maximum_count, maximum_count_textend) + '\t' +
+                    ConvertToServerText(initial_count_textstart, initial_count, initial_count_textend) + '\t';
+
+                if (!string.IsNullOrEmpty(maximum_count))
+                    returnString += ConvertToServerText(maximum_count_textstart, maximum_count, maximum_count_textend) + '\t';
+
+                returnString +=
                     ConvertToServerText(soulshot_count_textstart, soulshot_count, soulshot_count_textend) + '\t' +
                     ConvertToServerText(spiritshot_count_textstart, spiritshot_count, spiritshot_count_textend) + '\t' +
                     ConvertToServerText(reduced_soulshot_textstart, reduced_soulshot, reduced_soulshot_textend) + '\t' +
@@ -648,6 +653,8 @@ namespace L2Homage
                     ConvertToServerText(is_premium_textstart, is_premium, is_premium_textend) + '\t' +
                     korean + '\t' +
                     endingText + endingTextWhiteSpace;
+
+                return returnString;
             }
             else
             {

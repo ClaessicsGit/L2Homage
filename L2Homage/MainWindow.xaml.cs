@@ -1,4 +1,4 @@
-﻿//L2Homage - By Bumble
+﻿//L2Homage - By Bumble (Claessic)
 
 using System;
 using System.Collections.Generic;
