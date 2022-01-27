@@ -12,7 +12,7 @@ If you have any questions, feel free to join L2Homage discord at https://discord
 - Bumble / Claessic
 
 ## What is L2Homage
-L2Homage (L2H) is a comprehensive modding tool for files with the same datastructure used for Lineage 2 - High Five. 
+L2Homage (L2H) is a comprehensive modding tool for files with the same datastructure used for Lineage 2 - High Five. That includes the server files. **This is not for L2j!** It will only work with files similar to L2OFF.
 
 I originally developed L2H for Lineage 2 - Gracia Epilogue, but I've upgraded it _vastly_. I've even added multithreading to speed up loadtimes, I've polished the interface and interaction design significantly, and it now works for Lineage 2 - High Five. This is the only chronicle I've developed this version for. It will not work for Interlude or anything newer than H5, but feel free to branch this project and convert it to that chronicle if you want to. You have my full support! Let's get modding!
 
