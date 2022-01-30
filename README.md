@@ -74,8 +74,9 @@ L2H wouldn't be here if it wasn't for:
 2. Copy and paste the content of your Lineage 2 High Five "system" folder into the "Data/Encrypted Client Files" folder.
 3. Copy and paste the files from your server's "script" folder into the "Data/Server" folder.
 4. If you have any images, put them into the Images folder.
-5. If you have any AI files, put them into the "Data/AI" folder.
-6. Open L2Homage.exe.
+5. If you don't care about the images, you still need the worldmap and worldmap thumbnail images, or L2H won't start.
+6. If you have any AI files, put them into the "Data/AI" folder.
+7. Open L2Homage.exe.
 
 If nothing happens when L2Homage.exe is opened, something is wrong with the data files.
 
