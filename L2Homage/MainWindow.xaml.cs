@@ -51,7 +51,7 @@ namespace L2Homage
         public MainWindow()
         {
             InitializeComponent();
-                        
+
             pages = new List<Page>();
             HeaderIcon.Source = BitmapFrame.Create(new Uri("pack://application:,,,/Images/icon.png", UriKind.RelativeOrAbsolute));
             HeaderTitle.Text = "L2 Homage H5 Edition";
@@ -299,30 +299,30 @@ namespace L2Homage
 
         }
 
-        
+
 
         private void LoadL2ini()
         {
-                List<string> l2iniData = new List<string>();
-                if (!File.Exists(L2H_Constants.client_L2ini_Path))
+            List<string> l2iniData = new List<string>();
+            if (!File.Exists(L2H_Constants.client_L2ini_Path))
+            {
+                MessageBox.Show("Couldn't find l2.ini in decrypted client files folder :(");
+            }
+            else
+            {
+                using (TextReader textReader = new StreamReader(L2H_Constants.client_L2ini_Path, Encoding.GetEncoding(65001)))
                 {
-                    MessageBox.Show("Couldn't find l2.ini in decrypted client files folder :(");
-                }
-                else
-                {
-                    using (TextReader textReader = new StreamReader(L2H_Constants.client_L2ini_Path, Encoding.GetEncoding(65001)))
+                    // Load the text line by line
+                    string line = string.Empty;
+                    while ((line = textReader.ReadLine()) != null)
                     {
-                        // Load the text line by line
-                        string line = string.Empty;
-                        while ((line = textReader.ReadLine()) != null)
-                        {
-                            l2iniData.Add(line);
-                        }
-
+                        l2iniData.Add(line);
                     }
 
-                    client_L2Ini = new Client_L2ini(l2iniData.ToArray());
                 }
+
+                client_L2Ini = new Client_L2ini(l2iniData.ToArray());
+            }
 
         }
 
@@ -331,104 +331,142 @@ namespace L2Homage
             if (!File.Exists(L2H_Constants.client_Armors_Path))
             {
                 DecFile("armorgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Armors_Path);
             }
             if (!File.Exists(L2H_Constants.client_Etcs_Path))
             {
                 DecFile("etcitemgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Etcs_Path);
             }
             if (!File.Exists(L2H_Constants.client_Itemnames_Path))
             {
                 DecFile("itemname-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Itemnames_Path);
             }
             if (!File.Exists(L2H_Constants.client_Mobskillanimgrp_Path))
             {
                 DecFile("mobskillanimgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Mobskillanimgrp_Path);
             }
             if (!File.Exists(L2H_Constants.client_NPCnames_Path))
             {
                 DecFile("npcname-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_NPCnames_Path);
             }
             if (!File.Exists(L2H_Constants.client_NPCs_Path))
             {
                 DecFile("npcgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_NPCs_Path);
             }
             if (!File.Exists(L2H_Constants.client_NPCstrings_Path))
             {
                 DecFile("npcstring-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_NPCstrings_Path);
             }
             if (!File.Exists(L2H_Constants.client_Recipes_Path))
             {
                 DecFile("recipe-c");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Recipes_Path);
             }
             if (!File.Exists(L2H_Constants.client_Skillnames_Path))
             {
                 DecFile("skillname-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Skillnames_Path);
             }
             if (!File.Exists(L2H_Constants.client_Skillsounds_Path))
             {
                 DecFile("skillsoundgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Skillsounds_Path);
             }
             if (!File.Exists(L2H_Constants.client_Skills_Path))
             {
                 DecFile("skillgrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Skills_Path);
             }
             if (!File.Exists(L2H_Constants.client_Weapons_Path))
             {
                 DecFile("weapongrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Weapons_Path);
             }
             if (!File.Exists(L2H_Constants.client_Charcreategrp_Path))
             {
                 DecFile("charcreategrp");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Charcreategrp_Path);
             }
             if (!File.Exists(L2H_Constants.client_Classinfo_Path))
             {
                 DecFile("classinfo-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Classinfo_Path);
             }
             if (!File.Exists(L2H_Constants.client_Eula_Path))
             {
                 DecFile("eula-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Eula_Path);
             }
             if (!File.Exists(L2H_Constants.client_Gametip_Path))
             {
                 DecFile("gametip-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Gametip_Path);
             }
             if (!File.Exists(L2H_Constants.client_Huntingzone_Path))
             {
                 DecFile("huntingzone-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Huntingzone_Path);
             }
             if (!File.Exists(L2H_Constants.client_Instantzonedata_Path))
             {
                 DecFile("instantzonedata-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Instantzonedata_Path);
             }
             if (!File.Exists(L2H_Constants.client_L2ini_Path))
             {
                 DecFile("l2ini");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_L2ini_Path);
             }
             if (!File.Exists(L2H_Constants.client_Obscene_Path))
             {
                 DecFile("obscene-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Obscene_Path);
             }
             if (!File.Exists(L2H_Constants.client_Questname_Path))
             {
                 DecFile("questname-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Questname_Path);
             }
             if (!File.Exists(L2H_Constants.client_Raiddata_Path))
             {
                 DecFile("raiddata-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Raiddata_Path);
             }
             if (!File.Exists(L2H_Constants.client_Sysstring_Path))
             {
                 DecFile("sysstring-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Sysstring_Path);
             }
             if (!File.Exists(L2H_Constants.client_Systemmsg_Path))
             {
                 DecFile("systemmsg-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Systemmsg_Path);
             }
             if (!File.Exists(L2H_Constants.client_Zonename_Path))
             {
                 DecFile("zonename-e");
+                CheckIfDecryptionWasSuccessful(L2H_Constants.client_Zonename_Path);
             }
 
+        }
+
+        void CheckIfDecryptionWasSuccessful(string path)
+        {
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("Decryption Failed for " + path + "\n\nCannot Continue");
+                Environment.Exit(0);
+            }
+            else
+            {
+                UpdateLog("Decryption Successful: " + path, L2H_Constants.Color_Add);
+            }
         }
 
         private void StartLoadingPhase_1()

@@ -933,7 +933,7 @@ namespace L2Homage
             {
                 if (System.IO.File.Exists(pathsToImages[i] + iconString))
                 {
-                    returnString = pathsToImages[i] + iconString;// new BitmapImage(new Uri(pathsToImages[i] + iconString, UriKind.Absolute));
+                    returnString = pathsToImages[i] + iconString;
                     if (!string.IsNullOrEmpty(returnString))
                         return returnString;
                 }
@@ -987,9 +987,18 @@ namespace L2Homage
                     if (returnImage != null)
                         return returnImage;
                     else
+                    {
+                        MessageBox.Show("Couldn't find worldmap thumbs :(\nThese are necessary for the zones system. They're mandatory.");
+                        Environment.Exit(0);
                         return new BitmapImage(new Uri(pathToWorldImages + "blank.png", UriKind.Absolute));
+                    }
                 }
-                else return new BitmapImage(new Uri(pathToWorldImages + "blank.png", UriKind.Absolute));
+                else
+                {
+                    MessageBox.Show("Couldn't find worldmap thumbs :(\nThese are necessary for the zones system. They're mandatory.");
+                    Environment.Exit(0);
+                    return new BitmapImage(new Uri(pathToWorldImages + "blank.png", UriKind.Absolute));
+                }
             }
         }
 

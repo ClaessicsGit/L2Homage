@@ -72,7 +72,10 @@ namespace L2Homage
             mainWindow.UpdateLog("Initializing export thread..", L2H_Constants.Color_Log_Thread_Begin);
             ThreadWorker exportingThread = new ThreadWorker();
             exportingThread.Job += (sender, e) => SaveItems(export);
-            exportingThread.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "Export Complete");
+            if (export)
+                exportingThread.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "");
+            else
+                exportingThread.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "Save Complete");
             Thread thread_ExportAll = new Thread(exportingThread.ThreadProc);
 
             thread_ExportAll.Start();
@@ -559,6 +562,40 @@ namespace L2Homage
         {
             Process p = new Process();
 
+            FileInfo dec_FileInfo;
+            FileInfo existingExport_FileInfo = null;
+            string existingExport_LastWriteTime = "";
+            FileInfo exp_FileInfo;
+
+            bool isIni = false;
+
+            if (fileName == "l2ini")
+            {
+                isIni = true;
+                dec_FileInfo = new FileInfo(L2H_Constants.client_Decrypted_Folder_Path + "\\l2.ini");
+
+                if (File.Exists(L2H_Constants.export_Client_Folder_Path + "\\l2.ini"))
+                {
+                    existingExport_FileInfo = new FileInfo(L2H_Constants.export_Client_Folder_Path + "\\l2.ini");
+                    existingExport_LastWriteTime = existingExport_FileInfo.LastWriteTime.ToString();
+                }
+            }
+            else
+            {
+                dec_FileInfo = new FileInfo(L2H_Constants.client_Decrypted_Folder_Path + "\\" + fileName + ".txt");
+
+                if (File.Exists(L2H_Constants.export_Client_Folder_Path + "\\" + fileName + ".dat"))
+                {
+                    existingExport_FileInfo = new FileInfo(L2H_Constants.export_Client_Folder_Path + "\\" + fileName + ".dat");
+                    existingExport_LastWriteTime = existingExport_FileInfo.LastWriteTime.ToString();
+                }
+            }
+
+            if (dec_FileInfo == null)
+            {
+                System.Windows.MessageBox.Show("Exception Occurred : Could not find decrypted file: " + fileName);
+            }
+
             try
             {
                 string targetDir;
@@ -570,12 +607,34 @@ namespace L2Homage
                 p.StartInfo.FileName = prefix + fileName + ".bat";
                 p.StartInfo.CreateNoWindow = false;
                 p.Start();
-                p.WaitForExit();      
+                p.WaitForExit();
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show("Exception Occurred : " + ex.Message);
             }
+
+            if (!isIni)
+            {
+                exp_FileInfo = new FileInfo(L2H_Constants.export_Client_Folder_Path + "\\" + fileName + ".dat");
+            }
+            else
+            {
+                exp_FileInfo = new FileInfo(L2H_Constants.export_Client_Folder_Path + "\\l2.ini");
+            }
+
+            if (!string.IsNullOrEmpty(existingExport_LastWriteTime))
+            {
+                if (existingExport_LastWriteTime == exp_FileInfo.LastWriteTime.ToString())
+                {
+                    System.Windows.MessageBox.Show("File Export Error: " + fileName + "\n\nSomething went wrong exporting this file. Check your logs and see if you wrote something incorrect, or used an extra space or symbol.");
+                }
+            }
+            if (dec_FileInfo.Length == exp_FileInfo.Length)
+            {
+                System.Windows.MessageBox.Show("File Encryption Error: " + fileName + "\n\nSomething went wrong encrypting this file. Check your logs and see if you wrote something incorrect, or used an extra space or symbol.");
+            }
+
         }
     }
 

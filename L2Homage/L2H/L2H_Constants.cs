@@ -46,6 +46,7 @@ namespace L2Homage
         public static string server_expdata_Path = "Data\\server\\expdata.txt";
 
         //Decrypted Client Paths
+        public static string client_Decrypted_Folder_Path = "Data\\Decrypted Client Files";
         public static string client_Weapons_Path = "Data\\Decrypted Client Files\\weapongrp.txt";
         public static string client_Etcs_Path = "Data\\decrypted client files\\EtcItemgrp.txt";
         public static string client_Armors_Path = "Data\\decrypted client files\\Armorgrp.txt";
