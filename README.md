@@ -290,7 +290,7 @@ Most properties are self-explanatory, but some are a bit more obscure. Below are
 | Hit Rate| Added chance of hitting target| 
 | Attack Range| Max distance before an attack can happen| 
 | Damage Range | Not sure| 
-| Attack Speed | Milliseconds delay between attacks. Lower is faster| 
+| Attack Speed | Modifier to attack speed. Max attack speed cap by default is 1500| 
 | Random Damage | Amount damage output may vary| 
 | Attack Attribute| Damage Type (Fire, Water, Wind, Earth, Holy, Unholy)| 
 | Attribute Value | %Amount of damage is of Attack Attribute. Example: Attack attribute is set to Holy, Attribute value is set to 20. This means mean 20% of damage is holy, 80% is physical|
