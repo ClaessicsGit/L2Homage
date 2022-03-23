@@ -1494,7 +1494,7 @@ namespace L2Homage.Pages
 
 
             //Assign new ID:
-            string newItemID = "50000";
+            string newItemID = (mainWindow.GetPageOfType(typeof(Pages.OverviewPage)) as OverviewPage).L2H_Settings.NewItemIndexStart;// "50000";
 
             if (item_Template_Pointers.Count > 0)
             {
@@ -1607,7 +1607,7 @@ namespace L2Homage.Pages
 
         private void Module_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Set_Create_Clicked(object sender, RoutedEventArgs e)

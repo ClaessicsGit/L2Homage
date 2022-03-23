@@ -508,7 +508,7 @@ namespace L2Homage.Pages
             Server_Npcdata newNpcData = ObjectExtensions.Copy(server_Npcdata.Find(x => x.npcId == activeNPC.NPC_ID));
 
             //Assign new ID:
-            string newNpcId = "37700";
+            string newNpcId = (mainWindow.GetPageOfType(typeof(Pages.OverviewPage)) as OverviewPage).L2H_Settings.NewNPCIndexStart;// "37700";
 
             int newNpcIdNumber = L2H_Parser.GrabHighestIDFromNPCPointersList(server_Npcdata);
 

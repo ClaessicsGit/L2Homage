@@ -172,6 +172,14 @@
             <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="170" TextAlignment="Left" Margin="10,4,10,0">Server Address</TextBlock>
             <TextBox x:Name="Overview_Server_Address_Textbox" Margin="10,1,10,10" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding ServerAddress, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  BorderThickness="0"/>
 
+            <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="170" TextAlignment="Left" Margin="10,4,10,0">New Item Index Start</TextBlock>
+            <TextBox x:Name="Overview_New_Item_Index_Start_Textbox" Margin="10,1,10,10" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding NewItemIndexStart, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  BorderThickness="0"/>
+
+            <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="170" TextAlignment="Left" Margin="10,4,10,0">New NPC Index Start</TextBlock>
+            <TextBox x:Name="Overview_New_NPC_Index_Start_Textbox" Margin="10,1,10,10" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding NewNPCIndexStart, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  BorderThickness="0"/>
+
+            <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="170" TextAlignment="Left" Margin="10,4,10,0">New Skill Index Start</TextBlock>
+            <TextBox x:Name="Overview_New_Skill_Index_Start_Textbox" Margin="10,1,10,10" Background="#2f2f2f" Foreground="#f2f2f2" Text="{Binding NewSkillIndexStart, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  BorderThickness="0"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource HomageLoadedText}" Grid.Row="0" Grid.Column="0" Width="130" TextAlignment="Left" Margin="10,10,10,0">Custom Spawns Only</TextBlock>
                 <ToggleButton x:Name="Overview_Export_Settings_Custom_Only_Toggle" Width="16" Height="16" Style="{StaticResource HomageToggleButton}" IsChecked="{Binding ExportOnlyCustomSpawnAreas}"></ToggleButton>
@@ -185,6 +193,8 @@
 
             <Button Height="20" Margin="10,10,10,5" Style="{StaticResource HomageButtonStyle}" Width="170" TextBlock.TextAlignment="Center" Click="Start_Export">Export</Button>
 
+            
+            
         </StackPanel>
 
         <RichTextBox x:Name="LogPanel" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" 

@@ -217,6 +217,9 @@
     <Compile Include="Popups\Popup_Confirmation_Only_Text.xaml.cs">
       <DependentUpon>Popup_Confirmation_Only_Text.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Popups\Popup_Module.xaml.cs">
+      <DependentUpon>Popup_Module.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Popups\Popup_NPC_AI_Parameters.xaml.cs">
       <DependentUpon>Popup_NPC_AI_Parameters.xaml</DependentUpon>
     </Compile>
@@ -374,6 +377,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Popups\Popup_Confirmation_Only_Text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Popups\Popup_Module.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

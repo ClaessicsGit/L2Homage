@@ -662,7 +662,7 @@ namespace L2Homage.Pages
             //Assign new ID:
             if (!cloneAsNewLevel)
             {
-                string newSkillID = "50000";
+                string newSkillID = (mainWindow.GetPageOfType(typeof(Pages.OverviewPage)) as OverviewPage).L2H_Settings.NewSkillIndexStart; // "50000";
 
                 if (skill_Template_Pointers.Count > 0)
                 {

@@ -63,8 +63,11 @@ namespace L2Homage.Pages
             }
             else
             {
-                MessageBox.Show("expdata.txt not found in Data/server. That one is pretty important.");
-                Environment.Exit(0);
+                if (!File.Exists(L2H_Constants.server_expdata_Path))
+                {
+                    MessageBox.Show("expdata.txt not found in Data/server. That one is pretty important.");
+                    Environment.Exit(0);
+                }
             }
             // Load text
             using (TextReader textReader = new StreamReader(expTablePath, Encoding.GetEncoding(1200)))

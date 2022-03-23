@@ -16,6 +16,12 @@ namespace L2Homage
         public string exportOnlyCustomSpawnAreas_TextStart = "ExportOnlyCustomSpawnAreas = ";
         public string usingDiablomizedSkills;
         public string usingDiablomizedSkills_TextStart = "UsingDiablomizedSkills = ";
+        public string newItemIndexStart_TextStart = "NewItemIndexStart = ";
+        public string newItemIndexStart;
+        public string newNPCIndexStart_TextStart = "NewNPCIndexStart = ";
+        public string newNPCIndexStart;
+        public string newSkillIndexStart_TextStart = "NewSkillIndexStart = ";
+        public string newSkillIndexStart;
 
         public string ServerAddress
         {
@@ -70,12 +76,62 @@ namespace L2Homage
 
             }
         }
+        public string NewItemIndexStart
+        {
+            get
+            {
+                return newItemIndexStart;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    newItemIndexStart = "50000";
+                else
+                    newItemIndexStart = value;
+
+                UpdateSettings();
+            }
+        }
+
+        public string NewNPCIndexStart
+        {
+            get
+            {
+                return newNPCIndexStart;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    newNPCIndexStart = "37700";
+                else
+                newNPCIndexStart = value;
+
+                UpdateSettings();
+            }
+        }
+
+        public string NewSkillIndexStart
+        {
+            get
+            {
+                return newSkillIndexStart;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    newSkillIndexStart = "50000";
+                else
+                    newSkillIndexStart = value;
+
+                UpdateSettings();
+            }
+        }
 
         public L2H_Settings(List<string> settings)
         {
             for (int i = 0; i < settings.Count; i++)
             {
-                string[] splitSetting = settings[i].Replace(" ","").Split('=');
+                string[] splitSetting = settings[i].Replace(" ", "").Split('=');
                 switch (splitSetting[0])
                 {
                     case "ServerAddress":
@@ -87,11 +143,26 @@ namespace L2Homage
                     case "UsingDiablomizedSkills":
                         usingDiablomizedSkills = splitSetting[1];
                         break;
-
+                    case "NewItemIndexStart":
+                        newItemIndexStart = splitSetting[1];
+                        break;
+                    case "NewNPCIndexStart":
+                        newNPCIndexStart = splitSetting[1];
+                        break;
+                    case "NewSkillIndexStart":
+                        newSkillIndexStart = splitSetting[1];
+                        break;
                     default:
                         break;
                 }
             }
+
+            if (string.IsNullOrEmpty(newItemIndexStart))
+                newItemIndexStart = "50000";
+            if (string.IsNullOrEmpty(newNPCIndexStart))
+                newNPCIndexStart = "37700"; 
+            if (string.IsNullOrEmpty(newSkillIndexStart))
+                newSkillIndexStart = "50000";
 
         }
 
@@ -106,6 +177,9 @@ namespace L2Homage
             exportString.Add(serverAddress_TextStart + serverAddress);
             exportString.Add(exportOnlyCustomSpawnAreas_TextStart + exportOnlyCustomSpawnAreas);
             exportString.Add(usingDiablomizedSkills_TextStart + usingDiablomizedSkills);
+            exportString.Add(newItemIndexStart_TextStart + newItemIndexStart);
+            exportString.Add(newNPCIndexStart_TextStart + newNPCIndexStart);
+            exportString.Add(newSkillIndexStart_TextStart + newSkillIndexStart);
 
             return exportString;
         }

@@ -23,11 +23,12 @@ namespace L2Homage.Pages
         public L2H_Settings L2H_Settings;
         bool loaded = false;
 
+
         public OverviewPage()
         {
             InitializeComponent();
 
-            LoadL2HSettings();  
+            LoadL2HSettings();
         }
 
         private void StartInitializeProcess(object sender, RoutedEventArgs e)
@@ -62,11 +63,14 @@ namespace L2Homage.Pages
                     }
 
                     L2H_Settings = new L2H_Settings(settingsData);
-                    
+
 
                     Overview_Server_Address_Textbox.Text = L2H_Settings.serverAddress;
                     Overview_Export_Settings_Custom_Only_Toggle.IsChecked = ((L2H_Settings.exportOnlyCustomSpawnAreas == "true") ? true : false);
                     Overview_Export_Settings_Use_Module_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
+                    Overview_New_Item_Index_Start_Textbox.Text = L2H_Settings.NewItemIndexStart;
+                    Overview_New_NPC_Index_Start_Textbox.Text = L2H_Settings.NewNPCIndexStart;
+                    Overview_New_Skill_Index_Start_Textbox.Text = L2H_Settings.NewSkillIndexStart;
 
 
                 }
@@ -78,6 +82,9 @@ namespace L2Homage.Pages
                 settingsData.Add("ServerAddress = " + "127.0.0.1");
                 settingsData.Add("ExportOnlyCustomSpawnAreas = " + "false");
                 settingsData.Add("UsingDiablomizedSkills = " + "false");
+                settingsData.Add("NewItemIndexStart = " + "50000");
+                settingsData.Add("NewNPCIndexStart = " + "37700");
+                settingsData.Add("NewSkillIndexStart = " + "50000");
 
                 File.WriteAllLines(L2H_Constants.L2H_Settings_Path, settingsData, Encoding.GetEncoding(1200));
 
@@ -85,11 +92,17 @@ namespace L2Homage.Pages
                 Overview_Server_Address_Textbox.Text = L2H_Settings.serverAddress;
                 Overview_Export_Settings_Custom_Only_Toggle.IsChecked = (L2H_Settings.exportOnlyCustomSpawnAreas == "true") ? true : false;
                 Overview_Export_Settings_Use_Module_Toggle.IsChecked = (L2H_Settings.usingDiablomizedSkills == "true") ? true : false;
+                Overview_New_Item_Index_Start_Textbox.Text = L2H_Settings.NewItemIndexStart;
+                Overview_New_NPC_Index_Start_Textbox.Text = L2H_Settings.NewNPCIndexStart;
+                Overview_New_Skill_Index_Start_Textbox.Text = L2H_Settings.NewSkillIndexStart;
             }
 
             Overview_Server_Address_Textbox.DataContext = L2H_Settings;
             Overview_Export_Settings_Custom_Only_Toggle.DataContext = L2H_Settings;
             Overview_Export_Settings_Use_Module_Toggle.DataContext = L2H_Settings;
+            Overview_New_Item_Index_Start_Textbox.DataContext = L2H_Settings;
+            Overview_New_NPC_Index_Start_Textbox.DataContext = L2H_Settings;
+            Overview_New_Skill_Index_Start_Textbox.DataContext = L2H_Settings;
         }
 
         public void UpdateLoadedNumber(LoadedTypes loadType)
