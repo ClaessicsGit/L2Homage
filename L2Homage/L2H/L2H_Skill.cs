@@ -1138,8 +1138,11 @@ namespace L2Homage
 
         public string GeneratePCHExportString()
         {
-            int generatedSkillID = (int.Parse(ID) * 65536) + int.Parse(Skill_Level);
-
+            long generatedSkillID = (long.Parse(ID) * 65536) + long.Parse(Skill_Level);
+            if (Skill_Name_ID == "d2_affix_50000")
+            {
+                string assss = "sdfg";
+            }
             return "[" + Skill_Name_ID + "]\t=\t" + generatedSkillID.ToString();
         }
 
