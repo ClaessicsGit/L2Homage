@@ -1148,7 +1148,7 @@ namespace L2Homage
 
         public string GeneratePCH2ExportString()
         {
-            string pch_id;
+            long pch_id;
             string cast_range;
             string hp_consume;
             string mps_combined;
@@ -1162,7 +1162,7 @@ namespace L2Homage
             string attribute;
             string endtext;
 
-            pch_id = ((int.Parse(server_Skilldata.skill_id) * 65536) + int.Parse(server_Skilldata.level)).ToString();
+            pch_id = (long.Parse(server_Skilldata.skill_id) * 65536) + long.Parse(server_Skilldata.level);
             if (!string.IsNullOrEmpty(server_Skilldata.cast_range))
                 cast_range = server_Skilldata.cast_range;
             else
@@ -1214,10 +1214,6 @@ namespace L2Homage
             double skill_hit_time_temp = 0;
             if (!string.IsNullOrEmpty(server_Skilldata.skill_hit_time))
             {
-                if (pch_id == "2949121")
-                {
-                    string sss = "testThisOne";
-                }
 
                 skill_hit_time = double.Parse(server_Skilldata.skill_hit_time);
                 skill_hit_time_temp = double.Parse(server_Skilldata.skill_hit_time);

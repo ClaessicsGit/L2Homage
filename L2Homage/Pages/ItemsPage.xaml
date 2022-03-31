@@ -371,7 +371,7 @@
                 <TextBlock x:Name="Item_Details_Weapon_Preview_Name" Text="{Binding Item_Name, Mode=OneWay, UpdateSourceTrigger=LostFocus}" Style="{StaticResource HomageLoadedText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" MaxWidth="184" TextAlignment="Center" TextWrapping="Wrap" Margin="0"/>
                 <Image x:Name="Item_Details_Weapon_Preview_Icon" Grid.Column="0" Grid.Row="1" Source="pack://application:,,,/L2Homage;component/Images/ImageNotFound.png" Width="128" Height="128" VerticalAlignment="Top"/>
 
-                <TextBox x:Name="Item_Details_Weapon_Preview_Description" MinWidth="220" MinHeight="180" Width="220" Height="180" Focusable="true" Style="{StaticResource HomageTextBox}" Grid.Row="3" Background="Transparent" Foreground="#f2f2f2" Text="" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" FontSize="12" FontFamily="lucida console" BorderThickness="0" TextWrapping="Wrap"/>
+                <TextBox x:Name="Item_Details_Weapon_Preview_Description" MinWidth="220" MinHeight="180" Width="220" Height="180" Focusable="true" Style="{StaticResource HomageTextBox}" Grid.Row="3" Background="Transparent" Foreground="#f2f2f2" Text="{Binding Item_Description, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" FontSize="12" FontFamily="lucida console" BorderThickness="0" TextWrapping="Wrap"/>
 
             </Grid>
 

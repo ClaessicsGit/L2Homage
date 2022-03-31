@@ -1549,6 +1549,23 @@ namespace L2Homage
             return returnString;
         }
 
+        public static string GetUniqueSkillID(List<Server_Skilldata> skilldata, string currentSkillID)
+        {
+            string returnString = "";
+
+            bool skillExists = skilldata.Exists(x => x.skill_id == currentSkillID);
+
+            if (skillExists)
+            {
+                currentSkillID = (int.Parse(currentSkillID) + 1).ToString();
+                returnString = GetUniqueSkillID(skilldata, currentSkillID);
+            }
+            else
+                returnString = currentSkillID;
+
+            return returnString;
+        }
+
         //System Texts
         public static string GetUniqueSystemTextID(List<L2H_System_Text> existingTexts, int newNumber = 10000)
         {

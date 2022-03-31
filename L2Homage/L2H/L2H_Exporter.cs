@@ -297,12 +297,21 @@ namespace L2Homage
 
             skills = skills.OrderBy(i => int.Parse(i.ID)).ToList();
 
-            for (int i = 0; i < skillsPage.skill_Template_Pointers.Count; i++)
-            {
-                L2H_skillTemplate_Pointers_Lines.Add(skillsPage.skill_Template_Pointers[i].GetExportString());
-            }
+            //for (int i = 0; i < skillsPage.skill_Template_Pointers.Count; i++)
+            //{
+            //    L2H_skillTemplate_Pointers_Lines.Add(skillsPage.skill_Template_Pointers[i].GetExportString());
+            //}
+
+            File.WriteAllText(L2H_Constants.client_Skills_Path, String.Empty);
+            File.WriteAllText(L2H_Constants.client_Skillnames_Path, String.Empty);
+            File.WriteAllText(L2H_Constants.client_Skillsounds_Path, String.Empty);
+            File.WriteAllText(L2H_Constants.server_Skilldata_Path, String.Empty);
+            File.WriteAllText(L2H_Constants.server_Skill_PCH_Path, String.Empty);
+            File.WriteAllText(L2H_Constants.server_Skill_PCH2_Path, String.Empty);
+
             for (int i = 0; i < skills.Count; i++)
             {
+                
                 if (skills[i].client_Skill != null)
                     client_Skills_Lines.Add(skills[i].client_Skill.GetExportString());
                 if (skills[i].client_Skillname != null)
@@ -318,6 +327,23 @@ namespace L2Homage
 
                 server_Skill_PCH_Lines.Add(skills[i].GeneratePCHExportString());
                 server_Skill_PCH2_Lines.Add(skills[i].GeneratePCH2ExportString());
+
+                if (i % 100 == 0 || i == skills.Count - 1)
+                {
+                    File.AppendAllLines(L2H_Constants.client_Skills_Path, client_Skills_Lines.ToArray(), Encoding.GetEncoding(65001));
+                    File.AppendAllLines(L2H_Constants.client_Skillnames_Path, client_Skillnames_Lines.ToArray(), Encoding.GetEncoding(65001));
+                    File.AppendAllLines(L2H_Constants.client_Skillsounds_Path, client_Skillsounds_Lines.ToArray(), Encoding.GetEncoding(65001));
+                    File.AppendAllLines(L2H_Constants.server_Skilldata_Path, server_Skilldata_Lines, Encoding.GetEncoding(1200));
+                    File.AppendAllLines(L2H_Constants.server_Skill_PCH_Path, server_Skill_PCH_Lines, Encoding.GetEncoding(1200));
+                    File.AppendAllLines(L2H_Constants.server_Skill_PCH2_Path, server_Skill_PCH2_Lines, Encoding.GetEncoding(1200));
+
+                    client_Skills_Lines.Clear();
+                    client_Skillnames_Lines.Clear();
+                    client_Skillsounds_Lines.Clear();
+                    server_Skilldata_Lines.Clear();
+                    server_Skill_PCH_Lines.Clear();
+                    server_Skill_PCH2_Lines.Clear();
+                }
 
             }
             for (int i = 0; i < skillsPage.server_Skillenchantdata.Count; i++)
@@ -423,9 +449,9 @@ namespace L2Homage
             File.WriteAllLines(L2H_Constants.client_Weapons_Path, client_Weapons_Lines.ToArray(), Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_Armors_Path, client_Armors_Lines.ToArray(), Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_Etcs_Path, client_Etc_Lines.ToArray(), Encoding.GetEncoding(65001));
-            File.WriteAllLines(L2H_Constants.client_Skills_Path, client_Skills_Lines.ToArray(), Encoding.GetEncoding(65001));
-            File.WriteAllLines(L2H_Constants.client_Skillnames_Path, client_Skillnames_Lines.ToArray(), Encoding.GetEncoding(65001));
-            File.WriteAllLines(L2H_Constants.client_Skillsounds_Path, client_Skillsounds_Lines.ToArray(), Encoding.GetEncoding(65001));
+            //File.WriteAllLines(L2H_Constants.client_Skills_Path, client_Skills_Lines.ToArray(), Encoding.GetEncoding(65001));
+            //File.WriteAllLines(L2H_Constants.client_Skillnames_Path, client_Skillnames_Lines.ToArray(), Encoding.GetEncoding(65001));
+            //File.WriteAllLines(L2H_Constants.client_Skillsounds_Path, client_Skillsounds_Lines.ToArray(), Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_NPCs_Path, client_NPCs_Lines.ToArray(), Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_NPCnames_Path, client_NPC_Names_lines.ToArray(), Encoding.GetEncoding(65001));
             File.WriteAllLines(L2H_Constants.client_Recipes_Path, client_Recipe_Lines.ToArray(), Encoding.GetEncoding(65001));
@@ -451,9 +477,9 @@ namespace L2Homage
             File.WriteAllLines(L2H_Constants.original_npcpos_path, server_Npcpos_originalStrings, Encoding.GetEncoding(1200));
             File.WriteAllLines(L2H_Constants.custom_npcpos_path, server_Npcpos_customStrings, Encoding.GetEncoding(1200));
             File.WriteAllLines(L2H_Constants.server_Recipes_Path, server_Recipe_Lines, Encoding.GetEncoding(1200));
-            File.WriteAllLines(L2H_Constants.server_Skilldata_Path, server_Skilldata_Lines, Encoding.GetEncoding(1200));
-            File.WriteAllLines(L2H_Constants.server_Skill_PCH_Path, server_Skill_PCH_Lines, Encoding.GetEncoding(1200));
-            File.WriteAllLines(L2H_Constants.server_Skill_PCH2_Path, server_Skill_PCH2_Lines, Encoding.GetEncoding(1200));
+            //File.WriteAllLines(L2H_Constants.server_Skilldata_Path, server_Skilldata_Lines, Encoding.GetEncoding(1200));
+            //File.WriteAllLines(L2H_Constants.server_Skill_PCH_Path, server_Skill_PCH_Lines, Encoding.GetEncoding(1200));
+            //File.WriteAllLines(L2H_Constants.server_Skill_PCH2_Path, server_Skill_PCH2_Lines, Encoding.GetEncoding(1200));
             File.WriteAllLines(L2H_Constants.server_SkillenchantdataPath, server_Skillenchantdata_Lines, Encoding.GetEncoding(1200));
             File.WriteAllLines(L2H_Constants.L2H_Single_Droplists_Path, L2H_Single_Droplists_Lines, Encoding.GetEncoding(1200));
             File.WriteAllLines(L2H_Constants.L2H_Multi_Droplists_Path, L2H_Multi_Droplists_Lines, Encoding.GetEncoding(1200));
