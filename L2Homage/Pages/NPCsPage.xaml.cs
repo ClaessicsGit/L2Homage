@@ -628,11 +628,11 @@ namespace L2Homage.Pages
             {
                 dropPointers.Remove(droplistPointer);
             }
+            #endregion
+
 
             if (activeNPC.template != null)
                 npcTemplate_Pointers.Remove(activeNPC.template);
-
-            #endregion
 
             L2H_Log.Instance.Log_NPC_Delete(activeNPC);
 
