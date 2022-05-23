@@ -126,8 +126,6 @@
     <Compile Include="Client\Client_System_Message.cs" />
     <Compile Include="Client\Client_Weapon.cs" />
     <Compile Include="Client\Client_Zonename.cs" />
-    <Compile Include="Modules\AffixCSV.cs" />
-    <Compile Include="Modules\Diablomizer.cs" />
     <Compile Include="L2H\L2H_Huntingzone.cs" />
     <Compile Include="L2H\L2H_Initial_Equipment.cs" />
     <Compile Include="L2H\L2H_Multisell.cs" />
@@ -216,9 +214,6 @@
     </Compile>
     <Compile Include="Popups\Popup_Confirmation_Only_Text.xaml.cs">
       <DependentUpon>Popup_Confirmation_Only_Text.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Popups\Popup_Module.xaml.cs">
-      <DependentUpon>Popup_Module.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popups\Popup_NPC_AI_Parameters.xaml.cs">
       <DependentUpon>Popup_NPC_AI_Parameters.xaml</DependentUpon>
@@ -377,10 +372,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Popups\Popup_Confirmation_Only_Text.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Popups\Popup_Module.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
