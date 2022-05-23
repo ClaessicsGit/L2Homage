@@ -123,7 +123,7 @@ namespace L2Homage
                 L2H_Skill_Acquire newSkillAcquire = new L2H_Skill_Acquire();
                 newSkillAcquire.server_Skillacquire = new Server_Skillacquire();
                 newSkillAcquire.server_Skillacquire.autoget = "false";
-                newSkillAcquire.server_Skillacquire.class_begin = active_L2H_Character_Class.classID;
+                newSkillAcquire.server_Skillacquire.class_begin = active_L2H_Character_Class.classID + "_begin";
                 newSkillAcquire.server_Skillacquire.get_lv = "1";
                 newSkillAcquire.server_Skillacquire.skill_name = active_Skill.Skill_Name_ID;
                 
@@ -138,6 +138,31 @@ namespace L2Homage
                 newSkillAcquire.L2H_Skill = active_Skill;
 
                 active_L2H_Character_Class.L2H_Skill_Acquires.Add(newSkillAcquire);
+
+                #region Sioner skill acquire export fix
+                //missing addition
+                List<Server_Skillacquire> server_Skillacquires = (((MainWindow)Application.Current.MainWindow).GetPageOfType(typeof(Pages.ClassesPage)) as Pages.ClassesPage).server_Skillacquires;
+                Boolean matched = false;
+                Boolean added = false;
+                for (int i = 0; i < server_Skillacquires.Count; i++)
+                {
+                    Server_Skillacquire sa = server_Skillacquires[i];
+                    if (!matched && sa.class_begin.Equals(newSkillAcquire.server_Skillacquire.class_begin))
+                    {
+                        matched = true;
+                    }
+                    else if (matched && !sa.class_begin.Equals(newSkillAcquire.server_Skillacquire.class_begin))
+                    {
+                        server_Skillacquires.Insert(i, newSkillAcquire.server_Skillacquire);
+                        added = true;
+                        break;
+                    }
+                }
+                if (!added)
+                {
+                    server_Skillacquires.Add(newSkillAcquire.server_Skillacquire);
+                }
+                #endregion
 
                 (((MainWindow)Application.Current.MainWindow).GetPageOfType(typeof(Pages.ClassesPage)) as Pages.ClassesPage).Refresh_Skill_Acquire_Data();
             }
