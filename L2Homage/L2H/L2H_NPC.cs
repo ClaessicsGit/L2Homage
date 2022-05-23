@@ -934,6 +934,29 @@ namespace L2Homage
                 }
             }
         }
+        public bool NPC_Show_Name_Tag
+        {
+            get
+            {
+                if (server_Npcdata.show_name_tag == "1")
+                    return true;
+                else
+                    return false;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    L2H_Log.Instance.Log_NPC_Changed(this, "Show_Name_Tag", "False", "True");
+                    server_Npcdata.show_name_tag = "1";
+                }
+                else
+                {
+                    L2H_Log.Instance.Log_NPC_Changed(this, "Show_Name_Tag", "True", "False");
+                    server_Npcdata.show_name_tag = "0";
+                }
+            }
+        }
         public bool NPC_Event_Flag
         {
             get

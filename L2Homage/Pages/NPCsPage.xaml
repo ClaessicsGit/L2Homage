@@ -223,6 +223,7 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource HomagePropertyTitleText}" Text="Undead" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Center"/>
                                 <ToggleButton Grid.Column="0" Grid.Row="0" x:Name="NPC_Details_Property_Base_Toggle_Undead" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Undead}"/>
@@ -236,14 +237,17 @@
                                 <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource HomagePropertyTitleText}" Text="Targetable" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
                                 <ToggleButton Grid.Column="0" Grid.Row="3" x:Name="NPC_Details_Property_Base_Toggle_Targetable" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Targetable}"/>
 
-                                <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource HomagePropertyTitleText}" Text="Attackable" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
-                                <ToggleButton Grid.Column="0" Grid.Row="4" x:Name="NPC_Details_Property_Base_Toggle_Attackable" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Attackable}"/>
+                                <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource HomagePropertyTitleText}" Text="Show Name Tag" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="4" x:Name="NPC_Details_Property_Base_Toggle_Show_Name_Tag" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Show_Name_Tag}"/>
 
-                                <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource HomagePropertyTitleText}" Text="Event Flag" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
-                                <ToggleButton Grid.Column="0" Grid.Row="5" x:Name="NPC_Details_Property_Base_Toggle_Event_Flags" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Event_Flag}"/>
+                                <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource HomagePropertyTitleText}" Text="Attackable" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="5" x:Name="NPC_Details_Property_Base_Toggle_Attackable" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Attackable}"/>
 
-                                <TextBlock Grid.Column="1" Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Unique" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
-                                <ToggleButton Grid.Column="0" Grid.Row="6" x:Name="NPC_Details_Property_Base_Toggle_Unique" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Unique}"/>
+                                <TextBlock Grid.Column="1" Grid.Row="6" Style="{StaticResource HomagePropertyTitleText}" Text="Event Flag" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="6" x:Name="NPC_Details_Property_Base_Toggle_Event_Flags" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Event_Flag}"/>
+
+                                <TextBlock Grid.Column="1" Grid.Row="7" Style="{StaticResource HomagePropertyTitleText}" Text="Unique" MinWidth="162" Height="14" TextAlignment="Left" VerticalAlignment="Bottom"/>
+                                <ToggleButton Grid.Column="0" Grid.Row="7" x:Name="NPC_Details_Property_Base_Toggle_Unique" Style="{StaticResource HomageToggleButton}" HorizontalAlignment="Center" IsChecked="{Binding NPC_Unique}"/>
                             </Grid>
 
                         </StackPanel>
