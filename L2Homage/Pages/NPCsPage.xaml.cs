@@ -620,8 +620,19 @@ namespace L2Homage.Pages
                 return;
             }
 
+            #region Sioner droplist pointer removed fix
+            List<L2H_Npc_Droplist_Pointer> dropPointers = (mainWindow.GetPageOfType(typeof(Pages.DroplistsPage)) as DroplistsPage).npc_Droplist_Pointers;
+            L2H_Npc_Droplist_Pointer droplistPointer = dropPointers.FirstOrDefault(p => activeNPC.NPC_ID.ToString().Equals(p.npc_id));
+
+            if (droplistPointer != null)
+            {
+                dropPointers.Remove(droplistPointer);
+            }
+
             if (activeNPC.template != null)
                 npcTemplate_Pointers.Remove(activeNPC.template);
+
+            #endregion
 
             L2H_Log.Instance.Log_NPC_Delete(activeNPC);
 
