@@ -83,16 +83,43 @@ namespace L2Homage.Pages
         public void LoadNpcs()
         {
             Dispatcher.Invoke(() => { mainWindow.UpdateLog("Initializing Thread: Load NPCs..", L2H_Constants.Color_Log_Thread_Begin); });
+            
+            Load_NPCs_Template_Pointers();
+
 
             client_NPCs_Startline = File.ReadLines(L2H_Constants.client_NPCs_Path).First();
             client_NPC_Names_Startline = File.ReadLines(L2H_Constants.client_NPCnames_Path).First();
             client_Mobskillanim_Startline = File.ReadLines(L2H_Constants.client_Mobskillanimgrp_Path).First();
+            
+
 
             ThreadWorker_Tests threadWorker_LoadNpcs = new ThreadWorker_Tests(viewModel.NPCsDataTableCollection, this, server_Npcdata, client_Npcs, client_Npcnames, npcTemplate_Pointers, (mainWindow.GetPageOfType(typeof(Pages.DroplistsPage)) as DroplistsPage).npc_Droplist_Pointers, (mainWindow.GetPageOfType(typeof(Pages.NPCsPage)) as NPCsPage), L2H_Npcs, client_Mobskillanims);
             threadWorker_LoadNpcs.ThreadDone += (sender, e) => HandleThreadDone(sender, e, "NPCs Loaded: " + server_Npcdata.Count);
             threadWorker_LoadNpcs.AddChild += (sender, e) => HandleAddNPCType(sender, e);
             Thread thread_LoadNpcs = new Thread(new ThreadStart(threadWorker_LoadNpcs.ThreadProc));
             thread_LoadNpcs.Start();
+        }
+
+        private void Load_NPCs_Template_Pointers()
+        {
+            if (File.Exists(L2H_Constants.L2H_Skills_Template_Pointers_Path))
+            {
+                using (TextReader textReader = new StreamReader(L2H_Constants.L2H_NPC_Template_Pointers_Path, Encoding.GetEncoding(65001)))
+                {
+                    // Load the text line by line
+                    string line = string.Empty;
+                    while ((line = textReader.ReadLine()) != null)
+                    {
+                        L2H_Template_Pointer newTemplate_Pointer = new L2H_Template_Pointer(line);
+                        if (newTemplate_Pointer.id != "id")
+                            npcTemplate_Pointers.Add(newTemplate_Pointer);
+                    }
+                }
+            }
+            else
+            {
+                File.Create(L2H_Constants.L2H_NPC_Template_Pointers_Path).Dispose();
+            }
         }
 
         private void HandleThreadDone(object sender, EventArgs e, string logMessage)
