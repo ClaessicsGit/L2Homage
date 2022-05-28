@@ -572,7 +572,7 @@
                 </Grid>
             </Border>
             <!--#region Spawn Parameters Grid-->
-            <Border x:Name="Spawn_Parameters_Grid" Grid.Column="3" Grid.Row="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Hidden">
+            <Border x:Name="Spawn_Parameters_Grid" Grid.Column="3" Grid.Row="3" BorderBrush="#4f4f4f" BorderThickness="0,0,0,0" Margin="0,0,2,0" Visibility="Visible">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>

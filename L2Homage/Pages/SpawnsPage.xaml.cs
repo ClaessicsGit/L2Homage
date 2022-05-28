@@ -1275,9 +1275,11 @@ namespace L2Homage.Pages
 
         private void NPC_Parameter_Fixed_Positions_Add_Clicked(object sender, RoutedEventArgs e)
         {
-            active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Add(new L2H_Spawn_NPC_Maker_NPC_Spawn_Fixed_Position()
+            List<L2H_Spawn_NPC_Maker_NPC_Spawn_Fixed_Position> Fixed_Positions = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions;
+
+            Fixed_Positions.Add(new L2H_Spawn_NPC_Maker_NPC_Spawn_Fixed_Position()
             {
-                ID = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count,
+                ID = Fixed_Positions.Count,
                 fixed_Position_Chance = "100",
                 fixed_Position_X = active_Spawn_Area.Territory.vertices[0].xPos,
                 fixed_Position_Y = active_Spawn_Area.Territory.vertices[0].yPos,
@@ -1286,13 +1288,15 @@ namespace L2Homage.Pages
                 parent = active_Spawn_NPC_Maker_NPC_Spawn
             });
 
+            active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions = Fixed_Positions;
+
             Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown.SelectedIndex = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1;
 
-            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_X.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
-            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Y.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
-            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Z.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
-            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Rotation.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
-            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Probability.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
+            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_X.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1];
+            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Y.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1];
+            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Z.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1];
+            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Rotation.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1];
+            Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Probability.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1];
 
             L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(active_Spawn_NPC_Maker_NPC_Spawn, "Fixed Positions", (active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count - 1).ToString(), active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions.Count.ToString());
 
@@ -1308,8 +1312,10 @@ namespace L2Homage.Pages
                 return;
 
 
-
-            active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index = Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown.SelectedIndex;
+            if (Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown.SelectedIndex == -1)
+                active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index = 0;
+            else
+                active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index = Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Positions_Dropdown.SelectedIndex;
             Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_X.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
             Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Y.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];
             Spawns_Zone_Details_Grid_Spawn_NPC_Parameter_Fixed_Position_Z.DataContext = active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Positions[active_Spawn_NPC_Maker_NPC_Spawn.Fixed_Position_Index];

@@ -493,10 +493,61 @@ namespace L2Homage
                             });
                         }
                     }
+                    else if (npc_Ex_Begin != null)
+                    {
+                        for (int i = 0; i < npc_Ex_Begin.pos.Count; i++)
+                        {
+                            _fixed_Positions.Add(new L2H_Spawn_NPC_Maker_NPC_Spawn_Fixed_Position()
+                            {
+                                ID = i,
+                                fixed_Position_X = npc_Ex_Begin.pos[i].xPos,
+                                fixed_Position_Y = npc_Ex_Begin.pos[i].yPos,
+                                fixed_Position_Z = npc_Ex_Begin.pos[i].zPos,
+                                fixed_Position_Yaw = npc_Ex_Begin.pos[i].yaw,
+                                fixed_Position_Chance = npc_Ex_Begin.pos[i].probability,
+                                parent = this
+                            });
+                        }
+                    }
                 }
 
                 return _fixed_Positions;
             }
+            set
+            {
+                for (int i = 0; i < value.Count; i++)
+                {
+                    if (npc_Begin != null)
+                    {
+                        if (npc_Begin.pos.Count < i + 1)
+                            npc_Begin.pos.Add(new Vector4(value[i].fixed_Position_X, value[i].fixed_Position_Y, value[i].fixed_Position_Z, value[i].fixed_Position_Yaw, value[i].fixed_Position_Chance));
+                        else
+                        {
+                            npc_Begin.pos[i].xPos = value[i].fixed_Position_X;
+                            npc_Begin.pos[i].yPos = value[i].fixed_Position_Y;
+                            npc_Begin.pos[i].zPos = value[i].fixed_Position_Z;
+                            npc_Begin.pos[i].yaw = value[i].fixed_Position_Yaw;
+                            npc_Begin.pos[i].probability = value[i].fixed_Position_Chance;
+                        }
+                    }
+                    else if (npc_Ex_Begin != null)
+                    {
+                        if (npc_Ex_Begin.pos.Count < i + 1)
+                            npc_Ex_Begin.pos.Add(new Vector4(value[i].fixed_Position_X, value[i].fixed_Position_Y, value[i].fixed_Position_Z, value[i].fixed_Position_Yaw, value[i].fixed_Position_Chance));
+                        else
+                        {
+                            npc_Ex_Begin.pos[i].xPos = value[i].fixed_Position_X;
+                            npc_Ex_Begin.pos[i].yPos = value[i].fixed_Position_Y;
+                            npc_Ex_Begin.pos[i].zPos = value[i].fixed_Position_Z;
+                            npc_Ex_Begin.pos[i].yaw = value[i].fixed_Position_Yaw;
+                            npc_Ex_Begin.pos[i].probability = value[i].fixed_Position_Chance;
+                        }
+                    }
+                }
+
+                _fixed_Positions = value;
+            }
+
         }
 
         public int Fixed_Position_Index
@@ -744,6 +795,15 @@ namespace L2Homage
             set
             {
                 L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(parent, "Fixed Position X", fixed_Position_X, value);
+                if (parent.npc_Begin != null)
+                {
+                    parent.npc_Begin.pos[ID].xPos = value;
+                }
+                else
+                {
+                    parent.npc_Ex_Begin.pos[ID].xPos = value;
+                }
+
                 fixed_Position_X = value;
             }
         }
@@ -756,6 +816,14 @@ namespace L2Homage
             set
             {
                 L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(parent, "Fixed Position Y", fixed_Position_Y, value);
+                if (parent.npc_Begin != null)
+                {
+                    parent.npc_Begin.pos[ID].yPos = value;
+                }
+                else
+                {
+                    parent.npc_Ex_Begin.pos[ID].yPos = value;
+                }
                 fixed_Position_Y = value;
             }
         }
@@ -768,6 +836,14 @@ namespace L2Homage
             set
             {
                 L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(parent, "Fixed Position Z", fixed_Position_Z, value);
+                if (parent.npc_Begin != null)
+                {
+                    parent.npc_Begin.pos[ID].zPos = value;
+                }
+                else
+                {
+                    parent.npc_Ex_Begin.pos[ID].zPos = value;
+                }
                 fixed_Position_Z = value;
             }
         }
@@ -780,6 +856,14 @@ namespace L2Homage
             set
             {
                 L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(parent, "Fixed Position Yaw", fixed_Position_Yaw, value);
+                if (parent.npc_Begin != null)
+                {
+                    parent.npc_Begin.pos[ID].yaw = value;
+                }
+                else
+                {
+                    parent.npc_Ex_Begin.pos[ID].yaw = value;
+                }
                 fixed_Position_Yaw = value;
             }
         }
@@ -792,6 +876,14 @@ namespace L2Homage
             set
             {
                 L2H_Log.Instance.Log_Spawn_NPC_Spawn_Changed(parent, "Fixed Position Chance", fixed_Position_Chance, value);
+                if (parent.npc_Begin != null)
+                {
+                    parent.npc_Begin.pos[ID].probability = value;
+                }
+                else
+                {
+                    parent.npc_Ex_Begin.pos[ID].probability = value;
+                }
                 fixed_Position_Chance = value;
             }
         }
