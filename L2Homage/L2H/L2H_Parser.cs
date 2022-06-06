@@ -1538,9 +1538,6 @@ namespace L2Homage
         {
             string returnString = "";
 
-            if (currentSkillNameID.Length > 25)
-                currentSkillNameID = "custom_skill";
-
             bool skillExists = skilldata.Exists(x => x.skill_name == currentSkillNameID);
 
             if (skillExists)
