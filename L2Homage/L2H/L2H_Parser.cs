@@ -701,23 +701,26 @@ namespace L2Homage
             return returnValue;
         }
 
-        public static string GetUniqueNPCNameID(List<Server_Npcdata> npcdata, string currentName, int newNumber = 0)
+        public static string GetUniqueNPCNameID(List<Server_Npcdata> npcdata, string currentNameID, int newNumber = 0)
         {
             string returnString = "";
 
-            bool npcNameIDExists = npcdata.Exists(x => x.npcName == currentName);
+            if (currentNameID.Length > 25)
+                currentNameID = "custom_npc";
+
+            bool npcNameIDExists = npcdata.Exists(x => x.npcName == currentNameID);
 
             if (npcNameIDExists)
             {
-                bool numberedCustomNpcNameIDExists = npcdata.Exists(x => x.npcName == currentName + "_" + newNumber);
+                bool numberedCustomNpcNameIDExists = npcdata.Exists(x => x.npcName == currentNameID + "_" + newNumber);
 
                 if (numberedCustomNpcNameIDExists)
-                    returnString = GetUniqueNPCNameID(npcdata, currentName, newNumber + 1);
+                    returnString = GetUniqueNPCNameID(npcdata, currentNameID, newNumber + 1);
                 else
-                    returnString = currentName + "_" + newNumber;
+                    returnString = currentNameID + "_" + newNumber;
             }
             else
-                returnString = currentName;
+                returnString = currentNameID;
 
             return returnString;
         }
@@ -1103,23 +1106,26 @@ namespace L2Homage
             return ((MemberExpression)memberAccess.Body).Member.Name;
         }
 
-        public static string GetUniqueItemNameID(List<Server_Itemdata> itemdata, string currentItemName, int newNumber = 0)
+        public static string GetUniqueItemNameID(List<Server_Itemdata> itemdata, string currentItemNameID, int newNumber = 0)
         {
             string returnString = "";
 
-            bool itemExists = itemdata.Exists(x => x.itemName == currentItemName);
+            if (currentItemNameID.Length > 25)
+                currentItemNameID = "custom_item";
+
+            bool itemExists = itemdata.Exists(x => x.itemName == currentItemNameID);
 
             if (itemExists)
             {
-                bool numberedItemExists = itemdata.Exists(x => x.itemName == currentItemName + "_" + newNumber);
+                bool numberedItemExists = itemdata.Exists(x => x.itemName == currentItemNameID + "_" + newNumber);
 
                 if (numberedItemExists)
-                    returnString = GetUniqueItemNameID(itemdata, currentItemName, newNumber + 1);
+                    returnString = GetUniqueItemNameID(itemdata, currentItemNameID, newNumber + 1);
                 else
-                    returnString = currentItemName + "_" + newNumber;
+                    returnString = currentItemNameID + "_" + newNumber;
             }
             else
-                returnString = currentItemName;
+                returnString = currentItemNameID;
 
             return returnString;
         }
@@ -1528,23 +1534,26 @@ namespace L2Homage
             }
         }
 
-        public static string GetUniqueSkillNameID(List<Server_Skilldata> skilldata, string currentSkillName, int newNumber = 0)
+        public static string GetUniqueSkillNameID(List<Server_Skilldata> skilldata, string currentSkillNameID, int newNumber = 0)
         {
             string returnString = "";
 
-            bool skillExists = skilldata.Exists(x => x.skill_name == currentSkillName);
+            if (currentSkillNameID.Length > 25)
+                currentSkillNameID = "custom_skill";
+
+            bool skillExists = skilldata.Exists(x => x.skill_name == currentSkillNameID);
 
             if (skillExists)
             {
-                bool numberedSkillExists = skilldata.Exists(x => x.skill_name == currentSkillName + "_" + newNumber);
+                bool numberedSkillExists = skilldata.Exists(x => x.skill_name == currentSkillNameID + "_" + newNumber);
 
                 if (numberedSkillExists)
-                    returnString = GetUniqueSkillNameID(skilldata, currentSkillName, newNumber + 1);
+                    returnString = GetUniqueSkillNameID(skilldata, currentSkillNameID, newNumber + 1);
                 else
-                    returnString = currentSkillName + "_" + newNumber;
+                    returnString = currentSkillNameID + "_" + newNumber;
             }
             else
-                returnString = currentSkillName;
+                returnString = currentSkillNameID;
 
             return returnString;
         }
