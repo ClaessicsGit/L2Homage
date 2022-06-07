@@ -1138,7 +1138,7 @@ namespace L2Homage
 
         public string GeneratePCHExportString()
         {
-            long generatedSkillID = (long.Parse(ID) * 65536) + long.Parse(Skill_Level);
+            long generatedSkillID = (int.Parse(ID) * 65536) + int.Parse(Skill_Level);
             if (Skill_Name_ID == "d2_affix_50000")
             {
                 string assss = "sdfg";
@@ -1162,7 +1162,7 @@ namespace L2Homage
             string attribute;
             string endtext;
 
-            pch_id = (long.Parse(server_Skilldata.skill_id) * 65536) + long.Parse(server_Skilldata.level);
+            pch_id = (int.Parse(server_Skilldata.skill_id) * 65536) + int.Parse(server_Skilldata.level);
             if (!string.IsNullOrEmpty(server_Skilldata.cast_range))
                 cast_range = server_Skilldata.cast_range;
             else
