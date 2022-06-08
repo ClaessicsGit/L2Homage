@@ -102,7 +102,11 @@ namespace L2Homage.Pages
 
         private void Load_NPCs_Template_Pointers()
         {
-            if (File.Exists(L2H_Constants.L2H_Skills_Template_Pointers_Path))
+            if (!File.Exists(L2H_Constants.L2H_NPC_Template_Pointers_Path))
+            {
+                File.Create(L2H_Constants.L2H_NPC_Template_Pointers_Path).Dispose();
+            }
+            else
             {
                 using (TextReader textReader = new StreamReader(L2H_Constants.L2H_NPC_Template_Pointers_Path, Encoding.GetEncoding(65001)))
                 {
@@ -115,10 +119,6 @@ namespace L2Homage.Pages
                             npcTemplate_Pointers.Add(newTemplate_Pointer);
                     }
                 }
-            }
-            else
-            {
-                File.Create(L2H_Constants.L2H_NPC_Template_Pointers_Path).Dispose();
             }
         }
 
