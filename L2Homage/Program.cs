@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Globalization;
 using System.IO;
+using System.Windows;
 
 namespace L2Homage
 {
@@ -16,7 +17,22 @@ namespace L2Homage
         {
             AppDomain.CurrentDomain.AssemblyResolve += OnResolveAssembly;
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             App.Main();
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                var exception = e.ExceptionObject is Exception ? ((Exception)e.ExceptionObject).Message + ((Exception)e.ExceptionObject).StackTrace : string.Empty;
+                MessageBox.Show("Uh Oh, something went wrong:\r\n\r\n" + exception,
+                                "Error", MessageBoxButton.OK);
+            }
+            finally
+            {
+                Environment.Exit(0);
+            }
         }
 
         private static Assembly OnResolveAssembly(object sender, ResolveEventArgs args)
