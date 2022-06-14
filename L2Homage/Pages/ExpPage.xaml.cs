@@ -626,6 +626,8 @@ namespace L2Homage.Pages
                 if (parsedLevel < 1)
                     parsedLevel = 1;
 
+                Initialize_LongTableValues();
+
                 if (int.Parse(level) > longTableValues.Count)
                 {
                     return "0";
@@ -639,7 +641,7 @@ namespace L2Homage.Pages
             }
             else
             {
-                MessageBox.Show("No EXP entered. Level cannot be calculated.");
+                MessageBox.Show("No Level entered. EXP cannot be calculated.");
                 return "0";
             }
         }
@@ -652,6 +654,7 @@ namespace L2Homage.Pages
                 if (Int64.TryParse(exp, out parsedExp))
                 {
                     int levelIndex = 0;
+                    Initialize_LongTableValues();
                     for (int i = 0; i < longTableValues.Count; i++)
                     {
                         if (parsedExp > longTableValues[i])
