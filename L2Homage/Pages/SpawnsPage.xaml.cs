@@ -938,7 +938,6 @@ namespace L2Homage.Pages
                 L2H_Spawn_NPC_Makers = active_Spawn_Area.NPC_Makers;
 
                 Spawns_Zone_Details_Grid_Spawn_NPC_Makers_Listview.ItemsSource = L2H_Spawn_NPC_Makers;
-
                 Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview.ItemsSource = L2H_Spawn_NPC_Maker_NPCs;
 
                 active_Spawn_NPC_Maker_NPC_Spawn = null;
@@ -977,7 +976,6 @@ namespace L2Homage.Pages
         }
         private void Spawn_Selection_Block_Clicked(object sender, RoutedEventArgs e)
         {
-
             activeSelectionBlock = (sender as FrameworkElement).DataContext as L2H_Spawn_Selection_Block;
             Spawns_Zone_Details_Grid_Image.Source = L2H_Parser.GetWorldZoneImage(activeSelectionBlock.ZoneID);
             Spawns_Zone_Details_Grid_Layers_ListView.ItemsSource = activeSelectionBlock.Layers;
@@ -998,9 +996,14 @@ namespace L2Homage.Pages
                 active_Spawn_NPC_Maker.IsSelected = false;
                 active_Spawn_NPC_Maker = null;
             }
+            if (active_Spawn_Area != null)
+            {
+                active_Spawn_Area.IsSelected = false;
+                active_Spawn_Area = null;
+            }
 
-            L2H_Spawn_NPC_Maker_NPCs.Clear();
-            L2H_Spawn_NPC_Makers.Clear();
+            Spawns_Zone_Details_Grid_Spawn_NPC_Makers_Listview.ItemsSource = null;
+            Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview.ItemsSource = null;
 
             Spawn_Area_Preview_Polygon_Points = null;
             Spawn_Area_Preview_Polygon_Arrow_Points = null;
@@ -1010,10 +1013,6 @@ namespace L2Homage.Pages
             Spawn_Area_Selected_Polygon_Arrow_Points = null;
             Spawns_Zone_Details_Grid_Image_Polygon_Selected_Arrow.Points = new PointCollection();
 
-            if (Spawns_Zone_Details_Grid_Spawn_NPC_Makers_Listview.ItemsSource != null)
-                CollectionViewSource.GetDefaultView(Spawns_Zone_Details_Grid_Spawn_NPC_Makers_Listview.ItemsSource).Refresh();
-            if (Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview.ItemsSource != null)
-                CollectionViewSource.GetDefaultView(Spawns_Zone_Details_Grid_NPC_Maker_NPC_Spawns_Listview.ItemsSource).Refresh();
 
             Update_Spawn_Area_Details_View();
         }
@@ -1050,8 +1049,6 @@ namespace L2Homage.Pages
 
             NPC_Maker_Parameters_Bind();
             Update_NPC_Maker_NPC_Spawns_Panel();
-
-
 
             Update_Spawn_Area_Details_View();
 
