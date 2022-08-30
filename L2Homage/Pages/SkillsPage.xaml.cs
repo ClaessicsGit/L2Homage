@@ -673,9 +673,15 @@ namespace L2Homage.Pages
                 newSkillData.skill_id = newSkillID;
                 newSkillName.id = newSkillID;
 
+                newSkill.level = "1";
+                newSkillData.level = "1";
+                newSkillName.level = "1";
+                
+
                 if (newSkillSound != null)
                 {
                     newSkillSound.id = newSkillID;
+                    newSkillSound.level = "1";
                     client_Skillsounds.Add(newSkillSound);
                 }
 

@@ -617,7 +617,7 @@ namespace L2Homage
                     ConvertToServerText(physical_damage_textstart, physical_damage, physical_damage_textend) + '\t' +
                     ConvertToServerText(random_damage_textstart, random_damage, random_damage_textend) + '\t' +
                     ConvertToServerText(weapon_type_textstart, weapon_type, weapon_type_textend) + '\t' +
-                    ConvertToServerText(can_penetrate_textstart, can_penetrate, can_penetrate_textend) + '\t' +
+                    //ConvertToServerText(can_penetrate_textstart, can_penetrate, can_penetrate_textend) + '\t' +//
                     ConvertToServerText(critical_textstart, critical, critical_textend) + '\t' +
                     ConvertToServerText(hit_modify_textstart, hit_modify, hit_modify_textend) + '\t' +
                     ConvertToServerText(avoid_modify_textstart, avoid_modify, avoid_modify_textend) + '\t' +
