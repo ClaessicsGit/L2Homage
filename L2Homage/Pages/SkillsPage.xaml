@@ -633,9 +633,9 @@
                             <RowDefinition MinHeight="15"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}"  MinWidth="80" Margin="4,2,0,0" Text="Cast Time"/>
-                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Cast_Time, UpdateSourceTrigger=LostFocus}" />
+                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Cast_Time, UpdateSourceTrigger=LostFocus}" Tag="float" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
                         <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}"  MinWidth="80" Margin="4,2,0,0" Text="Animation Time"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Cool_Time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Cast_Cool_Time, UpdateSourceTrigger=LostFocus}" />
+                        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Cool_Time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Cast_Cool_Time, UpdateSourceTrigger=LostFocus}" Tag="float" PreviewKeyDown="TextBox_No_Spaces_Allowed" />
                     </Grid>
                     <Grid Margin="2,0,2,0">
                         <Grid.ColumnDefinitions>
@@ -647,7 +647,7 @@
                             <RowDefinition MinHeight="15"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}"  MinWidth="80" Margin="4,2,0,0" Text="Cancel Time Window"/>
-                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Hit_Cancel_time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Hit_Cancel_Time, UpdateSourceTrigger=LostFocus}" />
+                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Cast_Hit_Cancel_time" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Hit_Cancel_Time, UpdateSourceTrigger=LostFocus}"  Tag="float" PreviewKeyDown="TextBox_No_Spaces_Allowed"/>
                         <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource HomagePropertyTitleText}"  MinWidth="80" Margin="4,2,0,0" Text="Hit Chance"/>
                         <TextBox Grid.Column="1" Grid.Row="1" x:Name="Skill_Details_Property_Casting_Hit_Rate" Style="{StaticResource HomagePropertyTextBox}" Margin="2,0,2,0" MinWidth="87" Text="{Binding Skill_Hit_Rate, UpdateSourceTrigger=LostFocus}" />
                     </Grid>

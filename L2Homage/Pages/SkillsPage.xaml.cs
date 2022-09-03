@@ -808,6 +808,14 @@ namespace L2Homage.Pages
         {
             e.Handled = L2H_Textbox_Input_Restrictions.Is_Valid_Integer(e.Text);
         }
+        private void TextBox_Float_No_Spaces_Allowed(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+                e.Handled = true;
+
+            if (L2H_Textbox_Input_Restrictions.Is_Valid_Float(e.Key.ToString()))
+                L2H_Textbox_Input_Restrictions.Check_If_Dot_Exists_In_Float_TextBox(sender, e);
+        }
         private void Validate_Any_Case_Input(object sender, TextCompositionEventArgs e)
         {
             e.Handled = L2H_Textbox_Input_Restrictions.Is_Valid_Ingame_Name(e.Text);
